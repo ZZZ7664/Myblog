@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="在参考了多个教程后，我最终选择了使用 Hexo + GitHub + Netlify + Cloudflare 这套技术栈来搭建我的个人博客。  Hexo: 博客框架 GitHub: 用于文件托管 Netlify: 静态网站生成与部署 Cloudflare: CDN加速和域名管理  我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare">
+<meta property="og:url" content="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="煮字为药">
+<meta property="og:description" content="在参考了多个教程后，我最终选择了使用 Hexo + GitHub + Netlify + Cloudflare 这套技术栈来搭建我的个人博客。  Hexo: 博客框架 GitHub: 用于文件托管 Netlify: 静态网站生成与部署 Cloudflare: CDN加速和域名管理  我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-06T16:52:38.000Z">
+<meta property="article:modified_time" content="2025-12-19T13:11:55.293Z">
+<meta property="article:author" content="煮字为药">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/","path":"2025/11/07/博客搭建记录/","title":"博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare | 煮字为药</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">煮字为药</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎来到我的博客！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E9%9B%B6%E6%AD%A5%EF%BC%9AGit-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">第零步：Git 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9AHexo-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">第一步：Hexo 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.2.</span> <span class="nav-text">初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E7%AB%A0"><span class="nav-number">2.3.</span> <span class="nav-text">创建新文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-Netlify-%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="nav-number">2.4.</span> <span class="nav-text">添加 Netlify 构建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE"><span class="nav-number">2.5.</span> <span class="nav-text">博客配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">GitHub 项目托管</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="nav-number">3.1.</span> <span class="nav-text">Git 学习资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Netlify-%E5%BB%BA%E7%AB%99%E9%83%A8%E7%BD%B2"><span class="nav-number">4.</span> <span class="nav-text">Netlify 建站部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">域名配置</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">煮字为药</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="煮字为药">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare | 煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-07 00:52:38" itemprop="dateCreated datePublished" datetime="2025-11-07T00:52:38+08:00">2025-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-19 21:11:55" itemprop="dateModified" datetime="2025-12-19T21:11:55+08:00">2025-12-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在参考了多个教程后，我最终选择了使用 <code>Hexo</code> + <code>GitHub</code> + <code>Netlify</code> + <code>Cloudflare</code> 这套技术栈来搭建我的个人博客。</p>
+<ul>
+<li><strong>Hexo</strong>: 博客框架</li>
+<li><strong>GitHub</strong>: 用于文件托管</li>
+<li><strong>Netlify</strong>: 静态网站生成与部署</li>
+<li><strong>Cloudflare</strong>: CDN加速和域名管理</li>
+</ul>
+<p>我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流程应该会更简单一些。</p>
+<h2 id="第零步：Git-环境配置"><a href="#第零步：Git-环境配置" class="headerlink" title="第零步：Git 环境配置"></a>第零步：Git 环境配置</h2><p>我的 Linux 系统已经自带了 Git，现在只需要配置用户名和邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>有些教程提到需要生成 SSH 密钥，但我跟的这个教程没有用到，所以暂时跳过。不过我还是把命令记录在这里：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第一步：Hexo-环境搭建"><a href="#第一步：Hexo-环境搭建" class="headerlink" title="第一步：Hexo 环境搭建"></a>第一步：Hexo 环境搭建</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>系统已经安装了 Node.js，这一步可以省略。正常情况下可以通过官网下载或命令行安装。</p>
+<p>验证环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+
+<p>能够正常显示版本信息说明环境配置完成。</p>
+<p><strong>npm 源配置</strong>：为了提升下载速度，可以更换为国内镜像源。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry <span class="comment"># 查看当前源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org <span class="comment"># 切换为淘宝源</span></span><br><span class="line">npm config get registry <span class="comment"># 确认已切换</span></span><br></pre></td></tr></table></figure>
+
+<p>但我在这里遇到了问题，即使切换到淘宝源也下载失败：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm error code CERT_HAS_EXPIRED</span><br><span class="line">npm error errno CERT_HAS_EXPIRED</span><br><span class="line">npm error request to https://registry.npm.taobao.org/hexo-cli failed, reason: certificate has expired</span><br></pre></td></tr></table></figure>
+
+<p>由于之前的操作失误，我不记得原来的源地址了，需要求助 AI。</p>
+<p><strong>第二次尝试</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 尝试使用华为云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://repo.huaweicloud.com/repository/npm/</span><br><span class="line"><span class="comment"># 重新安装</span></span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>结果出现权限错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm error code EACCES</span><br><span class="line">npm error syscall <span class="built_in">mkdir</span></span><br><span class="line">npm error path /usr/lib/node_modules/hexo-cli</span><br><span class="line">npm error Error: EACCES: permission denied, <span class="built_in">mkdir</span> <span class="string">&#x27;/usr/lib/node_modules/hexo-cli&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是权限问题，当前用户没有在系统目录 <code>/usr/lib/node_modules/</code> 安装全局包的权限。</p>
+<p>AI 提供了多种解决方案，我选择了为当前用户配置独立的 npm 全局安装目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户本地 npm 目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.npm-global</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 npm 使用此目录</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将目录添加到 PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=~/.npm-global/bin:$PATH&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在可以正常安装</span></span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>安装成功！不过我更喜欢在家目录中创建特定配置目录，比如 <code>mkdir -p ~/npm/.npm-global</code>，这个等博客搭建完成后再调整。</p>
+<p>验证安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo --version</span><br><span class="line"></span><br><span class="line">hexo-cli: 4.3.2</span><br><span class="line">os: linux 6.17.7-arch1-1 Arch Linux</span><br><span class="line">node: 25.1.0</span><br><span class="line"><span class="comment"># ... 其他版本信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="string">&quot;你的博客目录名称&quot;</span> <span class="comment"># 目录名称不含空格时双引号可省略</span></span><br></pre></td></tr></table></figure>
+
+<p>因网络状况不同，初始化耗时约一分钟：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">warning hexo-renderer-stylus &gt; stylus &gt; glob@7.2.3: Glob versions prior to v9 are no longer supported</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+
+<p>进入博客目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;博客目录&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>查看目录结构：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用 tree 命令</span></span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+
+<p>目录结构说明：</p>
+<ul>
+<li><code>_config.yml</code>: 全局配置文件，包含网站名称、描述、作者、语言、主题等设置</li>
+<li><code>scaffolds</code>: 模板文件，用于生成新页面或博客文章</li>
+<li><code>source</code>: 存放 Markdown 源文件，<code>_posts</code> 文件夹存放所有博客文章</li>
+<li><code>themes</code>: 主题目录，Hexo 有丰富的主题支持</li>
+</ul>
+<h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;test&quot;</span> <span class="comment"># 在 source/_posts/ 目录生成 &#x27;test.md&#x27;</span></span><br><span class="line">hexo generate        <span class="comment"># 生成静态 HTML 文件到 /public 文件夹</span></span><br><span class="line">hexo server          <span class="comment"># 本地预览，访问 http://localhost:4000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-Netlify-构建脚本"><a href="#添加-Netlify-构建脚本" class="headerlink" title="添加 Netlify 构建脚本"></a>添加 Netlify 构建脚本</h3><p>为了方便 Netlify 部署，在 <code>package.json</code> 中添加构建命令：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo generate&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;clean&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo clean&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;deploy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo deploy&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo server&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;netlify&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run clean &amp;&amp; npm run build&quot;</span> <span class="comment">// 新增此行</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 Vim 编辑文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim package.json</span><br><span class="line"><span class="comment"># 按 i 进入插入模式，编辑内容，按 ESC 后输入 :wq 保存退出</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="博客配置"><a href="#博客配置" class="headerlink" title="博客配置"></a>博客配置</h3><p><code>_config.yml</code> 主要配置项说明：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网站信息</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo</span>                    <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span>                      <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span>                   <span class="comment"># 网站描述</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span>               <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span>                      <span class="comment"># 语言</span></span><br><span class="line"><span class="attr">timezone:</span>                      <span class="comment"># 时区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 设置</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://yoursite.com</span>       <span class="comment"># 网站地址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span>                        <span class="comment"># 根目录</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span> <span class="comment"># 文章链接格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目录设置</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span>             <span class="comment"># 源文件目录</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span>             <span class="comment"># 输出目录</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span>               <span class="comment"># 主题名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写作设置</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span>       <span class="comment"># 新文章文件名</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span>           <span class="comment"># 默认布局</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署设置</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span>                     <span class="comment"># 部署类型，常用 git</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub-项目托管"><a href="#GitHub-项目托管" class="headerlink" title="GitHub 项目托管"></a>GitHub 项目托管</h2><p>创建本地仓库并推送到 GitHub：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;博客目录&quot;</span></span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;my blog first commit&quot;</span></span><br><span class="line">git remote add origin <span class="string">&quot;远端github仓库地址&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p>不过说实话……Git 我还不太熟练……</p>
+<p><strong>未完待续</strong>……下一章可能是《Git 入门指南》</p>
+<p>记录一下时间：从 23:20 开始到现在 00:14，花了 54 分钟，但核心功能还没完成。下一步是 Netlify 建站。</p>
+<p><strong>真的未完待续</strong>……明天继续！</p>
+<p>2025-11-06 20:33:39 更新</p>
+<h3 id="Git-学习资源"><a href="#Git-学习资源" class="headerlink" title="Git 学习资源"></a>Git 学习资源</h3><p>推荐廖雪峰的 Git 教程：<a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/git">廖雪峰-Git教程</a></p>
+<p>教程目录：</p>
+<ol>
+<li>简介</li>
+<li>Git 是什么</li>
+<li>安装 Git</li>
+<li>创建版本库</li>
+<li>时光机穿梭</li>
+<li>远程仓库</li>
+</ol>
+<h2 id="Netlify-建站部署"><a href="#Netlify-建站部署" class="headerlink" title="Netlify 建站部署"></a>Netlify 建站部署</h2><ol>
+<li>打开 <a target="_blank" rel="noopener" href="https://app.netlify.com/">Netlify</a>，使用 GitHub 账号登录</li>
+<li>进入 <a target="_blank" rel="noopener" href="https://app.netlify.com/start">项目导入页面</a></li>
+<li>配置构建命令：<ul>
+<li>Build command: <code>npm run netlify</code></li>
+<li>Publish directory: <code>public</code></li>
+</ul>
+</li>
+</ol>
+<p>这里我遇到了一个问题：<code>package.json</code> 中少了一个逗号，修正后构建成功。</p>
+<h3 id="域名配置"><a href="#域名配置" class="headerlink" title="域名配置"></a>域名配置</h3><p>将 Cloudflare 中的域名指向 Netlify 的二级域名：</p>
+<ul>
+<li>添加 CNAME 记录：<code>blog.066088.xyz</code> → <code>scvg.netlify.app</code></li>
+</ul>
+<p>然后在 Netlify 中配置自定义域名，否则无法直接通过自有域名访问。</p>
+<p>由于我直接在 Cloudflare 注册域名，不需要再进行域名托管。教程中提到的 HTTPS 配置，Netlify 会自动处理，无需手动配置即可通过 HTTPS 访问。</p>
+<p>博客基础搭建完成！接下来要学习如何写好博客内容……</p>
+<p>下次再见！应该就是这样了，不加速也能正常访问。</p>
+<blockquote>
+<p>2025年11月07日 00时37分11秒</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/" rel="next" title="我的“标准人生”使用说明书">
+                  我的“标准人生”使用说明书 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">煮字为药</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

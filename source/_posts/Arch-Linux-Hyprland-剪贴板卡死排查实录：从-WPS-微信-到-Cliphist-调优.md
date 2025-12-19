@@ -4,6 +4,39 @@ date: 2025-12-19 21:19:17
 tags: [Linux, Arch, Hyprland, Wayland, Troubleshooting, Shell]
 category: 系统折腾
 ---
+---
+title: Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优
+date: 2025-12-19
+tags: [Linux, Arch, Hyprland, Wayland, Troubleshooting, Shell]
+category: 系统折腾
+---
+
+---
+
+## 实测环境
+
+```bash
+                   -`                                       
+                  .o+`                   ----------- 
+                 `ooo/                   OS: Arch Linux x86_64 
+                `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA 
+               `+oooooo:                 Kernel: 6.17.9-arch1-1 
+               -+oooooo+:                Uptime: 1 hour 
+             `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) 
+            `/++++/+++++++:              Shell: zsh 5.9 
+           `/++++++++++++++:             Resolution: 2560x1600 
+          `/+++ooooooooooooo/`           DE: Hyprland 
+         ./ooosssso++osssssso+`          WM: sway 
+        .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] 
+       -osssssso.      :ssssssso.        Icons: Papirus [GTK2] 
+      :osssssss/        osssso+++.       Terminal: kitty 
+     /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz 
+   `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M 
+  `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB 
+ `++:.                           `-/+/
+ .`                                 `/
+```
+
 ## 🚫 问题现象
 
 在 **Arch Linux + Hyprland** 环境下，使用 **WPS Office (Excel)** 和 **微信**（均运行于 XWayland）时遇到以下顽固问题：
@@ -14,7 +47,7 @@ category: 系统折腾
 
 ---
 
-## ✅ 最终生效的解决方案 (轻量级)
+## ✅ 最终生效的解决方案 
 
 经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 **Cliphist 数据库过大导致的 I/O 阻塞**。
 
@@ -147,3 +180,5 @@ done
 
 1. **先软后硬**：遇到卡顿先检查日志和数据库大小，不要上来就写脚本魔改。
 2. **定期维护**：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I/O 瓶颈。
+
+> 以上内容由AI整理本人折腾的过程，最后问题解决了，但是本人无法验证AI提供的解决方法是否是可行的，小白新人第一次发贴，若有不对之处，望指正！

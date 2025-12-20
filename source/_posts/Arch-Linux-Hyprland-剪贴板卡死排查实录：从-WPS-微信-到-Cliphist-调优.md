@@ -4,14 +4,6 @@ date: 2025-12-19 21:19:17
 tags: [Linux, Arch, Hyprland, Wayland, Troubleshooting, Shell]
 category: 系统折腾
 ---
----
-title: Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优
-date: 2025-12-19
-tags: [Linux, Arch, Hyprland, Wayland, Troubleshooting, Shell]
-category: 系统折腾
----
-
----
 
 ## 实测环境
 

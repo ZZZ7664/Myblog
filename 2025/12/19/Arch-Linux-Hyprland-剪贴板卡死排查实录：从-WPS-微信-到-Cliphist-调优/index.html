@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="🚫 问题现象在 Arch Linux + Hyprland 环境下，使用 WPS Office (Excel) 和 微信（均运行于 XWayland）时遇到以下顽固问题：  复制卡死：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 wl-paste 进程无响应。 跨界失效：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。 历史记录延迟：调用">
+    <meta name="description" content="实测环境12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS&#x2F;微信 到 Cliphist 调优">
 <meta property="og:url" content="http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/index.html">
 <meta property="og:site_name" content="煮字为药">
-<meta property="og:description" content="🚫 问题现象在 Arch Linux + Hyprland 环境下，使用 WPS Office (Excel) 和 微信（均运行于 XWayland）时遇到以下顽固问题：  复制卡死：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 wl-paste 进程无响应。 跨界失效：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。 历史记录延迟：调用">
+<meta property="og:description" content="实测环境12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux x">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-19T13:19:17.000Z">
-<meta property="article:modified_time" content="2025-12-19T13:21:00.219Z">
+<meta property="article:modified_time" content="2025-12-20T03:17:42.415Z">
 <meta property="article:author" content="煮字为药">
 <meta property="article:tag" content="Arch">
 <meta property="article:tag" content="Hyprland">
@@ -127,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%AB-%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">🚫 问题现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%9C%80%E7%BB%88%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E8%BD%BB%E9%87%8F%E7%BA%A7"><span class="nav-number">2.</span> <span class="nav-text">✅ 最终生效的解决方案 (轻量级)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B8%85%E7%90%86%E5%B7%B2%E6%8D%9F%E5%9D%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">1. 清理已损坏的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%89%AA"><span class="nav-number">2.2.</span> <span class="nav-text">2. 配置自动修剪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E8%BF%9B%E9%98%B6%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%84%9A%E6%9C%AC-%E6%8A%98%E8%85%BE%E7%BB%8F%E9%AA%8C%E5%A4%87%E4%BB%BD"><span class="nav-number">3.</span> <span class="nav-text">🛠️ 进阶排查与脚本 (折腾经验备份)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%91%BD%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">1. 常用诊断命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%BA%E5%88%B6%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC-WpsSyncFix-sh"><span class="nav-number">3.2.</span> <span class="nav-text">2. 强制同步脚本 (WpsSyncFix.sh)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">实测环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%AB-%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">🚫 问题现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%9C%80%E7%BB%88%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">✅ 最终生效的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B8%85%E7%90%86%E5%B7%B2%E6%8D%9F%E5%9D%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">1. 清理已损坏的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%89%AA"><span class="nav-number">3.2.</span> <span class="nav-text">2. 配置自动修剪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E8%BF%9B%E9%98%B6%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%84%9A%E6%9C%AC-%E6%8A%98%E8%85%BE%E7%BB%8F%E9%AA%8C%E5%A4%87%E4%BB%BD"><span class="nav-number">4.</span> <span class="nav-text">🛠️ 进阶排查与脚本 (折腾经验备份)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">1. 常用诊断命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%BA%E5%88%B6%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC-WpsSyncFix-sh"><span class="nav-number">4.2.</span> <span class="nav-text">2. 强制同步脚本 (WpsSyncFix.sh)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -149,7 +149,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -204,9 +204,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-12-19 21:19:17 / Modified: 21:21:00" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
+      <time title="Created: 2025-12-19 21:19:17" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-20 11:17:42" itemprop="dateModified" datetime="2025-12-20T11:17:42+08:00">2025-12-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,14 +233,16 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="🚫-问题现象"><a href="#🚫-问题现象" class="headerlink" title="🚫 问题现象"></a>🚫 问题现象</h2><p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="实测环境"><a href="#实测环境" class="headerlink" title="实测环境"></a>实测环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                  -`                                       </span><br><span class="line">                 .o+`                   ----------- </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA </span><br><span class="line">              `+oooooo:                 Kernel: 6.17.9-arch1-1 </span><br><span class="line">              -+oooooo+:                Uptime: 1 hour </span><br><span class="line">            `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.9 </span><br><span class="line">          `/++++++++++++++:             Resolution: 2560x1600 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Hyprland </span><br><span class="line">        ./ooosssso++osssssso+`          WM: sway </span><br><span class="line">       .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] </span><br><span class="line">      -osssssso.      :ssssssso.        Icons: Papirus [GTK2] </span><br><span class="line">     :osssssss/        osssso+++.       Terminal: kitty </span><br><span class="line">    /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB </span><br><span class="line">`++:.                           `-/+/</span><br><span class="line">.`                                 `/</span><br></pre></td></tr></table></figure>
+
+<h2 id="🚫-问题现象"><a href="#🚫-问题现象" class="headerlink" title="🚫 问题现象"></a>🚫 问题现象</h2><p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
 <ol>
 <li><strong>复制卡死</strong>：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 <code>wl-paste</code> 进程无响应。</li>
 <li><strong>跨界失效</strong>：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。</li>
 <li><strong>历史记录延迟</strong>：调用 <code>cliphist</code> 列表时有明显卡顿。</li>
 </ol>
 <hr>
-<h2 id="✅-最终生效的解决方案-轻量级"><a href="#✅-最终生效的解决方案-轻量级" class="headerlink" title="✅ 最终生效的解决方案 (轻量级)"></a>✅ 最终生效的解决方案 (轻量级)</h2><p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I&#x2F;O 阻塞</strong>。</p>
+<h2 id="✅-最终生效的解决方案"><a href="#✅-最终生效的解决方案" class="headerlink" title="✅ 最终生效的解决方案"></a>✅ 最终生效的解决方案</h2><p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I&#x2F;O 阻塞</strong>。</p>
 <p>Excel 和微信复制时会产生巨大的数据（未压缩的位图、XML 等），如果 <code>cliphist</code> 数据库未清理，写入新数据时会阻塞 X11 剪贴板管道，导致卡死。</p>
 <p><strong>解决方法：</strong> 无需禁用图片历史，也无需额外脚本，只需在启动时 <strong>自动修剪（Prune）</strong> 数据库。</p>
 <h3 id="1-清理已损坏的数据库"><a href="#1-清理已损坏的数据库" class="headerlink" title="1. 清理已损坏的数据库"></a>1. 清理已损坏的数据库</h3><p>首先执行一次“大扫除”：</p>
@@ -267,6 +275,9 @@
 <li><strong>先软后硬</strong>：遇到卡顿先检查日志和数据库大小，不要上来就写脚本魔改。</li>
 <li><strong>定期维护</strong>：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I&#x2F;O 瓶颈。</li>
 </ol>
+<blockquote>
+<p>以上内容由AI整理本人折腾的过程，最后问题解决了，但是本人无法验证AI提供的解决方法是否是可行的，小白新人第一次发贴，若有不对之处，望指正！</p>
+</blockquote>
 
     </div>
 
@@ -276,9 +287,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/Hyprland/" rel="tag"># Hyprland</a>
               <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/Arch/" rel="tag"># Arch</a>
-              <a href="/tags/Hyprland/" rel="tag"># Hyprland</a>
               <a href="/tags/Wayland/" rel="tag"># Wayland</a>
               <a href="/tags/Troubleshooting/" rel="tag"># Troubleshooting</a>
               <a href="/tags/Shell/" rel="tag"># Shell</a>
@@ -293,6 +304,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/12/22/Arch-Linux-Hyprland-JaKooLit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" rel="next" title="Arch Linux (Hyprland + JaKooLit) 常用命令与快捷键汇总">
+                  Arch Linux (Hyprland + JaKooLit) 常用命令与快捷键汇总 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

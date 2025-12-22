@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -138,7 +138,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -155,6 +155,258 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/12/22/Arch-Linux-Hyprland-JaKooLit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="煮字为药">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/12/22/Arch-Linux-Hyprland-JaKooLit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Arch Linux (Hyprland + JaKooLit) 常用命令与快捷键汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-12-22 23:50:00 / Modified: 23:52:52" itemprop="dateCreated datePublished" datetime="2025-12-22T23:50:00+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是一份专为使用 <strong>JaKooLit</strong> 配置方案并习惯使用 <strong>Vim</strong> 的 Arch Linux 用户准备的备忘录。</p>
+</blockquote>
+<h2 id="1-系统管理与更新-Pacman-Yay"><a href="#1-系统管理与更新-Pacman-Yay" class="headerlink" title="1. 系统管理与更新 (Pacman &amp; Yay)"></a>1. 系统管理与更新 (Pacman &amp; Yay)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Syu             <span class="comment"># 同步源并更新系统</span></span><br><span class="line">yay -Syu                     <span class="comment"># 更新系统及所有 AUR 软件包</span></span><br><span class="line">yay -S &lt;pkg&gt;                 <span class="comment"># 安装新软件包</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Rns &lt;pkg&gt;       <span class="comment"># 彻底删除包及其依赖</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Qdt             <span class="comment"># 列出所有孤立依赖</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Rns $(pacman -Qtdq) <span class="comment"># 清理所有孤立依赖</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用-Vim-编辑-JaKooLit-核心配置"><a href="#2-使用-Vim-编辑-JaKooLit-核心配置" class="headerlink" title="2. 使用 Vim 编辑 JaKooLit 核心配置"></a>2. 使用 Vim 编辑 JaKooLit 核心配置</h2><p>JaKooLit 采用模块化设计，建议仅修改 <code>UserConfigs</code> 文件夹内的文件，以防后续更新覆盖。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 核心自定义配置</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/UserKeybinds.conf    <span class="comment"># 自定义快捷键</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/UserSettings.conf    <span class="comment"># 窗口装饰、手势、布局</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/Monitors.conf        <span class="comment"># 显示器分辨率、位置</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/ENVariables.conf     <span class="comment"># 环境变量 (NVIDIA 驱动设置)</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/Startup_Apps.conf    <span class="comment"># 自启动项</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/WorkspaceRules.conf  <span class="comment"># 工作区绑定规则</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># UI 界面配置</span></span><br><span class="line">vim ~/.config/waybar/config                         <span class="comment"># Waybar 布局</span></span><br><span class="line">vim ~/.config/waybar/style.css                      <span class="comment"># Waybar 样式</span></span><br><span class="line">vim ~/.config/kitty/kitty.conf                      <span class="comment"># 终端配置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-JaKooLit-快捷键方案-速查表"><a href="#3-JaKooLit-快捷键方案-速查表" class="headerlink" title="3. JaKooLit 快捷键方案 (速查表)"></a>3. JaKooLit 快捷键方案 (速查表)</h2><blockquote>
+<p><strong>前缀说明</strong>：<code>SUPER</code> &#x3D; Windows键, <code>ALT</code> &#x3D; Alt, <code>CTRL</code> &#x3D; Ctrl, <code>SHIFT</code> &#x3D; Shift</p>
+</blockquote>
+<h3 id="3-1-核心系统控制"><a href="#3-1-核心系统控制" class="headerlink" title="3.1 核心系统控制"></a>3.1 核心系统控制</h3><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">功能描述</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>SUPER + H</code></td>
+<td align="left"><strong>启动快捷键速查表</strong></td>
+<td align="left">忘记按键时的救星</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + K</code></td>
+<td align="left">搜索所有快捷键</td>
+<td align="left">通过 Rofi 全局搜索</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + E</code></td>
+<td align="left">JaKooLit 设置菜单</td>
+<td align="left">调整系统核心参数</td>
+</tr>
+<tr>
+<td align="left"><code>CTRL + ALT + L</code></td>
+<td align="left">屏幕锁定</td>
+<td align="left">调用 hyprlock</td>
+</tr>
+<tr>
+<td align="left"><code>CTRL + ALT + P</code></td>
+<td align="left">电源菜单</td>
+<td align="left">关机、重启、睡眠</td>
+</tr>
+<tr>
+<td align="left"><code>CTRL + ALT + Del</code></td>
+<td align="left">退出 Hyprland</td>
+<td align="left">立即注销并返回登录界面</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-应用程序启动"><a href="#3-2-应用程序启动" class="headerlink" title="3.2 应用程序启动"></a>3.2 应用程序启动</h3><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">功能描述</th>
+<th align="left">默认程序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>SUPER + Enter</code></td>
+<td align="left">打开终端</td>
+<td align="left">kitty</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + Enter</code></td>
+<td align="left">下拉式终端</td>
+<td align="left">类似 Quake 的隐藏终端</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + D</code></td>
+<td align="left">应用启动器</td>
+<td align="left">rofi-wayland</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + B</code></td>
+<td align="left">启动浏览器</td>
+<td align="left">系统默认浏览器</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + E</code></td>
+<td align="left">打开文件管理器</td>
+<td align="left">Thunar</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + S</code></td>
+<td align="left">谷歌搜索</td>
+<td align="left">通过 Rofi 快速输入搜索词</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-窗口与布局管理"><a href="#3-3-窗口与布局管理" class="headerlink" title="3.3 窗口与布局管理"></a>3.3 窗口与布局管理</h3><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">功能描述</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>SUPER + Q</code></td>
+<td align="left"><strong>关闭活动窗口</strong></td>
+<td align="left">正常退出程序</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + Q</code></td>
+<td align="left">强制关闭窗口</td>
+<td align="left">针对卡死应用</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + Space</code></td>
+<td align="left">切换浮动状态</td>
+<td align="left">针对当前单个窗口</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + F</code></td>
+<td align="left">全屏切换</td>
+<td align="left">切换全屏模式</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + ALT + L</code></td>
+<td align="left">切换布局模式</td>
+<td align="left">Dwindle 或 Master 布局</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + ALT + 滚轮</code></td>
+<td align="left">桌面缩放</td>
+<td align="left">桌面放大镜功能</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-主题与-UI-定制"><a href="#3-4-主题与-UI-定制" class="headerlink" title="3.4 主题与 UI 定制"></a>3.4 主题与 UI 定制</h3><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">功能描述</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>SUPER + W</code></td>
+<td align="left"><strong>选择壁纸</strong></td>
+<td align="left">调出壁纸菜单</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + W</code></td>
+<td align="left">选择壁纸效果</td>
+<td align="left">ImageMagick 特效</td>
+</tr>
+<tr>
+<td align="left"><code>CTRL + ALT + W</code></td>
+<td align="left">随机切换壁纸</td>
+<td align="left">使用 swww 随机更换</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + CTRL + B</code></td>
+<td align="left">选择 Waybar 样式</td>
+<td align="left">实时更换状态栏皮肤</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + ALT + B</code></td>
+<td align="left">选择 Waybar 布局</td>
+<td align="left">调整状态栏模块位置</td>
+</tr>
+<tr>
+<td align="left"><code>SUPER + SHIFT + G</code></td>
+<td align="left"><strong>游戏模式</strong></td>
+<td align="left">一键开关所有动画&#x2F;模糊 (提速)</td>
+</tr>
+</tbody></table>
+<h2 id="4-Hyprland-状态控制-hyprctl"><a href="#4-Hyprland-状态控制-hyprctl" class="headerlink" title="4. Hyprland 状态控制 (hyprctl)"></a>4. Hyprland 状态控制 (hyprctl)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hyprctl reload       <span class="comment"># 重新加载配置</span></span><br><span class="line">hyprctl monitors     <span class="comment"># 查看显示器 ID 和状态</span></span><br><span class="line">hyprctl clients      <span class="comment"># 查看当前运行窗口的 class (用于写窗口规则)</span></span><br><span class="line">hyprctl activewindow <span class="comment"># 查看当前聚焦窗口的详细信息</span></span><br><span class="line">hyprctl <span class="built_in">kill</span>         <span class="comment"># 鼠标点击强行杀掉窗口</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Wayland-常用工具命令"><a href="#5-Wayland-常用工具命令" class="headerlink" title="5. Wayland 常用工具命令"></a>5. Wayland 常用工具命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 截图 (JaKooLit 已集成脚本)</span></span><br><span class="line">~/.config/hypr/scripts/Screenshot.sh --now   <span class="comment"># 立即全屏截图</span></span><br><span class="line">~/.config/hypr/scripts/Screenshot.sh --area  <span class="comment"># 选区截图</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 剪贴板历史</span></span><br><span class="line">cliphist list | rofi -dmenu | cliphist decode | wl-copy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 亮度与音量</span></span><br><span class="line">brightnessctl <span class="built_in">set</span> +10%         <span class="comment"># 增加亮度</span></span><br><span class="line">pamixer -i 5                   <span class="comment"># 增加音量 (需安装 pamixer)</span></span><br><span class="line">pamixer --default-source -t    <span class="comment"># 麦克风静音</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-系统服务与维护"><a href="#6-系统服务与维护" class="headerlink" title="6. 系统服务与维护"></a>6. 系统服务与维护</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsusb                          <span class="comment"># 查看 USB 设备</span></span><br><span class="line">nmcli device wifi list         <span class="comment"># 查看附近 WiFi</span></span><br><span class="line">nmcli device wifi connect <span class="string">&quot;SSID&quot;</span> password <span class="string">&quot;PWD&quot;</span> <span class="comment"># 命令行连接 WiFi</span></span><br><span class="line">systemctl status bluetooth     <span class="comment"># 查看蓝牙状态</span></span><br><span class="line">journalctl -xe --unit hyprland <span class="comment"># 查看 Hyprland 报错日志</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Vim-编辑器极简速查"><a href="#7-Vim-编辑器极简速查" class="headerlink" title="7. Vim 编辑器极简速查"></a>7. Vim 编辑器极简速查</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">w</span>                   <span class="comment">&quot; 保存</span></span><br><span class="line">:q                   <span class="comment">&quot; 退出</span></span><br><span class="line">:<span class="keyword">wq</span>                  <span class="comment">&quot; 保存并退出</span></span><br><span class="line">/关键词               <span class="comment">&quot; 搜索内容</span></span><br><span class="line">n                    <span class="comment">&quot; 跳转下一个结果</span></span><br><span class="line">gg                   <span class="comment">&quot; 跳到文件开头</span></span><br><span class="line">G                    <span class="comment">&quot; 跳到文件末尾</span></span><br><span class="line">dd                   <span class="comment">&quot; 删除整行</span></span><br><span class="line"><span class="keyword">u</span>                    <span class="comment">&quot; 撤销上一步</span></span><br><span class="line">Ctrl + v             <span class="comment">&quot; 进入块操作模式 (批量注释/缩进)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-JaKooLit-脚本更新与维护"><a href="#8-JaKooLit-脚本更新与维护" class="headerlink" title="8. JaKooLit 脚本更新与维护"></a>8. JaKooLit 脚本更新与维护</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Arch-Hyprland   <span class="comment"># 进入克隆的 JaKooLit 仓库目录</span></span><br><span class="line">git pull             <span class="comment"># 拉取最新更新</span></span><br><span class="line">./install.sh         <span class="comment"># 运行安装程序进行修复或更新</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="💡-进阶：为-Vim-用户优化-Hyprland-键位"><a href="#💡-进阶：为-Vim-用户优化-Hyprland-键位" class="headerlink" title="💡 进阶：为 Vim 用户优化 Hyprland 键位"></a>💡 进阶：为 Vim 用户优化 Hyprland 键位</h3><p>建议在 <code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code> 中添加以下内容，实现 HJKL 窗口跳转：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 使用 Vim 键位切换窗口焦点</span><br><span class="line">bind = SUPER, H, movefocus, <span class="keyword">l</span></span><br><span class="line">bind = SUPER, L, movefocus, r</span><br><span class="line">bind = SUPER, K, movefocus, <span class="keyword">u</span></span><br><span class="line">bind = SUPER, J, movefocus, d</span><br><span class="line"></span><br><span class="line"># 使用 Vim 键位移动窗口位置</span><br><span class="line">bind = SUPER SHIFT, H, movewindow, <span class="keyword">l</span></span><br><span class="line">bind = SUPER SHIFT, L, movewindow, r</span><br><span class="line">bind = SUPER SHIFT, K, movewindow, <span class="keyword">u</span></span><br><span class="line">bind = SUPER SHIFT, J, movewindow, d</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -192,9 +444,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-12-19 21:19:17 / Modified: 21:21:00" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
+      <time title="Created: 2025-12-19 21:19:17" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-20 11:17:42" itemprop="dateModified" datetime="2025-12-20T11:17:42+08:00">2025-12-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,14 +474,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="🚫-问题现象"><a href="#🚫-问题现象" class="headerlink" title="🚫 问题现象"></a>🚫 问题现象</h2><p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
+          <h2 id="实测环境"><a href="#实测环境" class="headerlink" title="实测环境"></a>实测环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                  -`                                       </span><br><span class="line">                 .o+`                   ----------- </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA </span><br><span class="line">              `+oooooo:                 Kernel: 6.17.9-arch1-1 </span><br><span class="line">              -+oooooo+:                Uptime: 1 hour </span><br><span class="line">            `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.9 </span><br><span class="line">          `/++++++++++++++:             Resolution: 2560x1600 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Hyprland </span><br><span class="line">        ./ooosssso++osssssso+`          WM: sway </span><br><span class="line">       .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] </span><br><span class="line">      -osssssso.      :ssssssso.        Icons: Papirus [GTK2] </span><br><span class="line">     :osssssss/        osssso+++.       Terminal: kitty </span><br><span class="line">    /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB </span><br><span class="line">`++:.                           `-/+/</span><br><span class="line">.`                                 `/</span><br></pre></td></tr></table></figure>
+
+<h2 id="🚫-问题现象"><a href="#🚫-问题现象" class="headerlink" title="🚫 问题现象"></a>🚫 问题现象</h2><p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
 <ol>
 <li><strong>复制卡死</strong>：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 <code>wl-paste</code> 进程无响应。</li>
 <li><strong>跨界失效</strong>：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。</li>
 <li><strong>历史记录延迟</strong>：调用 <code>cliphist</code> 列表时有明显卡顿。</li>
 </ol>
 <hr>
-<h2 id="✅-最终生效的解决方案-轻量级"><a href="#✅-最终生效的解决方案-轻量级" class="headerlink" title="✅ 最终生效的解决方案 (轻量级)"></a>✅ 最终生效的解决方案 (轻量级)</h2><p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I&#x2F;O 阻塞</strong>。</p>
+<h2 id="✅-最终生效的解决方案"><a href="#✅-最终生效的解决方案" class="headerlink" title="✅ 最终生效的解决方案"></a>✅ 最终生效的解决方案</h2><p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I&#x2F;O 阻塞</strong>。</p>
 <p>Excel 和微信复制时会产生巨大的数据（未压缩的位图、XML 等），如果 <code>cliphist</code> 数据库未清理，写入新数据时会阻塞 X11 剪贴板管道，导致卡死。</p>
 <p><strong>解决方法：</strong> 无需禁用图片历史，也无需额外脚本，只需在启动时 <strong>自动修剪（Prune）</strong> 数据库。</p>
 <h3 id="1-清理已损坏的数据库"><a href="#1-清理已损坏的数据库" class="headerlink" title="1. 清理已损坏的数据库"></a>1. 清理已损坏的数据库</h3><p>首先执行一次“大扫除”：</p>
@@ -256,6 +516,9 @@
 <li><strong>先软后硬</strong>：遇到卡顿先检查日志和数据库大小，不要上来就写脚本魔改。</li>
 <li><strong>定期维护</strong>：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I&#x2F;O 瓶颈。</li>
 </ol>
+<blockquote>
+<p>以上内容由AI整理本人折腾的过程，最后问题解决了，但是本人无法验证AI提供的解决方法是否是可行的，小白新人第一次发贴，若有不对之处，望指正！</p>
+</blockquote>
 
       
     </div>

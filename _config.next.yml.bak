@@ -854,7 +854,7 @@ algolia_search:
 # 本地搜索
 # 依赖：https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: true
+  enable: false
   # 每篇文章显示前 n 个结果，设置为 -1 显示所有结果
   top_n_per_article: 1
   # 将 html 字符串转义为可读的字符串。

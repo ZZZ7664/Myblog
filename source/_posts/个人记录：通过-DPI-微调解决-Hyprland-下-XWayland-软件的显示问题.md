@@ -4,8 +4,6 @@ date: 2025-12-24 10:55:56
 tags: ArchLinux, Hyprland, HiDPI, XWayland, Linux-Desktop
 ---
 
-# 个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题
-
 ## 0. 发现问题
 
 在 2.5K 屏幕、系统缩放 1.25 倍的 Hyprland 环境下，WPS Office  默认显示效果不佳。

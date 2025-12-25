@@ -8,7 +8,7 @@ subtitle: '欢迎来到我的博客！'
 description: ''
 keywords:
 author: 煮字为药
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -102,7 +102,7 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: git@github.com:ZZZ7664/myblog.git
+  repository: git@github.com:ZZZ7664/Myblog.git
 
 
 

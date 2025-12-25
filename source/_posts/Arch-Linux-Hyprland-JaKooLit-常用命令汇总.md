@@ -2,6 +2,7 @@
 title: Arch Linux (Hyprland + JaKooLit) 常用命令与快捷键汇总
 date: 2025-12-22 23:50:00
 tags: [ArchLinux, Hyprland, JaKooLit, Vim, Linux]
+category: 系统折腾
 ---
 
 >这是一份专为使用 **JaKooLit** 配置方案并习惯使用 **Vim** 的 Arch Linux 用户准备的备忘录。

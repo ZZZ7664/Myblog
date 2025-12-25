@@ -1,7 +1,8 @@
 ---
 title: 个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题
 date: 2025-12-24 10:55:56
-tags: ArchLinux, Hyprland, HiDPI, XWayland, Linux-Desktop
+tags: [ArchLinux, Hyprland, HiDPI, XWayland, Linux-Desktop]
+category: 系统折腾
 ---
 
 ## 0. 发现问题

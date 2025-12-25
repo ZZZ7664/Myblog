@@ -8,7 +8,7 @@ subtitle: '欢迎来到我的博客！'
 description: ''
 keywords:
 author: 煮字为药
-language: zh-CN
+language: en
 timezone: ''
 
 # URL
@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -99,10 +99,10 @@ ignore:
 theme: next
 
 search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
+path: search.xml
+field: post
+format: html
+limit: 10000
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

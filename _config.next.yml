@@ -21,7 +21,7 @@ minify: false
 custom_file_path:
   #head: source/_data/head.njk
   #header: source/_data/header.njk
-  #sidebar: source/_data/sidebar.njk
+  sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
   #postBodyStart: source/_data/post-body-start.njk
   #postBodyEnd: source/_data/post-body-end.njk
@@ -30,6 +30,10 @@ custom_file_path:
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   #style: source/_data/styles.styl
+
+recent_posts: true
+recent_posts_title: 近期文章
+recent_posts_layout: block
 
 
 # ---------------------------------------------------------------
@@ -151,9 +155,9 @@ sidebar:
 # 侧边栏头像
 avatar:
   # 在此处替换默认图片并设置 URL。
-  url: #/images/avatar.gif
+  url: /images/avatar.jpg
   # 如果为 true，头像将显示为圆形。
-  rounded: false
+  rounded: true
   # 如果为 true，头像将随光标旋转。
   rotated: false
 
@@ -371,27 +375,36 @@ body_scrollbar:
   # 即使内容没有溢出，也为滚动条留出空间。
   stable: false
 
+# 这里的设置决定了 Hexo 使用哪种高亮引擎
+syntax_highlighter: highlightjs
+
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: true
+
+prismjs:
+  enable: false
+
 # 代码块设置
 codeblock:
   # 代码高亮主题
   # 所有可用主题：https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: stackoverflow-dark
+    light: rainbow
+    dark: rainbow
+  
+  # 如果你想使用截图中的效果，确保 prism 关闭
   prism:
-    light: prism
-    dark: prism-dark
-  # 在代码块上添加复制按钮
+    enable: false
+
+  # 建议开启复制按钮和 Mac 风格（增强美感）
   copy_button:
-    enable: false
-    # 可选值：default | flat | mac
-    style:
-  # 折叠代码块
-  fold:
-    enable: false
-    height: 500
-  # 显示语言名称
-  language: false
+    enable: true
+    style: mac
 
 # 返回顶部按钮
 back2top:
@@ -403,7 +416,7 @@ back2top:
 
 # 阅读进度条
 reading_progress:
-  enable: false
+  enable: true
   # 可选值：left | right
   start_at: left
   # 可选值：top | bottom
@@ -831,7 +844,7 @@ firestore:
 # 使用不蒜子显示网站/页面的访问量/访问者。
 # 更多信息：http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true

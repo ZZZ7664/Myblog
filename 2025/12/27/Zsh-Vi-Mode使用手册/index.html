@@ -19,26 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"rainbow","dark":"rainbow"},"prism":{"light":"prism","dark":"prism-dark","enable":false},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="第一章：职业篇  每日核心任务：在工位上深度表演“螺丝钉模仿艺术”，力求形神兼备 成就系统：手茧的厚度与工资条上的数字，构成完美的反比函数 企业文化：上司常言“公司是我家”，训诫时总带着家传的亲切感   第二章：家庭篇  效率至上：完成“结婚”KPI仅用时三天，比公司项目上线更快 灵魂拷问：儿子天真地问：“爸爸，你能变成我手机里的‘王者’吗？” 邻居标杆：妻子常说：“隔壁老王又升职了！”我沉思：">
+    <meta name="description" content="Vi 习惯指南： Zsh  环境声明：Arch Linux | Kitty 0.44 | Zsh (Vi-mode) | Neovim v0.11.5 | Hyprland (JaKooLit)  本指南旨在将 HJKL 的肌肉记忆贯穿整个系统：从窗口管理到终端编辑，再到历史回溯。   1. 终端级：Zsh Vi-Mode 核心操作 在终端执行 bindkey -v 后， Zsh 变成了“单行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的“标准人生”使用说明书">
-<meta property="og:url" content="http://blog.066088.xyz/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/index.html">
+<meta property="og:title" content="Zsh Vi-Mode使用手册">
+<meta property="og:url" content="http://blog.066088.xyz/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/index.html">
 <meta property="og:site_name" content="煮字为药">
-<meta property="og:description" content="第一章：职业篇  每日核心任务：在工位上深度表演“螺丝钉模仿艺术”，力求形神兼备 成就系统：手茧的厚度与工资条上的数字，构成完美的反比函数 企业文化：上司常言“公司是我家”，训诫时总带着家传的亲切感   第二章：家庭篇  效率至上：完成“结婚”KPI仅用时三天，比公司项目上线更快 灵魂拷问：儿子天真地问：“爸爸，你能变成我手机里的‘王者’吗？” 邻居标杆：妻子常说：“隔壁老王又升职了！”我沉思：">
+<meta property="og:description" content="Vi 习惯指南： Zsh  环境声明：Arch Linux | Kitty 0.44 | Zsh (Vi-mode) | Neovim v0.11.5 | Hyprland (JaKooLit)  本指南旨在将 HJKL 的肌肉记忆贯穿整个系统：从窗口管理到终端编辑，再到历史回溯。   1. 终端级：Zsh Vi-Mode 核心操作 在终端执行 bindkey -v 后， Zsh 变成了“单行">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-23T16:40:58.000Z">
-<meta property="article:modified_time" content="2025-12-19T13:11:55.293Z">
+<meta property="article:published_time" content="2025-12-27T15:15:36.000Z">
+<meta property="article:modified_time" content="2025-12-27T16:22:51.530Z">
 <meta property="article:author" content="煮字为药">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://blog.066088.xyz/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/">
+<link rel="canonical" href="http://blog.066088.xyz/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/","path":"2025/11/24/我的“标准人生”使用说明书/","title":"我的“标准人生”使用说明书"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/","path":"2025/12/27/Zsh-Vi-Mode使用手册/","title":"Zsh Vi-Mode使用手册"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>我的“标准人生”使用说明书 | 煮字为药</title>
+<title>Zsh Vi-Mode使用手册 | 煮字为药</title>
   
 
 
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E8%81%8C%E4%B8%9A%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text"> 第一章：职业篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%E5%AE%B6%E5%BA%AD%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text"> 第二章：家庭篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%E6%83%8A%E9%AD%82%E7%AF%87"><span class="nav-number">3.</span> <span class="nav-text"> 第三章：惊魂篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E7%AB%A0%E6%84%9F%E6%82%9F%E7%AF%87"><span class="nav-number">4.</span> <span class="nav-text"> 最终章：感悟篇</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vi-%E4%B9%A0%E6%83%AF%E6%8C%87%E5%8D%97-zsh"><span class="nav-number">1.</span> <span class="nav-text"> Vi 习惯指南： Zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BB%88%E7%AB%AF%E7%BA%A7zsh-vi-mode-%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 终端级：Zsh Vi-Mode 核心操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 🔹 模式切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8D-normal-mode"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 🔹 移动与快速定位 (Normal Mode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E9%80%9F%E7%BC%96%E8%BE%91"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 🔹 极速编辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B7%A8%E7%BB%B4%E5%BA%A6kitty-neovim-%E8%81%94%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 跨维度：Kitty + Neovim 联动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E5%9B%9E%E6%BA%AF-alt-h"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 🔹 历史回溯 (Alt + H)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E5%91%BD%E4%BB%A4%E7%BC%96%E8%BE%91-normal-mode-v"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 🔹 长命令编辑 (Normal Mode -&gt; v)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%B3%BB%E7%BB%9F%E7%BA%A7hyprland-%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 系统级：Hyprland 窗口管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E5%A4%87%E5%BF%98-configuration-cheat-sheet"><span class="nav-number">1.4.</span> <span class="nav-text"> 💡 核心配置备忘 (Configuration Cheat-sheet)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-~zshrc"><span class="nav-number">1.4.1.</span> <span class="nav-text"> Zsh (~&#x2F;.zshrc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kitty-~configkittykittyconf"><span class="nav-number">1.4.2.</span> <span class="nav-text"> Kitty (~&#x2F;.config&#x2F;kitty&#x2F;kitty.conf)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hyprland-~confighypruserconfigsuserkeybindsconf"><span class="nav-number">1.4.3.</span> <span class="nav-text"> Hyprland (~&#x2F;.config&#x2F;hypr&#x2F;UserConfigs&#x2F;UserKeybinds.conf)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text"> 📋 常用快捷键速查表</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -292,7 +292,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/">
+    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -305,12 +305,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="我的“标准人生”使用说明书 | 煮字为药">
+      <meta itemprop="name" content="Zsh Vi-Mode使用手册 | 煮字为药">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我的“标准人生”使用说明书
+          Zsh Vi-Mode使用手册
         </h1>
 
         <div class="post-meta-container">
@@ -321,14 +321,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-11-24 00:40:58" itemprop="dateCreated datePublished" datetime="2025-11-24T00:40:58+08:00">2025-11-24</time>
+      <time title="创建时间：2025-12-27 23:15:36" itemprop="dateCreated datePublished" datetime="2025-12-27T23:15:36+08:00">2025-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-19 21:11:55" itemprop="dateModified" datetime="2025-12-19T21:11:55+08:00">2025-12-19</time>
+      <time title="修改时间：2025-12-28 00:22:51" itemprop="dateModified" datetime="2025-12-28T00:22:51+08:00">2025-12-28</time>
     </span>
 
   
@@ -347,37 +347,117 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="第一章职业篇"><a class="markdownIt-Anchor" href="#第一章职业篇"></a> 第一章：职业篇</h2>
-<ul>
-<li>每日核心任务：在工位上深度表演“螺丝钉模仿艺术”，力求形神兼备</li>
-<li>成就系统：手茧的厚度与工资条上的数字，构成完美的反比函数</li>
-<li>企业文化：上司常言“公司是我家”，训诫时总带着家传的亲切感</li>
-</ul>
-<h2 id="第二章家庭篇"><a class="markdownIt-Anchor" href="#第二章家庭篇"></a> 第二章：家庭篇</h2>
-<ul>
-<li>效率至上：完成“结婚”KPI仅用时三天，比公司项目上线更快</li>
-<li>灵魂拷问：儿子天真地问：“爸爸，你能变成我手机里的‘王者’吗？”</li>
-<li>邻居标杆：妻子常说：“隔壁老王又升职了！”我沉思：“要不改姓王？”</li>
-</ul>
-<h2 id="第三章惊魂篇"><a class="markdownIt-Anchor" href="#第三章惊魂篇"></a> 第三章：惊魂篇</h2>
-<p>那日提前归家，耳贴门扉，闻得内有男声。</p>
-<p>内心上演全本《甄嬛传》：<br />
-“是修水管的好心人？<br />
-是煤气公司的安检员？<br />
-还是……”</p>
-<p>门开之后，妻子坦然：<br />
-“是来修电视的师傅。”</p>
-<p>我看了眼去年就已卖掉的电视机位置。</p>
-<p>善解人意的我，立即接受了这个充满科技与狠活的解释。</p>
-<p>毕竟，我是个连自己都能成功说服的老实人。</p>
-<h2 id="最终章感悟篇"><a class="markdownIt-Anchor" href="#最终章感悟篇"></a> 最终章：感悟篇</h2>
-<p>我的生活像一部上好发条的闹钟，<br />
-精准地在每个相同时刻响起。</p>
-<p>唯一的不同是——<br />
-闹钟尚有电池可换，重获新生；<br />
-而我，连身上的“静音键”在何处都遍寻不着。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="vi-习惯指南-zsh"><a class="markdownIt-Anchor" href="#vi-习惯指南-zsh"></a> Vi 习惯指南： Zsh</h1>
+<blockquote>
+<p><strong>环境声明</strong>：Arch Linux | Kitty 0.44 | Zsh (Vi-mode) | Neovim v0.11.5 | Hyprland (JaKooLit)</p>
+</blockquote>
+<p>本指南旨在将 <code>HJKL</code> 的肌肉记忆贯穿整个系统：从窗口管理到终端编辑，再到历史回溯。</p>
 <hr />
-<p><em>后记：生活或许是一本被安排好的说明书，但愿我们都能在空白处写下属于自己的注解。</em></p>
+<h2 id="1-终端级zsh-vi-mode-核心操作"><a class="markdownIt-Anchor" href="#1-终端级zsh-vi-mode-核心操作"></a> 1. 终端级：Zsh Vi-Mode 核心操作</h2>
+<p>在终端执行 <code>bindkey -v</code> 后， Zsh 变成了“单行 Vim”。</p>
+<h3 id="模式切换"><a class="markdownIt-Anchor" href="#模式切换"></a> 🔹 模式切换</h3>
+<ul>
+<li><strong>进入命令模式 (Normal)</strong>：输入 <code>jk</code> (自定义) 或 <code>ESC</code>。
+<ul>
+<li><em>视觉提示</em>：光标变为 <strong>方块 █</strong>。</li>
+</ul>
+</li>
+<li><strong>进入插入模式 (Insert)</strong>：按 <code>i</code> (前插)、<code>a</code> (后插)、<code>I</code> (行首)、<code>A</code> (行尾)。
+<ul>
+<li><em>视觉提示</em>：光标变为 <strong>竖线 |</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="移动与快速定位-normal-mode"><a class="markdownIt-Anchor" href="#移动与快速定位-normal-mode"></a> 🔹 移动与快速定位 (Normal Mode)</h3>
+<ul>
+<li><strong>基础</strong>：<code>h</code> <code>j</code> <code>k</code> <code>l</code> (左 下 上 右)。</li>
+<li><strong>单词</strong>：<code>w</code> (跳至下个单词头), <code>b</code> (跳至上个单词头), <code>e</code> (跳至单词尾)。</li>
+<li><strong>行缘</strong>：<code>0</code> (行首), <code>$</code> (行尾)。</li>
+<li><strong>历史翻阅</strong>：<code>j</code> / <code>k</code> 或 <code>/</code> 后输入关键词回车。</li>
+</ul>
+<h3 id="极速编辑"><a class="markdownIt-Anchor" href="#极速编辑"></a> 🔹 极速编辑</h3>
+<ul>
+<li><strong>删除</strong>：<code>x</code> (删字符), <code>dw</code> (删单词), <code>dd</code> (清空行)。</li>
+<li><strong>修改</strong>：<code>cw</code> (改单词), <code>C</code> (改至行尾)。</li>
+<li><strong>撤销</strong>：<code>u</code> (Undo)。</li>
+</ul>
+<hr />
+<h2 id="2-跨维度kitty-neovim-联动"><a class="markdownIt-Anchor" href="#2-跨维度kitty-neovim-联动"></a> 2. 跨维度：Kitty + Neovim 联动</h2>
+<p>通过配置 <code>scrollback_pager</code>，我们可以用 Neovim 的威力来处理终端历史输出。</p>
+<h3 id="历史回溯-alt-h"><a class="markdownIt-Anchor" href="#历史回溯-alt-h"></a> 🔹 历史回溯 (Alt + H)</h3>
+<ol>
+<li>按下 <strong><code>Alt + H</code></strong>：当前终端所有输出在一个临时的 Neovim 缓冲区打开。</li>
+<li><strong>搜索</strong>：输入 <code>/关键词</code> 快速定位报错信息或日志。</li>
+<li><strong>复制</strong>：按 <code>v</code> 选中，按 <code>y</code> 复制（已同步至系统剪切板）。</li>
+<li><strong>退出</strong>：输入 <code>:q</code> 瞬间回到直播终端。</li>
+</ol>
+<h3 id="长命令编辑-normal-mode-v"><a class="markdownIt-Anchor" href="#长命令编辑-normal-mode-v"></a> 🔹 长命令编辑 (Normal Mode -&gt; v)</h3>
+<ol>
+<li>在输入复杂命令时，按 <code>jk</code> 进入命令模式。</li>
+<li>按下 <strong><code>v</code></strong>。</li>
+<li>在弹出的全屏 Neovim 中编写脚本。</li>
+<li><code>:wq</code> 保存退出，命令自动回填并准备执行。</li>
+</ol>
+<hr />
+<h2 id="3-系统级hyprland-窗口管理"><a class="markdownIt-Anchor" href="#3-系统级hyprland-窗口管理"></a> 3. 系统级：Hyprland 窗口管理</h2>
+<p>利用 <code>Super</code> (Windows 键) 配合 <code>HJKL</code> 实现无感窗口切换。</p>
+<ul>
+<li><strong><code>Super + H/J/K/L</code></strong>：在当前工作区切换窗口焦点。</li>
+<li><strong><code>Super + Shift + H/J/K/L</code></strong>：物理移动当前窗口的位置。</li>
+</ul>
+<hr />
+<h2 id="核心配置备忘-configuration-cheat-sheet"><a class="markdownIt-Anchor" href="#核心配置备忘-configuration-cheat-sheet"></a> 💡 核心配置备忘 (Configuration Cheat-sheet)</h2>
+<h3 id="zsh-~zshrc"><a class="markdownIt-Anchor" href="#zsh-~zshrc"></a> Zsh (<code>~/.zshrc</code>)</h3>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bindkey</span> -v</span><br><span class="line"><span class="built_in">export</span> KEYTIMEOUT=15</span><br><span class="line"><span class="built_in">bindkey</span> -M viins <span class="string">&#x27;jk&#x27;</span> vi-cmd-mode</span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd <span class="string">&#x27;k&#x27;</span> up-line-or-beginning-search <span class="comment"># 带记忆的搜索</span></span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd <span class="string">&#x27;j&#x27;</span> down-line-or-beginning-search</span><br></pre></td></tr></table></figure>
+<h3 id="kitty-~configkittykittyconf"><a class="markdownIt-Anchor" href="#kitty-~configkittykittyconf"></a> Kitty (<code>~/.config/kitty/kitty.conf</code>)</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scrollback_pager nvim -c &quot;set signcolumn=no showtabline=0&quot; -c &quot;silent! write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - &quot; -c &quot;normal G&quot;</span><br><span class="line">map alt+h show_scrollback</span><br></pre></td></tr></table></figure>
+<h3 id="hyprland-~confighypruserconfigsuserkeybindsconf"><a class="markdownIt-Anchor" href="#hyprland-~confighypruserconfigsuserkeybindsconf"></a> Hyprland (<code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code>)</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, H, movefocus, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, L, movefocus, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, K, movefocus, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, J, movefocus, d</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="常用快捷键速查表"><a class="markdownIt-Anchor" href="#常用快捷键速查表"></a> 📋 常用快捷键速查表</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">功能维度</th>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">动作描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>模式切换</strong></td>
+<td style="text-align:left"><code>jk</code></td>
+<td style="text-align:left">退出插入模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>命令编辑</strong></td>
+<td style="text-align:left"><code>v</code></td>
+<td style="text-align:left">在 Neovim 中编辑当前行</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>屏幕复制</strong></td>
+<td style="text-align:left"><code>Alt + H</code></td>
+<td style="text-align:left">像编辑文件一样复制终端历史</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>历史命令</strong></td>
+<td style="text-align:left"><code>k</code> / <code>j</code></td>
+<td style="text-align:left">向上/下翻阅历史</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>窗口聚焦</strong></td>
+<td style="text-align:left"><code>Super + HJKL</code></td>
+<td style="text-align:left">切换当前工作区窗口</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>窗口位移</strong></td>
+<td style="text-align:left"><code>Super + Shift + HJKL</code></td>
+<td style="text-align:left">调整窗口布局</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Generated by Arch_z Config Reference</em></p>
 
     </div>
 
@@ -391,13 +471,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" rel="prev" title="博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare">
-                  <i class="fa fa-angle-left"></i> 博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare
+                <a href="/2025/12/27/Qutebrowser%E5%9F%BA%E7%A1%80%E6%8C%87%E5%8D%97/" rel="prev" title="Qutebrowser基础指南">
+                  <i class="fa fa-angle-left"></i> Qutebrowser基础指南
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/11/28/%E7%94%9F%E5%91%BD%E7%BB%88%E7%AB%A0%EF%BC%9A%E9%82%A3%E4%BA%9B%E8%A2%AB%E6%97%B6%E9%97%B4%E5%86%B2%E5%88%B7%E7%9A%84%E8%AE%B0%E5%BF%86/" rel="next" title="生命终章：那些被时间冲刷的记忆">
-                  生命终章：那些被时间冲刷的记忆 <i class="fa fa-angle-right"></i>
+                <a href="/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="全栈Vi操作手册（一）">
+                  全栈Vi操作手册（一） <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

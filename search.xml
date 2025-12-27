@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Arch Linux (Hyprland + JaKooLit) 常用命令与快捷键汇总</title>
+    <url>/2025/12/22/Arch-Linux-Hyprland-JaKooLit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<blockquote>
+<p>这是一份专为使用 <strong>JaKooLit</strong> 配置方案并习惯使用 <strong>Vim</strong> 的 Arch Linux 用户准备的备忘录。</p>
+</blockquote>
+<h2 id="1-系统管理与更新-pacman-yay"><a class="markdownIt-Anchor" href="#1-系统管理与更新-pacman-yay"></a> 1. 系统管理与更新 (Pacman &amp; Yay)</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Syu             <span class="comment"># 同步源并更新系统</span></span><br><span class="line">yay -Syu                     <span class="comment"># 更新系统及所有 AUR 软件包</span></span><br><span class="line">yay -S &lt;pkg&gt;                 <span class="comment"># 安装新软件包</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Rns &lt;pkg&gt;       <span class="comment"># 彻底删除包及其依赖</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Qdt             <span class="comment"># 列出所有孤立依赖</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -Rns $(pacman -Qtdq) <span class="comment"># 清理所有孤立依赖</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-使用-vim-编辑-jakoolit-核心配置"><a class="markdownIt-Anchor" href="#2-使用-vim-编辑-jakoolit-核心配置"></a> 2. 使用 Vim 编辑 JaKooLit 核心配置</h2>
+<p>JaKooLit 采用模块化设计，建议仅修改 <code>UserConfigs</code> 文件夹内的文件，以防后续更新覆盖。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 核心自定义配置</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/UserKeybinds.conf    <span class="comment"># 自定义快捷键</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/UserSettings.conf    <span class="comment"># 窗口装饰、手势、布局</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/Monitors.conf        <span class="comment"># 显示器分辨率、位置</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/ENVariables.conf     <span class="comment"># 环境变量 (NVIDIA 驱动设置)</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/Startup_Apps.conf    <span class="comment"># 自启动项</span></span><br><span class="line">vim ~/.config/hypr/UserConfigs/WorkspaceRules.conf  <span class="comment"># 工作区绑定规则</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># UI 界面配置</span></span><br><span class="line">vim ~/.config/waybar/config                         <span class="comment"># Waybar 布局</span></span><br><span class="line">vim ~/.config/waybar/style.css                      <span class="comment"># Waybar 样式</span></span><br><span class="line">vim ~/.config/kitty/kitty.conf                      <span class="comment"># 终端配置</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-jakoolit-快捷键方案-速查表"><a class="markdownIt-Anchor" href="#3-jakoolit-快捷键方案-速查表"></a> 3. JaKooLit 快捷键方案 (速查表)</h2>
+<blockquote>
+<p><strong>前缀说明</strong>：<code>SUPER</code> = Windows键, <code>ALT</code> = Alt, <code>CTRL</code> = Ctrl, <code>SHIFT</code> = Shift</p>
+</blockquote>
+<h3 id="31-核心系统控制"><a class="markdownIt-Anchor" href="#31-核心系统控制"></a> 3.1 核心系统控制</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SUPER + H</code></td>
+<td style="text-align:left"><strong>启动快捷键速查表</strong></td>
+<td style="text-align:left">忘记按键时的救星</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + K</code></td>
+<td style="text-align:left">搜索所有快捷键</td>
+<td style="text-align:left">通过 Rofi 全局搜索</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + E</code></td>
+<td style="text-align:left">JaKooLit 设置菜单</td>
+<td style="text-align:left">调整系统核心参数</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CTRL + ALT + L</code></td>
+<td style="text-align:left">屏幕锁定</td>
+<td style="text-align:left">调用 hyprlock</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CTRL + ALT + P</code></td>
+<td style="text-align:left">电源菜单</td>
+<td style="text-align:left">关机、重启、睡眠</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CTRL + ALT + Del</code></td>
+<td style="text-align:left">退出 Hyprland</td>
+<td style="text-align:left">立即注销并返回登录界面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-应用程序启动"><a class="markdownIt-Anchor" href="#32-应用程序启动"></a> 3.2 应用程序启动</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">默认程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SUPER + Enter</code></td>
+<td style="text-align:left">打开终端</td>
+<td style="text-align:left">kitty</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + Enter</code></td>
+<td style="text-align:left">下拉式终端</td>
+<td style="text-align:left">类似 Quake 的隐藏终端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + D</code></td>
+<td style="text-align:left">应用启动器</td>
+<td style="text-align:left">rofi-wayland</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + B</code></td>
+<td style="text-align:left">启动浏览器</td>
+<td style="text-align:left">系统默认浏览器</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + E</code></td>
+<td style="text-align:left">打开文件管理器</td>
+<td style="text-align:left">Thunar</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + S</code></td>
+<td style="text-align:left">谷歌搜索</td>
+<td style="text-align:left">通过 Rofi 快速输入搜索词</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-窗口与布局管理"><a class="markdownIt-Anchor" href="#33-窗口与布局管理"></a> 3.3 窗口与布局管理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SUPER + Q</code></td>
+<td style="text-align:left"><strong>关闭活动窗口</strong></td>
+<td style="text-align:left">正常退出程序</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + Q</code></td>
+<td style="text-align:left">强制关闭窗口</td>
+<td style="text-align:left">针对卡死应用</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + Space</code></td>
+<td style="text-align:left">切换浮动状态</td>
+<td style="text-align:left">针对当前单个窗口</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + F</code></td>
+<td style="text-align:left">全屏切换</td>
+<td style="text-align:left">切换全屏模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + ALT + L</code></td>
+<td style="text-align:left">切换布局模式</td>
+<td style="text-align:left">Dwindle 或 Master 布局</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + ALT + 滚轮</code></td>
+<td style="text-align:left">桌面缩放</td>
+<td style="text-align:left">桌面放大镜功能</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-主题与-ui-定制"><a class="markdownIt-Anchor" href="#34-主题与-ui-定制"></a> 3.4 主题与 UI 定制</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SUPER + W</code></td>
+<td style="text-align:left"><strong>选择壁纸</strong></td>
+<td style="text-align:left">调出壁纸菜单</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + W</code></td>
+<td style="text-align:left">选择壁纸效果</td>
+<td style="text-align:left">ImageMagick 特效</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CTRL + ALT + W</code></td>
+<td style="text-align:left">随机切换壁纸</td>
+<td style="text-align:left">使用 swww 随机更换</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + CTRL + B</code></td>
+<td style="text-align:left">选择 Waybar 样式</td>
+<td style="text-align:left">实时更换状态栏皮肤</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + ALT + B</code></td>
+<td style="text-align:left">选择 Waybar 布局</td>
+<td style="text-align:left">调整状态栏模块位置</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SUPER + SHIFT + G</code></td>
+<td style="text-align:left"><strong>游戏模式</strong></td>
+<td style="text-align:left">一键开关所有动画/模糊 (提速)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-hyprland-状态控制-hyprctl"><a class="markdownIt-Anchor" href="#4-hyprland-状态控制-hyprctl"></a> 4. Hyprland 状态控制 (hyprctl)</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hyprctl reload       <span class="comment"># 重新加载配置</span></span><br><span class="line">hyprctl monitors     <span class="comment"># 查看显示器 ID 和状态</span></span><br><span class="line">hyprctl clients      <span class="comment"># 查看当前运行窗口的 class (用于写窗口规则)</span></span><br><span class="line">hyprctl activewindow <span class="comment"># 查看当前聚焦窗口的详细信息</span></span><br><span class="line">hyprctl <span class="built_in">kill</span>         <span class="comment"># 鼠标点击强行杀掉窗口</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-wayland-常用工具命令"><a class="markdownIt-Anchor" href="#5-wayland-常用工具命令"></a> 5. Wayland 常用工具命令</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 截图 (JaKooLit 已集成脚本)</span></span><br><span class="line">~/.config/hypr/scripts/Screenshot.sh --now   <span class="comment"># 立即全屏截图</span></span><br><span class="line">~/.config/hypr/scripts/Screenshot.sh --area  <span class="comment"># 选区截图</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 剪贴板历史</span></span><br><span class="line">cliphist list | rofi -dmenu | cliphist decode | wl-copy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 亮度与音量</span></span><br><span class="line">brightnessctl <span class="built_in">set</span> +10%         <span class="comment"># 增加亮度</span></span><br><span class="line">pamixer -i 5                   <span class="comment"># 增加音量 (需安装 pamixer)</span></span><br><span class="line">pamixer --default-source -t    <span class="comment"># 麦克风静音</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-系统服务与维护"><a class="markdownIt-Anchor" href="#6-系统服务与维护"></a> 6. 系统服务与维护</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsusb                          <span class="comment"># 查看 USB 设备</span></span><br><span class="line">nmcli device wifi list         <span class="comment"># 查看附近 WiFi</span></span><br><span class="line">nmcli device wifi connect <span class="string">&quot;SSID&quot;</span> password <span class="string">&quot;PWD&quot;</span> <span class="comment"># 命令行连接 WiFi</span></span><br><span class="line">systemctl status bluetooth     <span class="comment"># 查看蓝牙状态</span></span><br><span class="line">journalctl -xe --unit hyprland <span class="comment"># 查看 Hyprland 报错日志</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-vim-编辑器极简速查"><a class="markdownIt-Anchor" href="#7-vim-编辑器极简速查"></a> 7. Vim 编辑器极简速查</h2>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:<span class="keyword">w</span>                   <span class="comment">&quot; 保存</span></span><br><span class="line">:q                   <span class="comment">&quot; 退出</span></span><br><span class="line">:<span class="keyword">wq</span>                  <span class="comment">&quot; 保存并退出</span></span><br><span class="line">/关键词               <span class="comment">&quot; 搜索内容</span></span><br><span class="line">n                    <span class="comment">&quot; 跳转下一个结果</span></span><br><span class="line">gg                   <span class="comment">&quot; 跳到文件开头</span></span><br><span class="line">G                    <span class="comment">&quot; 跳到文件末尾</span></span><br><span class="line">dd                   <span class="comment">&quot; 删除整行</span></span><br><span class="line"><span class="keyword">u</span>                    <span class="comment">&quot; 撤销上一步</span></span><br><span class="line">Ctrl + v             <span class="comment">&quot; 进入块操作模式 (批量注释/缩进)</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-jakoolit-脚本更新与维护"><a class="markdownIt-Anchor" href="#8-jakoolit-脚本更新与维护"></a> 8. JaKooLit 脚本更新与维护</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Arch-Hyprland   <span class="comment"># 进入克隆的 JaKooLit 仓库目录</span></span><br><span class="line">git pull             <span class="comment"># 拉取最新更新</span></span><br><span class="line">./install.sh         <span class="comment"># 运行安装程序进行修复或更新</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="进阶为-vim-用户优化-hyprland-键位"><a class="markdownIt-Anchor" href="#进阶为-vim-用户优化-hyprland-键位"></a> 💡 进阶：为 Vim 用户优化 Hyprland 键位</h3>
+<p>建议在 <code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code> 中添加以下内容，实现 HJKL 窗口跳转：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># 使用 Vim 键位切换窗口焦点</span><br><span class="line">bind = SUPER, H, movefocus, <span class="keyword">l</span></span><br><span class="line">bind = SUPER, L, movefocus, r</span><br><span class="line">bind = SUPER, K, movefocus, <span class="keyword">u</span></span><br><span class="line">bind = SUPER, J, movefocus, d</span><br><span class="line"></span><br><span class="line"># 使用 Vim 键位移动窗口位置</span><br><span class="line">bind = SUPER SHIFT, H, movewindow, <span class="keyword">l</span></span><br><span class="line">bind = SUPER SHIFT, L, movewindow, r</span><br><span class="line">bind = SUPER SHIFT, K, movewindow, <span class="keyword">u</span></span><br><span class="line">bind = SUPER SHIFT, J, movewindow, d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>系统折腾</category>
+      </categories>
+      <tags>
+        <tag>ArchLinux</tag>
+        <tag>Hyprland</tag>
+        <tag>JaKooLit</tag>
+        <tag>Vim</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题</title>
+    <url>/2025/12/24/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%EF%BC%9A%E9%80%9A%E8%BF%87-DPI-%E5%BE%AE%E8%B0%83%E8%A7%A3%E5%86%B3-Hyprland-%E4%B8%8B-XWayland-%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="0-发现问题"><a class="markdownIt-Anchor" href="#0-发现问题"></a> 0. 发现问题</h2>
+<p>在 2.5K 屏幕、系统缩放 1.25 倍的 Hyprland 环境下，WPS Office  默认显示效果不佳。<br />
+我首先尝试了常见的局部环境变量修改：<br />
+<code>QT\_SCALE\_FACTOR=1.25 /usr/bin/wps &amp;</code><br />
+<strong>结果：</strong> 界面虽然变大了，但文字明显变模糊，存在像素拉伸感。</p>
+<h2 id="1-坚持局部修改原则"><a class="markdownIt-Anchor" href="#1-坚持局部修改原则"></a> 1. 坚持“局部修改”原则</h2>
+<p>我不希望修改 <code>UserSettings.conf</code> 中的全局 XWayland 设置，因为那会影响到系统所有 X11 程序的默认表现。我希望找到一种只针对特定软件生效、且不破坏系统全局配置的方法。</p>
+<h2 id="2-解决方案从-scale-factor-转向-dpi-调整"><a class="markdownIt-Anchor" href="#2-解决方案从-scale-factor-转向-dpi-调整"></a> 2. 解决方案：从 Scale Factor 转向 DPI 调整</h2>
+<p>经过测试，我发现调整 DPI（Dots Per Inch）对于处理文字密集的办公软件效果更好。</p>
+<h3 id="21-终端先行测试"><a class="markdownIt-Anchor" href="#21-终端先行测试"></a> 2.1 终端先行测试</h3>
+<p>在正式修改配置文件前，我先在终端通过命令进行验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试以 120 DPI (即 96 * 1.25) 启动 WPS 表格</span></span><br><span class="line"><span class="built_in">env</span> QT_FONT_DPI=120 et</span><br></pre></td></tr></table></figure>
+<p><strong>结果：</strong> 软件界面大小符合预期，且文字渲染比使用 Scale Factor 更加清晰锐利。</p>
+<h3 id="22-局部修改启动入口"><a class="markdownIt-Anchor" href="#22-局部修改启动入口"></a> 2.2 局部修改启动入口</h3>
+<p>验证成功后，我将此配置应用到软件的快捷方式中，而不触碰任何系统全局配置。</p>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>
+<p>复制系统默认快捷方式到本地目录（防止更新覆盖）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.local/share/applications/</span><br><span class="line"><span class="built_in">cp</span> /usr/share/applications/wps-office-*.desktop ~/.local/share/applications/</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 <code>.desktop</code> 文件中的 <code>Exec</code> 启动行。<br />
+以 WPS 文字为例，将 <code>Exec</code> 修改为：<br />
+<code>Exec=env QT_FONT_DPI=120 /usr/bin/wps %f</code></p>
+<p>（我使用了 <code>sed</code> 批量完成了这个操作，并运行 <code>update-desktop-database</code> 刷新了缓存。）</p>
+<blockquote>
+<p>我发现不刷新缓存也是可以的</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="3-经验总结"><a class="markdownIt-Anchor" href="#3-经验总结"></a> 3. 经验总结</h2>
+<p>作为一个系统小白，这次折腾让我学到了两点：</p>
+<ol>
+<li><strong>测试先行</strong>：在终端通过 <code>env</code> 命令临时启动软件是最好的测试方式，行得通再改文件。</li>
+<li><strong>局部优先</strong>：尽量不去动影响全局的配置文件。通过调整特定软件的 DPI，既解决了显示模糊，又维持了系统其他部分的稳定性。</li>
+</ol>
+<hr />
+<p><em>记录时间：2025年12月</em></p>
+<hr />
+<h3 id="2-本次调优命令总结"><a class="markdownIt-Anchor" href="#2-本次调优命令总结"></a> 2. 本次调优命令总结</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">作用说明</th>
+<th style="text-align:left">为什么用它</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>env QT_SCALE_FACTOR=1.25 wps</code></td>
+<td style="text-align:left">终端测试：比例缩放启动</td>
+<td style="text-align:left">验证发现界面变大但模糊，故放弃</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>env QT_FONT_DPI=120 et</code></td>
+<td style="text-align:left"><strong>终端测试：DPI 缩放启动</strong></td>
+<td style="text-align:left"><strong>验证成功，文字清晰且大小合适</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>cp /usr/share/applications/wps* ~/.local/share/applications/</code></td>
+<td style="text-align:left">备份快捷方式到用户目录</td>
+<td style="text-align:left">遵循局部修改原则，不影响系统全局文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>sed -i 's/^Exec=/Exec=env QT_FONT_DPI=120 /g' </code></td>
+<td style="text-align:left">批量注入 DPI 环境变量</td>
+<td style="text-align:left">固化测试结果，使点击图标也能生效</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>update-desktop-database ~/.local/share/applications</code></td>
+<td style="text-align:left">刷新本地应用数据库</td>
+<td style="text-align:left">确保修改后的快捷方式立即被系统识别</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>echo $?</code></td>
+<td style="text-align:left">查看命令退出状态</td>
+<td style="text-align:left">养成好习惯，确认手动启动的程序是否报错</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="提示词补充"><a class="markdownIt-Anchor" href="#提示词补充"></a> 💡 提示词补充：</h3>
+<p>如果以后再遇到软件显示或运行问题，可以对 AI 说：</p>
+<blockquote>
+<p>“我遇到一个软件显示问题。我的原则是：<strong>不修改全局配置，优先在终端使用 <code>env</code> 尝试局部解决</strong>。请基于这个前提，为我提供针对 [软件名] 的调试参数或 <code>.desktop</code> 修改方案。”</p>
+</blockquote>
+<p>这种提问方式能让 AI 直接跳过那些“大动干戈”的建议，直接给你最符合你习惯的“手术刀式”方案。</p>
+]]></content>
+      <categories>
+        <category>系统折腾</category>
+      </categories>
+      <tags>
+        <tag>ArchLinux</tag>
+        <tag>Hyprland</tag>
+        <tag>HiDPI</tag>
+        <tag>XWayland</tag>
+        <tag>Linux-Desktop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优</title>
+    <url>/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/</url>
+    <content><![CDATA[<h2 id="实测环境"><a class="markdownIt-Anchor" href="#实测环境"></a> 实测环境</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">                  -`                                       </span><br><span class="line">                 .o+`                   ----------- </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA </span><br><span class="line">              `+oooooo:                 Kernel: 6.17.9-arch1-1 </span><br><span class="line">              -+oooooo+:                Uptime: 1 hour </span><br><span class="line">            `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.9 </span><br><span class="line">          `/++++++++++++++:             Resolution: 2560x1600 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Hyprland </span><br><span class="line">        ./ooosssso++osssssso+`          WM: sway </span><br><span class="line">       .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] </span><br><span class="line">      -osssssso.      :ssssssso.        Icons: Papirus [GTK2] </span><br><span class="line">     :osssssss/        osssso+++.       Terminal: kitty </span><br><span class="line">    /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB </span><br><span class="line">`++:.                           `-/+/</span><br><span class="line">.`                                 `/</span><br></pre></td></tr></table></figure>
+<h2 id="问题现象"><a class="markdownIt-Anchor" href="#问题现象"></a> 🚫 问题现象</h2>
+<p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
+<ol>
+<li><strong>复制卡死</strong>：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 <code>wl-paste</code> 进程无响应。</li>
+<li><strong>跨界失效</strong>：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。</li>
+<li><strong>历史记录延迟</strong>：调用 <code>cliphist</code> 列表时有明显卡顿。</li>
+</ol>
+<hr />
+<h2 id="最终生效的解决方案"><a class="markdownIt-Anchor" href="#最终生效的解决方案"></a> ✅ 最终生效的解决方案</h2>
+<p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I/O 阻塞</strong>。</p>
+<p>Excel 和微信复制时会产生巨大的数据（未压缩的位图、XML 等），如果 <code>cliphist</code> 数据库未清理，写入新数据时会阻塞 X11 剪贴板管道，导致卡死。</p>
+<p><strong>解决方法：</strong> 无需禁用图片历史，也无需额外脚本，只需在启动时 <strong>自动修剪（Prune）</strong> 数据库。</p>
+<h3 id="1-清理已损坏的数据库"><a class="markdownIt-Anchor" href="#1-清理已损坏的数据库"></a> 1. 清理已损坏的数据库</h3>
+<p>首先执行一次“大扫除”：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> ~/.cache/cliphist/db</span><br><span class="line"><span class="comment"># 重启电脑或重新登录 Hyprland</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-配置自动修剪"><a class="markdownIt-Anchor" href="#2-配置自动修剪"></a> 2. 配置自动修剪</h3>
+<p>修改 Hyprland 启动配置 <code>~/.config/hypr/UserConfigs/Startup_Apps.conf</code>，添加保留最近 256 条记录的限制：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------</span></span><br><span class="line"><span class="comment"># Cliphist 剪贴板配置</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 启动监听器 (保留默认，无需禁用图片监听)</span></span><br><span class="line"><span class="attr">exec-once</span> = wl-paste --type text --watch cliphist store</span><br><span class="line"><span class="attr">exec-once</span> = wl-paste --type image --watch cliphist store</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 【核心修复】启动时自动清理</span></span><br><span class="line"><span class="comment"># 管道逻辑：列出所有记录 -&gt; 排除最近的 256 条 -&gt; 删除剩下的旧记录</span></span><br><span class="line"><span class="attr">exec-once</span> = cliphist list | head -n -<span class="number">256</span> | cliphist delete</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="️-进阶排查与脚本-折腾经验备份"><a class="markdownIt-Anchor" href="#️-进阶排查与脚本-折腾经验备份"></a> 🛠️ 进阶排查与脚本 (折腾经验备份)</h2>
+<p>虽然上面的方法解决了我的问题，但在排查过程中编写的<strong>诊断命令</strong>和<strong>桥接脚本</strong>非常有价值。如果单纯清理数据库无法解决你的问题（例如需要强制剥离 Excel 格式），可以使用以下方案。</p>
+<h3 id="1-常用诊断命令"><a class="markdownIt-Anchor" href="#1-常用诊断命令"></a> 1. 常用诊断命令</h3>
+<p>查看当前剪贴板中包含哪些 MIME 类型（用于判断是否包含巨大的 <code>BITMAP</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 需要安装 xclip</span></span><br><span class="line">xclip -selection clipboard -t TARGETS -o</span><br></pre></td></tr></table></figure>
+<p>查看各格式数据的具体大小（找出卡顿元凶）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">xclip -selection clipboard -t TARGETS -o 2&gt;/dev/null | <span class="keyword">while</span> <span class="built_in">read</span> target; <span class="keyword">do</span></span><br><span class="line">    size=$(xclip -selection clipboard -t <span class="string">&quot;<span class="variable">$target</span>&quot;</span> -o 2&gt;/dev/null | <span class="built_in">wc</span> -c)</span><br><span class="line">    human=$(<span class="built_in">echo</span> <span class="variable">$size</span> | <span class="built_in">numfmt</span> --to=iec)</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;格式: <span class="variable">$target</span> \t大小: <span class="variable">$human</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-强制同步脚本-wpssyncfixsh"><a class="markdownIt-Anchor" href="#2-强制同步脚本-wpssyncfixsh"></a> 2. 强制同步脚本 (<a href="http://WpsSyncFix.sh">WpsSyncFix.sh</a>)</h3>
+<p>如果你需要<strong>强制</strong>让 Excel 复制变快（丢弃富文本格式，只取纯文本），或者微信图片死活无法粘贴，可以使用这个脚本接管剪贴板同步。</p>
+<p><strong>脚本功能：</strong></p>
+<ul>
+<li>监控 X11 剪贴板。</li>
+<li><strong>文本：</strong> 强行提取 <code>UTF8_STRING</code>，丢弃 Excel 的 HTML/XML 垃圾数据。</li>
+<li><strong>图片：</strong> 识别微信的 <code>png/jpeg</code> 并建立管道传给 Wayland。</li>
+</ul>
+<p>保存为 <code>~/.config/hypr/scripts/WpsSyncFix.sh</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 修复 XWayland (WPS/WeChat) -&gt; Wayland 的同步问题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 依赖检查</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span> -v xclip &amp;&gt; /dev/null; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Need xclip&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀掉可能残留的进程</span></span><br><span class="line">killall xclip 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">last_checksum=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># 获取 X11 剪贴板支持的格式</span></span><br><span class="line">    targets=$(xclip -selection clipboard -t TARGETS -o 2&gt;/dev/null)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># --- 场景 A: 纯文本 (Excel 加速) ---</span></span><br><span class="line">    <span class="comment"># 只要包含 UTF8_STRING，就强制只取文本</span></span><br><span class="line">    <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;UTF8_STRING&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">        content=$(xclip -selection clipboard -t UTF8_STRING -o 2&gt;/dev/null)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$content</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            current_checksum=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$content</span>&quot;</span> | <span class="built_in">md5sum</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$current_checksum</span>&quot;</span> != <span class="string">&quot;<span class="variable">$last_checksum</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="comment"># 写入 Wayland</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$content</span>&quot;</span> | wl-copy</span><br><span class="line">                last_checksum=<span class="string">&quot;<span class="variable">$current_checksum</span>&quot;</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># --- 场景 B: 图片 (微信修复) ---</span></span><br><span class="line">    <span class="comment"># 微信可能使用 png, jpeg 或 bmp</span></span><br><span class="line">    <span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/png&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">fmt</span>=<span class="string">&quot;image/png&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/jpeg&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">fmt</span>=<span class="string">&quot;image/jpeg&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="comment"># 管道传输图片数据</span></span><br><span class="line">            xclip -selection clipboard -t <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span> -o 2&gt;/dev/null | wl-copy -t <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span></span><br><span class="line">            <span class="built_in">sleep</span> 1 <span class="comment"># 防止连续触发</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sleep</span> 0.5</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>如果要使用此脚本，需要在 <code>Startup_Apps.conf</code> 中添加 <code>exec-once = ~/.config/hypr/scripts/WpsSyncFix.sh</code>。</p>
+<hr />
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ol>
+<li><strong>先软后硬</strong>：遇到卡顿先检查日志和数据库大小，不要上来就写脚本魔改。</li>
+<li><strong>定期维护</strong>：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I/O 瓶颈。</li>
+</ol>
+<blockquote>
+<p>以上内容由AI整理本人折腾的过程，最后问题解决了，但是本人无法验证AI提供的解决方法是否是可行的，小白新人第一次发贴，若有不对之处，望指正！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>系统折腾</category>
+      </categories>
+      <tags>
+        <tag>Hyprland</tag>
+        <tag>Linux</tag>
+        <tag>Arch</tag>
+        <tag>Wayland</tag>
+        <tag>Troubleshooting</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ranger文件管理器常用命令</title>
+    <url>/2025/12/24/ranger%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="1-基础导航-navigation"><a class="markdownIt-Anchor" href="#1-基础导航-navigation"></a> 1. 基础导航 (Navigation)</h3>
+<p>这些命令让你在目录间自由穿梭：</p>
+<ul>
+<li><strong><code>j</code> / <code>k</code></strong>：向下 / 向上移动</li>
+<li><strong><code>h</code></strong>：返回上一级目录</li>
+<li><strong><code>l</code></strong>：进入选中的目录或打开文件</li>
+<li><strong><code>gg</code></strong>：跳到目录顶部</li>
+<li><strong><code>G</code></strong>：跳到目录底部</li>
+<li><strong><code>Ctrl + u</code> / <code>Ctrl + d</code></strong>：向上 / 向下翻半页</li>
+<li><strong><code>H</code></strong>：后退（历史记录）</li>
+<li><strong><code>L</code></strong>：前进（历史记录）</li>
+<li><strong><code>Enter</code></strong>：打开选中的文件</li>
+</ul>
+<hr />
+<h3 id="2-文件操作-file-operations"><a class="markdownIt-Anchor" href="#2-文件操作-file-operations"></a> 2. 文件操作 (File Operations)</h3>
+<p>Ranger 的文件操作类似 Vim 的文本编辑：</p>
+<ul>
+<li><strong><code>i</code></strong>：全屏预览文件内容</li>
+<li><strong><code>E</code></strong>：编辑文件（调用环境变量 <code>$EDITOR</code>，通常是 Vim/Nano）</li>
+<li><strong><code>yy</code></strong>：复制文件（Copy/Yank）</li>
+<li><strong><code>dd</code></strong>：剪切文件（Cut）</li>
+<li><strong><code>pp</code></strong>：粘贴文件（Paste）</li>
+<li><strong><code>po</code></strong>：粘贴并覆盖重名文件</li>
+<li><strong><code>cw</code></strong>：重命名文件（Rename）</li>
+<li><strong><code>delete</code></strong>：删除文件（注意：通常是直接删除，不进回收站，需确认）</li>
+<li><strong><code>da</code></strong>：全选文件（在某些配置中）</li>
+<li><strong><code>/</code></strong>：在当前目录下搜索文件</li>
+</ul>
+<hr />
+<h3 id="3-标记与多选-markingselection"><a class="markdownIt-Anchor" href="#3-标记与多选-markingselection"></a> 3. 标记与多选 (Marking/Selection)</h3>
+<p>处理多个文件时非常有用：</p>
+<ul>
+<li><strong><code>space</code></strong>（空格）：选中当前文件，并移动到下一行</li>
+<li><strong><code>v</code></strong>：反转选择（或进入可视化模式，类似 Vim）</li>
+<li><strong><code>uv</code></strong>：取消所有选中</li>
+<li><strong><code>V</code></strong>：进入可视化模式（按 <code>j/k</code> 批量选择）</li>
+</ul>
+<hr />
+<h3 id="4-视图与显示-view-display"><a class="markdownIt-Anchor" href="#4-视图与显示-view-display"></a> 4. 视图与显示 (View &amp; Display)</h3>
+<p>调整界面展示效果：</p>
+<ul>
+<li><strong><code>zh</code></strong>：切换显示隐藏文件（以 <code>.</code> 开头的文件）</li>
+<li><strong><code>zp</code></strong>：切换文件预览功能的开启/关闭</li>
+<li><strong><code>zi</code></strong>：切换显示/隐藏侧边栏</li>
+<li><strong><code>R</code></strong>：刷新当前目录</li>
+<li><strong><code>z</code></strong>：打开设置菜单（可以配合其他字母快速调整，如 <code>zn</code> 切换行号）</li>
+</ul>
+<hr />
+<h3 id="5-标签页管理-tabs"><a class="markdownIt-Anchor" href="#5-标签页管理-tabs"></a> 5. 标签页管理 (Tabs)</h3>
+<p>像浏览器一样管理多个路径：</p>
+<ul>
+<li><strong><code>gn</code></strong> 或 <strong><code>Ctrl + n</code></strong>：新建标签页</li>
+<li><strong><code>gt</code></strong> / <strong><code>gT</code></strong>：切换到 下一个 / 上一个 标签页</li>
+<li><strong><code>Alt + [1-9]</code></strong>：直接跳转到指定数字的标签页</li>
+<li><strong><code>gc</code></strong> 或 <strong><code>Ctrl + w</code></strong>：关闭当前标签页</li>
+</ul>
+<hr />
+<h3 id="6-执行命令与-shell-execution"><a class="markdownIt-Anchor" href="#6-执行命令与-shell-execution"></a> 6. 执行命令与 Shell (Execution)</h3>
+<p>在 Ranger 中直接运行外部命令：</p>
+<ul>
+<li><strong><code>s</code></strong>：在当前目录下打开 Shell（退出 Shell 后返回 Ranger）</li>
+<li><strong><code>:</code></strong>：输入控制台命令（如 <code>:rename newname</code>）</li>
+<li><strong><code>!</code></strong>：运行外部 Shell 命令。例如 <code>!unzip test.zip</code></li>
+<li><strong><code>@</code></strong>：针对选中的文件运行外部命令</li>
+<li><strong><code>f</code></strong>：快速跳转（输入字符后会自动过滤当前目录下的文件）</li>
+</ul>
+<hr />
+<h3 id="7-排序-sorting"><a class="markdownIt-Anchor" href="#7-排序-sorting"></a> 7. 排序 (Sorting)</h3>
+<ul>
+<li><strong><code>on</code></strong>：按名称排序 (Name)</li>
+<li><strong><code>os</code></strong>：按大小排序 (Size)</li>
+<li><strong><code>om</code></strong>：按修改时间排序 (MTime)</li>
+<li><strong><code>oc</code></strong>：按改变时间排序 (CTime)</li>
+<li><strong><code>oa</code></strong>：按访问时间排序 (ATime)</li>
+<li><strong><code>ot</code></strong>：按类型排序 (Type)</li>
+<li><strong><code>or</code></strong>：反向排序 (Reverse)</li>
+</ul>
+<hr />
+<h3 id="8-系统操作"><a class="markdownIt-Anchor" href="#8-系统操作"></a> 8. 系统操作</h3>
+<ul>
+<li><strong><code>q</code></strong>：退出 Ranger</li>
+<li><strong><code>W</code></strong>：打开当前目录的控制台日志</li>
+<li><strong><code>?</code></strong>：打开帮助手册（按 <code>?</code> 后再按 <code>k</code> 查看快捷键列表）</li>
+</ul>
+<hr />
+<h3 id="小贴士"><a class="markdownIt-Anchor" href="#小贴士"></a> 💡 小贴士：</h3>
+<ol>
+<li><strong>书签功能</strong>：按 <code>m</code> 后加一个字母（如 <code>ma</code>）标记当前目录；按 <code>'</code> 后加该字母（如 <code>'a</code>）即可快速跳转回来。</li>
+<li><strong>配置路径</strong>：
+<ul>
+<li>主配置文件：<code>~/.config/ranger/rc.conf</code>（可修改快捷键）</li>
+<li>快捷键定义：<code>~/.config/ranger/rifle.conf</code>（定义用什么软件打开什么文件）</li>
+</ul>
+</li>
+<li><strong>安装预览增强</strong>：为了更好的预览效果，建议安装 <code>highlight</code> (代码高亮)、<code>img2txt</code> 或 <code>w3m</code> (图片预览)。</li>
+</ol>
+<p>可以在 Ranger 中输入 <code>:help</code> 或者直接查看其 <a href="https://linux.die.net/man/1/ranger">Man Page</a>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用国内镜像安装 Scoop：一站式 Windows 包管理器配置指南</title>
+    <url>/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<blockquote>
+<p>本文基于 <a href="https://gitee.com/scoop-installer/scoop">Scoop 国内镜像仓库</a>，旨在帮助国内用户更顺畅地使用 Scoop 安装和管理 Windows 软件。</p>
+</blockquote>
+<p>Scoop 是 Windows 上非常实用的命令行包管理工具，类似于 Linux 上的 apt 或 macOS 上的 Homebrew。由于网络原因，原版 Scoop 在国内使用时常遇到连接缓慢或失败的问题。本文将介绍如何通过国内镜像快速安装和配置 Scoop，轻松实现软件的安装、更新与管理。</p>
+<hr />
+<h2 id="一-安装-scoop使用国内镜像"><a class="markdownIt-Anchor" href="#一-安装-scoop使用国内镜像"></a> 一、安装 Scoop（使用国内镜像）</h2>
+<h3 id="11-首次安装"><a class="markdownIt-Anchor" href="#11-首次安装"></a> 1.1 首次安装</h3>
+<blockquote>
+<p>适用于首次安装 Scoop 的用户。</p>
+</blockquote>
+<p>打开 <strong>Windows PowerShell</strong>（建议以管理员身份运行），依次执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置脚本执行策略</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser <span class="literal">-Force</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用国内镜像安装 Scoop</span></span><br><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> scoop.<span class="number">201704</span>.xyz | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ 默认安装路径为当前用户目录下的 <code>Scoop</code>，如需自定义路径，请参考下方命令：</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载安装脚本</span></span><br><span class="line"><span class="built_in">irm</span> scoop.<span class="number">201704</span>.xyz <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义安装路径</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span> <span class="literal">-ScoopGlobalDir</span> <span class="string">&#x27;C:\GlobalScoopApps&#x27;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="12-已安装-scoop切换为国内镜像"><a class="markdownIt-Anchor" href="#12-已安装-scoop切换为国内镜像"></a> 1.2 已安装 Scoop？切换为国内镜像</h3>
+<p>如果你之前安装过官方源或其他镜像，可以通过以下命令切换到国内镜像：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更换仓库地址</span></span><br><span class="line">scoop config SCOOP_REPO <span class="string">&quot;https://gitee.com/scoop-installer/scoop&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新仓库</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="13-切换分支可选"><a class="markdownIt-Anchor" href="#13-切换分支可选"></a> 1.3 切换分支（可选）</h3>
+<p>本镜像仓库提供多个分支，默认使用 <code>master</code> 分支。你也可以切换到其他分支：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切换到 develop 分支</span></span><br><span class="line">scoop config scoop_branch develop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>分支名</th>
+<th>描述</th>
+<th>基于分支</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>master</td>
+<td>默认分支，自动代理分流</td>
+<td>master</td>
+</tr>
+<tr>
+<td>develop</td>
+<td>同上，基于 develop 分支</td>
+<td>develop</td>
+</tr>
+<tr>
+<td>archive</td>
+<td>无修改的原版备份</td>
+<td>master</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二-添加软件仓库bucket"><a class="markdownIt-Anchor" href="#二-添加软件仓库bucket"></a> 二、添加软件仓库（Bucket）</h2>
+<p>Scoop 的软件来自不同的仓库（bucket），我们需要手动添加常用的仓库。</p>
+<h3 id="21-安装-git必须"><a class="markdownIt-Anchor" href="#21-安装-git必须"></a> 2.1 安装 Git（必须）</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ Git 是 Scoop 更新和管理仓库的依赖工具，必须安装。</p>
+</blockquote>
+<hr />
+<h3 id="22-添加常用仓库"><a class="markdownIt-Anchor" href="#22-添加常用仓库"></a> 2.2 添加常用仓库</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看官方推荐的仓库列表</span></span><br><span class="line">scoop bucket known</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 extras 仓库（推荐）</span></span><br><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
+<p>如果你已经添加过某些仓库，但想切换到国内镜像，可以先删除再重新添加：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前仓库</span></span><br><span class="line">scoop bucket list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧的 extras 仓库</span></span><br><span class="line">scoop bucket <span class="built_in">rm</span> extras</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加国内镜像的 extras 仓库</span></span><br><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
+<p>成功切换后，仓库地址应显示为 <code>gitee.com</code> 域名，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Name     Source                                       Updated            Manifests</span><br><span class="line">----     ------                                       -------            ---------</span><br><span class="line">main     https://gitee.com/scoop-installer/Main        2025/2/24 8:37:11       1382</span><br><span class="line">extras   https://gitee.com/scoop-installer/Extras      2025/2/24 8:41:05       2130</span><br><span class="line">dorado   https://gitee.com/scoop-installer/dorado      2025/2/24 8:16:22        257</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="23-添加第三方仓库可选"><a class="markdownIt-Anchor" href="#23-添加第三方仓库可选"></a> 2.3 添加第三方仓库（可选）</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line">scoop bucket add &lt;别名&gt; &lt;git地址&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：添加 scoopcn（国内常用软件）</span></span><br><span class="line">scoop bucket add scoopcn https://gitee.com/scoop<span class="literal">-installer</span>/scoopcn</span><br></pre></td></tr></table></figure>
+<p>更多第三方仓库推荐，请访问：<a href="https://scoop.201704.xyz">https://scoop.201704.xyz</a></p>
+<hr />
+<h2 id="三-安装与管理软件"><a class="markdownIt-Anchor" href="#三-安装与管理软件"></a> 三、安装与管理软件</h2>
+<h3 id="31-设置代理可选"><a class="markdownIt-Anchor" href="#31-设置代理可选"></a> 3.1 设置代理（可选）</h3>
+<p>如果你仍然遇到下载缓慢的问题，可以设置代理：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 HTTP 代理</span></span><br><span class="line">scoop config proxy <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">4412</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除代理</span></span><br><span class="line">scoop config <span class="built_in">rm</span> proxy</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="32-安装软件"><a class="markdownIt-Anchor" href="#32-安装软件"></a> 3.2 安装软件</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装单个软件</span></span><br><span class="line">scoop install qq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定仓库的软件</span></span><br><span class="line">scoop install scoopcn/wechat</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一次安装多个软件</span></span><br><span class="line">scoop install qq wechat aria2</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="33-卸载软件"><a class="markdownIt-Anchor" href="#33-卸载软件"></a> 3.3 卸载软件</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">scoop uninstall qq wechat</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="34-更新软件"><a class="markdownIt-Anchor" href="#34-更新软件"></a> 3.4 更新软件</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新所有软件</span></span><br><span class="line">scoop update *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 Scoop 本身</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="35-常用命令速查"><a class="markdownIt-Anchor" href="#35-常用命令速查"></a> 3.5 常用命令速查</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 禁止某软件更新</span></span><br><span class="line">scoop hold &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换软件版本</span></span><br><span class="line">scoop reset &lt;软件名<span class="selector-tag">@</span>版本号&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">scoop cache <span class="built_in">rm</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧版本</span></span><br><span class="line">scoop cleanup *</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="四-推荐仓库一览"><a class="markdownIt-Anchor" href="#四-推荐仓库一览"></a> 四、推荐仓库一览</h2>
+<table>
+<thead>
+<tr>
+<th>仓库名</th>
+<th>简介</th>
+<th>添加命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main</td>
+<td>官方主仓库</td>
+<td><code>scoop bucket add main</code></td>
+</tr>
+<tr>
+<td>extras</td>
+<td>常用软件扩展库</td>
+<td><code>scoop bucket add extras</code></td>
+</tr>
+<tr>
+<td>versions</td>
+<td>提供旧版本软件</td>
+<td><code>scoop bucket add versions</code></td>
+</tr>
+<tr>
+<td>scoopcn</td>
+<td>国内常用软件（QQ、微信、WPS 等）</td>
+<td><code>scoop bucket add scoopcn https://gitee.com/scoop-installer/scoopcn</code></td>
+</tr>
+<tr>
+<td>dorado</td>
+<td>含网易云音乐、QQ音乐等</td>
+<td><code>scoop bucket add dorado https://gitee.com/scoop-installer/dorado</code></td>
+</tr>
+<tr>
+<td>scoopet</td>
+<td>科研工具、飞书、语雀等</td>
+<td><code>scoop bucket add scoopet https://gitee.com/scoop-installer/scoopet</code></td>
+</tr>
+<tr>
+<td>siku</td>
+<td>含哔哩哔哩、BBDown 等</td>
+<td><code>scoop bucket add siku https://gitee.com/scoop-installer/siku</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="五-结语"><a class="markdownIt-Anchor" href="#五-结语"></a> 五、结语</h2>
+<p>通过国内镜像安装和配置 Scoop，可以极大提升软件安装效率，避免网络卡顿和连接失败的问题。希望这篇指南能帮助你快速上手 Scoop，打造高效的 Windows 工作流！</p>
+<p>如需获取更多仓库和软件，请访问：<a href="https://scoop.201704.xyz">https://scoop.201704.xyz</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare</title>
+    <url>/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>在参考了多个教程后，我最终选择了使用 <code>Hexo</code> + <code>GitHub</code> + <code>Netlify</code> + <code>Cloudflare</code> 这套技术栈来搭建我的个人博客。</p>
+<ul>
+<li><strong>Hexo</strong>: 博客框架</li>
+<li><strong>GitHub</strong>: 用于文件托管</li>
+<li><strong>Netlify</strong>: 静态网站生成与部署</li>
+<li><strong>Cloudflare</strong>: CDN加速和域名管理</li>
+</ul>
+<p>我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流程应该会更简单一些。</p>
+<h2 id="第零步git-环境配置"><a class="markdownIt-Anchor" href="#第零步git-环境配置"></a> 第零步：Git 环境配置</h2>
+<p>我的 Linux 系统已经自带了 Git，现在只需要配置用户名和邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<p>有些教程提到需要生成 SSH 密钥，但我跟的这个教程没有用到，所以暂时跳过。不过我还是把命令记录在这里：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="第一步hexo-环境搭建"><a class="markdownIt-Anchor" href="#第一步hexo-环境搭建"></a> 第一步：Hexo 环境搭建</h2>
+<h3 id="环境配置"><a class="markdownIt-Anchor" href="#环境配置"></a> 环境配置</h3>
+<p>系统已经安装了 Node.js，这一步可以省略。正常情况下可以通过官网下载或命令行安装。</p>
+<p>验证环境：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+<p>能够正常显示版本信息说明环境配置完成。</p>
+<p><strong>npm 源配置</strong>：为了提升下载速度，可以更换为国内镜像源。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config get registry <span class="comment"># 查看当前源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org <span class="comment"># 切换为淘宝源</span></span><br><span class="line">npm config get registry <span class="comment"># 确认已切换</span></span><br></pre></td></tr></table></figure>
+<p>但我在这里遇到了问题，即使切换到淘宝源也下载失败：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm error code CERT_HAS_EXPIRED</span><br><span class="line">npm error errno CERT_HAS_EXPIRED</span><br><span class="line">npm error request to https://registry.npm.taobao.org/hexo-cli failed, reason: certificate has expired</span><br></pre></td></tr></table></figure>
+<p>由于之前的操作失误，我不记得原来的源地址了，需要求助 AI。</p>
+<p><strong>第二次尝试</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 尝试使用华为云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://repo.huaweicloud.com/repository/npm/</span><br><span class="line"><span class="comment"># 重新安装</span></span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>结果出现权限错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm error code EACCES</span><br><span class="line">npm error syscall <span class="built_in">mkdir</span></span><br><span class="line">npm error path /usr/lib/node_modules/hexo-cli</span><br><span class="line">npm error Error: EACCES: permission denied, <span class="built_in">mkdir</span> <span class="string">&#x27;/usr/lib/node_modules/hexo-cli&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>这是权限问题，当前用户没有在系统目录 <code>/usr/lib/node_modules/</code> 安装全局包的权限。</p>
+<p>AI 提供了多种解决方案，我选择了为当前用户配置独立的 npm 全局安装目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户本地 npm 目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.npm-global</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 npm 使用此目录</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将目录添加到 PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=~/.npm-global/bin:$PATH&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在可以正常安装</span></span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>安装成功！不过我更喜欢在家目录中创建特定配置目录，比如 <code>mkdir -p ~/npm/.npm-global</code>，这个等博客搭建完成后再调整。</p>
+<p>验证安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo --version</span><br><span class="line"></span><br><span class="line">hexo-cli: 4.3.2</span><br><span class="line">os: linux 6.17.7-arch1-1 Arch Linux</span><br><span class="line">node: 25.1.0</span><br><span class="line"><span class="comment"># ... 其他版本信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="初始化博客"><a class="markdownIt-Anchor" href="#初始化博客"></a> 初始化博客</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init <span class="string">&quot;你的博客目录名称&quot;</span> <span class="comment"># 目录名称不含空格时双引号可省略</span></span><br></pre></td></tr></table></figure>
+<p>因网络状况不同，初始化耗时约一分钟：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">warning hexo-renderer-stylus &gt; stylus &gt; glob@7.2.3: Glob versions prior to v9 are no longer supported</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+<p>进入博客目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;博客目录&quot;</span></span><br></pre></td></tr></table></figure>
+<p>查看目录结构：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用 tree 命令</span></span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+<p>目录结构说明：</p>
+<ul>
+<li><code>_config.yml</code>: 全局配置文件，包含网站名称、描述、作者、语言、主题等设置</li>
+<li><code>scaffolds</code>: 模板文件，用于生成新页面或博客文章</li>
+<li><code>source</code>: 存放 Markdown 源文件，<code>_posts</code> 文件夹存放所有博客文章</li>
+<li><code>themes</code>: 主题目录，Hexo 有丰富的主题支持</li>
+</ul>
+<h3 id="创建新文章"><a class="markdownIt-Anchor" href="#创建新文章"></a> 创建新文章</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;test&quot;</span> <span class="comment"># 在 source/_posts/ 目录生成 &#x27;test.md&#x27;</span></span><br><span class="line">hexo generate        <span class="comment"># 生成静态 HTML 文件到 /public 文件夹</span></span><br><span class="line">hexo server          <span class="comment"># 本地预览，访问 http://localhost:4000</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加-netlify-构建脚本"><a class="markdownIt-Anchor" href="#添加-netlify-构建脚本"></a> 添加 Netlify 构建脚本</h3>
+<p>为了方便 Netlify 部署，在 <code>package.json</code> 中添加构建命令：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo generate&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;clean&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo clean&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;deploy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo deploy&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo server&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;netlify&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run clean &amp;&amp; npm run build&quot;</span> <span class="comment">// 新增此行</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>使用 Vim 编辑文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim package.json</span><br><span class="line"><span class="comment"># 按 i 进入插入模式，编辑内容，按 ESC 后输入 :wq 保存退出</span></span><br></pre></td></tr></table></figure>
+<h3 id="博客配置"><a class="markdownIt-Anchor" href="#博客配置"></a> 博客配置</h3>
+<p><code>_config.yml</code> 主要配置项说明：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 网站信息</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo</span>                    <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span>                      <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span>                   <span class="comment"># 网站描述</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span>               <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span>                      <span class="comment"># 语言</span></span><br><span class="line"><span class="attr">timezone:</span>                      <span class="comment"># 时区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 设置</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://yoursite.com</span>       <span class="comment"># 网站地址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span>                        <span class="comment"># 根目录</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span> <span class="comment"># 文章链接格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目录设置</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span>             <span class="comment"># 源文件目录</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span>             <span class="comment"># 输出目录</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span>               <span class="comment"># 主题名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写作设置</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span>       <span class="comment"># 新文章文件名</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span>           <span class="comment"># 默认布局</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署设置</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span>                     <span class="comment"># 部署类型，常用 git</span></span><br></pre></td></tr></table></figure>
+<h2 id="github-项目托管"><a class="markdownIt-Anchor" href="#github-项目托管"></a> GitHub 项目托管</h2>
+<p>创建本地仓库并推送到 GitHub：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;博客目录&quot;</span></span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;my blog first commit&quot;</span></span><br><span class="line">git remote add origin <span class="string">&quot;远端github仓库地址&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<p>不过说实话……Git 我还不太熟练……</p>
+<p><strong>未完待续</strong>……下一章可能是《Git 入门指南》</p>
+<p>记录一下时间：从 23:20 开始到现在 00:14，花了 54 分钟，但核心功能还没完成。下一步是 Netlify 建站。</p>
+<p><strong>真的未完待续</strong>……明天继续！</p>
+<p>2025-11-06 20:33:39 更新</p>
+<h3 id="git-学习资源"><a class="markdownIt-Anchor" href="#git-学习资源"></a> Git 学习资源</h3>
+<p>推荐廖雪峰的 Git 教程：<a href="https://liaoxuefeng.com/books/git">廖雪峰-Git教程</a></p>
+<p>教程目录：</p>
+<ol>
+<li>简介</li>
+<li>Git 是什么</li>
+<li>安装 Git</li>
+<li>创建版本库</li>
+<li>时光机穿梭</li>
+<li>远程仓库</li>
+</ol>
+<h2 id="netlify-建站部署"><a class="markdownIt-Anchor" href="#netlify-建站部署"></a> Netlify 建站部署</h2>
+<ol>
+<li>打开 <a href="https://app.netlify.com">Netlify</a>，使用 GitHub 账号登录</li>
+<li>进入 <a href="https://app.netlify.com/start">项目导入页面</a></li>
+<li>配置构建命令：
+<ul>
+<li>Build command: <code>npm run netlify</code></li>
+<li>Publish directory: <code>public</code></li>
+</ul>
+</li>
+</ol>
+<p>这里我遇到了一个问题：<code>package.json</code> 中少了一个逗号，修正后构建成功。</p>
+<h3 id="域名配置"><a class="markdownIt-Anchor" href="#域名配置"></a> 域名配置</h3>
+<p>将 Cloudflare 中的域名指向 Netlify 的二级域名：</p>
+<ul>
+<li>添加 CNAME 记录：<code>blog.066088.xyz</code> → <code>scvg.netlify.app</code></li>
+</ul>
+<p>然后在 Netlify 中配置自定义域名，否则无法直接通过自有域名访问。</p>
+<p>由于我直接在 Cloudflare 注册域名，不需要再进行域名托管。教程中提到的 HTTPS 配置，Netlify 会自动处理，无需手动配置即可通过 HTTPS 访问。</p>
+<p>博客基础搭建完成！接下来要学习如何写好博客内容……</p>
+<p>下次再见！应该就是这样了，不加速也能正常访问。</p>
+<blockquote>
+<p>2025年11月07日 00时37分11秒</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>重新认识一万元：被低估的财富转折点</title>
+    <url>/2025/11/28/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E4%B8%80%E4%B8%87%E5%85%83%EF%BC%9A%E8%A2%AB%E4%BD%8E%E4%BC%B0%E7%9A%84%E8%B4%A2%E5%AF%8C%E8%BD%AC%E6%8A%98%E7%82%B9/</url>
+    <content><![CDATA[<blockquote>
+<p>世界上99%的人都低估了1万元的威力</p>
+</blockquote>
+<h2 id="引言被麻木的金钱感知"><a class="markdownIt-Anchor" href="#引言被麻木的金钱感知"></a> 引言：被麻木的金钱感知</h2>
+<p>在网络充斥着“月入几十万”、“一个包几万块”的时代，我们对1万元这个具体的数字已经失去了感觉，变得麻木。然而，这被轻视的1万元，恰恰是改变命运的起点。</p>
+<h2 id="一-1万元的真正价值"><a class="markdownIt-Anchor" href="#一-1万元的真正价值"></a> 一、1万元的真正价值</h2>
+<h3 id="我们为何低估1万元"><a class="markdownIt-Anchor" href="#我们为何低估1万元"></a> 我们为何低估1万元？</h3>
+<p>大多数成年人都有能力反复赚到1万元，但并非每个人都能真正认识它的价值。作者分享亲身经历：曾花1万多元升级汽车刹车而被父亲教育，得到的启示是：乱花钱是因为“不知道钱到底是什么”。</p>
+<p><strong>钱的本质</strong>：钱是我们在这个世界上的<strong>时间</strong>和<strong>选择权</strong>。</p>
+<h2 id="二-打破阶级固化的支点"><a class="markdownIt-Anchor" href="#二-打破阶级固化的支点"></a> 二、打破阶级固化的支点</h2>
+<h3 id="什么是阶级固化"><a class="markdownIt-Anchor" href="#什么是阶级固化"></a> 什么是阶级固化？</h3>
+<ul>
+<li>每天“起早贪黑，拼命工作”，却始终在原地踏步</li>
+<li>每月工资刚好够房租、吃饭、还信用卡，然后“清零”</li>
+<li>不敢生病、不敢辞职、不敢说不，没有缓冲空间</li>
+</ul>
+<h3 id="1万元带来的选择权"><a class="markdownIt-Anchor" href="#1万元带来的选择权"></a> 1万元带来的选择权</h3>
+<p>对于月薪5000元的打工人来说，1万元意味着<strong>两个月的安全期</strong>：</p>
+<ul>
+<li>可以拒绝压榨你的老板</li>
+<li>有时间寻找更好的机会</li>
+<li>能学习新技能，尝试新赛道</li>
+</ul>
+<p><strong>1万元是你人生中第一笔真正意义上的资金，是打破阶级固化的第一个杠杆支点。</strong></p>
+<h2 id="三-投资自己1万元的正确用法"><a class="markdownIt-Anchor" href="#三-投资自己1万元的正确用法"></a> 三、投资自己：1万元的正确用法</h2>
+<p>1万元足以系统学习任何一门改变命运的技能：</p>
+<ul>
+<li>报名高质量的线上课程</li>
+<li>购买专业书籍和工具</li>
+<li>加入能帮助你改变的社群</li>
+</ul>
+<p><strong>改变命运的本质从来不是钱的多少，而是你有没有意识去撬动命运的那个支点。</strong></p>
+<h2 id="四-消费主义与贫穷心智"><a class="markdownIt-Anchor" href="#四-消费主义与贫穷心智"></a> 四、消费主义与贫穷心智</h2>
+<h3 id="时代的幻觉"><a class="markdownIt-Anchor" href="#时代的幻觉"></a> 时代的幻觉</h3>
+<p>我们生活在消费主义编织的“美梦”中：</p>
+<ul>
+<li>商家：“你要对自己好一点”</li>
+<li>平台：“可以分期付款”</li>
+<li>社交媒体：展示精致生活</li>
+</ul>
+<h3 id="你是钱的主人还是奴隶"><a class="markdownIt-Anchor" href="#你是钱的主人还是奴隶"></a> 你是钱的主人还是奴隶？</h3>
+<ul>
+<li><strong>支出</strong>：把钱花在消费品上</li>
+<li><strong>投资</strong>：把钱花在增值的地方</li>
+</ul>
+<p>买名牌包拍照发圈是支出；用1万元学习高价值技能是投资。</p>
+<h3 id="贫穷心智的恶性循环"><a class="markdownIt-Anchor" href="#贫穷心智的恶性循环"></a> 贫穷心智的恶性循环</h3>
+<p>贫穷心智是存不下钱的根本原因：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">拼命赚钱 → 账户有余额 → 潜意识不安 → 冲动消费 → 账户清零 → 继续拼命赚钱</span><br></pre></td></tr></table></figure>
+<p>舒适区就是“刚好活着”，一旦余额超过舒适区，潜意识就会驱使你把多余的钱花掉，重新回到“焦虑又刚好能活”的状态。</p>
+<h2 id="五-财富心智与临界点"><a class="markdownIt-Anchor" href="#五-财富心智与临界点"></a> 五、财富心智与临界点</h2>
+<h3 id="1万元的终极威力"><a class="markdownIt-Anchor" href="#1万元的终极威力"></a> 1万元的终极威力</h3>
+<p>当账户里有1万元余额时：</p>
+<ul>
+<li>大脑会记住这种安全感和掌控感</li>
+<li>舒适区的上限被拉高</li>
+<li>这个转变不亚于“重生一次”</li>
+</ul>
+<p><strong>财富思维会从“如何把钱花光”变成“如何让它增值”。</strong></p>
+<h3 id="从时间换钱到钱生钱"><a class="markdownIt-Anchor" href="#从时间换钱到钱生钱"></a> 从时间换钱到钱生钱</h3>
+<p>富人越来越富不是因为更聪明，而是财富心智舒适区的上限不同。</p>
+<p><strong>1万元是你进入投资世界的门票</strong>：</p>
+<ul>
+<li>穷人用时间换钱</li>
+<li>富人用钱生钱</li>
+<li>1万元是从“时间换钱”到“钱生钱”的临界点</li>
+</ul>
+<p>即使每年只有5%-10%的收益，钱也在为你工作。</p>
+<h2 id="结语"><a class="markdownIt-Anchor" href="#结语"></a> 结语</h2>
+<p>1万元不是简单的数字，而是：</p>
+<ul>
+<li>一个信号</li>
+<li>一个转折点</li>
+<li>一次人生的分水岭</li>
+</ul>
+<p><strong>从今天开始，永远不要让自己走到连1万元都拿不出的地步。</strong> 用这1万元重新定义你与金钱的关系，重新定义人生的可能性。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>我的“标准人生”使用说明书</title>
+    <url>/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/</url>
+    <content><![CDATA[<h2 id="第一章职业篇"><a class="markdownIt-Anchor" href="#第一章职业篇"></a> 第一章：职业篇</h2>
+<ul>
+<li>每日核心任务：在工位上深度表演“螺丝钉模仿艺术”，力求形神兼备</li>
+<li>成就系统：手茧的厚度与工资条上的数字，构成完美的反比函数</li>
+<li>企业文化：上司常言“公司是我家”，训诫时总带着家传的亲切感</li>
+</ul>
+<h2 id="第二章家庭篇"><a class="markdownIt-Anchor" href="#第二章家庭篇"></a> 第二章：家庭篇</h2>
+<ul>
+<li>效率至上：完成“结婚”KPI仅用时三天，比公司项目上线更快</li>
+<li>灵魂拷问：儿子天真地问：“爸爸，你能变成我手机里的‘王者’吗？”</li>
+<li>邻居标杆：妻子常说：“隔壁老王又升职了！”我沉思：“要不改姓王？”</li>
+</ul>
+<h2 id="第三章惊魂篇"><a class="markdownIt-Anchor" href="#第三章惊魂篇"></a> 第三章：惊魂篇</h2>
+<p>那日提前归家，耳贴门扉，闻得内有男声。</p>
+<p>内心上演全本《甄嬛传》：<br />
+“是修水管的好心人？<br />
+是煤气公司的安检员？<br />
+还是……”</p>
+<p>门开之后，妻子坦然：<br />
+“是来修电视的师傅。”</p>
+<p>我看了眼去年就已卖掉的电视机位置。</p>
+<p>善解人意的我，立即接受了这个充满科技与狠活的解释。</p>
+<p>毕竟，我是个连自己都能成功说服的老实人。</p>
+<h2 id="最终章感悟篇"><a class="markdownIt-Anchor" href="#最终章感悟篇"></a> 最终章：感悟篇</h2>
+<p>我的生活像一部上好发条的闹钟，<br />
+精准地在每个相同时刻响起。</p>
+<p>唯一的不同是——<br />
+闹钟尚有电池可换，重获新生；<br />
+而我，连身上的“静音键”在何处都遍寻不着。</p>
+<hr />
+<p><em>后记：生活或许是一本被安排好的说明书，但愿我们都能在空白处写下属于自己的注解。</em></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>生命终章：那些被时间冲刷的记忆</title>
+    <url>/2025/11/28/%E7%94%9F%E5%91%BD%E7%BB%88%E7%AB%A0%EF%BC%9A%E9%82%A3%E4%BA%9B%E8%A2%AB%E6%97%B6%E9%97%B4%E5%86%B2%E5%88%B7%E7%9A%84%E8%AE%B0%E5%BF%86/</url>
+    <content><![CDATA[<h2 id="当呼吸停止之后"><a class="markdownIt-Anchor" href="#当呼吸停止之后"></a> 当呼吸停止之后</h2>
+<p><strong>最初三小时</strong><br />
+撕心裂肺的哭喊在病房回荡，亲人的世界瞬间崩塌。</p>
+<p><strong>二十四小时</strong><br />
+消息在朋友圈里悄然扩散，震惊与唏嘘在手机屏幕间传递。那些曾与你举杯共饮的人，此刻正偷偷抹去眼角的泪水。</p>
+<p><strong>第三个黎明</strong><br />
+葬礼的喧嚣渐渐平息，留在亲人心中的是一个永远无法填补的空洞。你的房间保持着原样，仿佛你只是出门远行。</p>
+<h2 id="时光的河流继续奔涌"><a class="markdownIt-Anchor" href="#时光的河流继续奔涌"></a> 时光的河流继续奔涌</h2>
+<p><strong>第七天</strong><br />
+你成了茶余饭后的话题，在某个饭局上被短暂记起。有人感叹命运无常，有人暗自庆幸——还好不是自己。</p>
+<p><strong>第三十天</strong><br />
+生活恢复了往日的节奏。只是偶尔，当老友遇到难题时，会下意识地翻找你的联系方式。</p>
+<p><strong>第一百八十天</strong><br />
+除了至亲，已经很少有人提起你的名字。你的照片依然摆在桌上，但泪水已经流干。</p>
+<h2 id="渐行渐远的背影"><a class="markdownIt-Anchor" href="#渐行渐远的背影"></a> 渐行渐远的背影</h2>
+<p><strong>整整一年</strong><br />
+通讯录里你的名字被一个个删除。只有清明时节的纸钱，还在诉说着未完的话语。</p>
+<p><strong>三度春秋</strong><br />
+你变成了一个仪式，一个在特定日子必须完成的流程。亲人的悲伤已经沉淀为心底最深处的一道刻痕。</p>
+<h2 id="写在时光的彼岸"><a class="markdownIt-Anchor" href="#写在时光的彼岸"></a> 写在时光的彼岸</h2>
+<p>这段残酷的时间轴告诉我们：</p>
+<blockquote>
+<p>生命是一场单程旅行<br />
+没有人会永远停留在你的站台<br />
+也没有人能永远将你珍藏心底</p>
+</blockquote>
+<p><strong>但正因如此</strong><br />
+每一个清醒的早晨都值得感恩<br />
+每一顿寻常的晚餐都值得珍惜<br />
+每一次心跳都在提醒我们：</p>
+<p><strong>好好吃饭，认真睡觉<br />
+在有限的时光里，无限地活着</strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Qutebrowser基础指南</title>
+    <url>/2025/12/27/Qutebrowser%E5%9F%BA%E7%A1%80%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>qutebrowser 的核心逻辑是 <strong>Vim 风格</strong>，它极其强调“模式”（Mode）。在普通模式下，每一个按键都是一个功能命令。</p>
+<h3 id="1-访问与地址栏-url-commands"><a class="markdownIt-Anchor" href="#1-访问与地址栏-url-commands"></a> 1. 访问与地址栏 (URL &amp; Commands)</h3>
+<p>这部分是你之前比较关心的核心操作。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键</th>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>o</code></strong></td>
+<td style="text-align:left">打开网页</td>
+<td style="text-align:left">弹出命令行，输入网址或搜索词</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>O</code></strong></td>
+<td style="text-align:left"><strong>新标签页</strong>打开网页</td>
+<td style="text-align:left">在新标签页打开输入的内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>xo</code></strong></td>
+<td style="text-align:left">修改当前 URL</td>
+<td style="text-align:left">自动填充当前地址供你编辑修改</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>xO</code></strong></td>
+<td style="text-align:left">修改并在<strong>新标签</strong>打开</td>
+<td style="text-align:left">基于当前地址修改，在新页打开</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>go</code></strong></td>
+<td style="text-align:left">重新载入当前 URL</td>
+<td style="text-align:left">填充当前地址，类似于刷新前的确认</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>r</code></strong></td>
+<td style="text-align:left">刷新</td>
+<td style="text-align:left">相当于浏览器刷新按钮</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>R</code></strong></td>
+<td style="text-align:left">强制刷新</td>
+<td style="text-align:left">忽略缓存刷新 (Ctrl+F5)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>yy</code></strong></td>
+<td style="text-align:left">复制 URL</td>
+<td style="text-align:left">复制当前网页地址到剪贴板</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-标签页管理-tab-management"><a class="markdownIt-Anchor" href="#2-标签页管理-tab-management"></a> 2. 标签页管理 (Tab Management)</h3>
+<p>qutebrowser 处理标签页非常高效。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键</th>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>J</code></strong> / <strong><code>K</code></strong></td>
+<td style="text-align:left">下/上一个标签</td>
+<td style="text-align:left">快速在不同标签页间左右切换 (高频!)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>d</code></strong></td>
+<td style="text-align:left"><strong>关闭</strong>当前标签</td>
+<td style="text-align:left">Delete</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>u</code></strong></td>
+<td style="text-align:left"><strong>撤销关闭</strong></td>
+<td style="text-align:left">恢复最近关闭的一个网页 (Undo)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>T</code></strong></td>
+<td style="text-align:left">标签切换器</td>
+<td style="text-align:left">弹出一个列表搜索并跳转标签页</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>g0</code></strong> / <strong><code>g$</code></strong></td>
+<td style="text-align:left">跳至首/尾标签</td>
+<td style="text-align:left">快速跳转到第一个或最后一个标签</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Ctrl-p</code></strong></td>
+<td style="text-align:left">切换到上一个活跃标签</td>
+<td style="text-align:left">在最近使用的两个标签间来回横跳</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-页面内导航-navigation"><a class="markdownIt-Anchor" href="#3-页面内导航-navigation"></a> 3. 页面内导航 (Navigation)</h3>
+<p>不需要鼠标，像操作 Vim 一样滚动页面。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键</th>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>j</code> / <code>k</code></strong></td>
+<td style="text-align:left">向下/向上滚动</td>
+<td style="text-align:left">小幅度滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>h</code> / <code>l</code></strong></td>
+<td style="text-align:left">向左/向右滚动</td>
+<td style="text-align:left">页面左右移动</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>gg</code> / <code>G</code></strong></td>
+<td style="text-align:left">回到顶部/去到底部</td>
+<td style="text-align:left">快速长距离移动</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Space</code></strong></td>
+<td style="text-align:left">向下翻页</td>
+<td style="text-align:left">相当于 PageDown</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>H</code> / <code>L</code></strong></td>
+<td style="text-align:left">后退/前进</td>
+<td style="text-align:left">浏览历史的前进后退 (大写字母)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>f</code></strong></td>
+<td style="text-align:left"><strong>点击模式 (Hint)</strong></td>
+<td style="text-align:left">给所有链接打上字母标签，按字母即点击 (核心!)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>F</code></strong></td>
+<td style="text-align:left"><strong>后台打开链接</strong></td>
+<td style="text-align:left">同上，但在后台新标签页打开 (相当于 <code>open -b</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-搜索与查找-search"><a class="markdownIt-Anchor" href="#4-搜索与查找-search"></a> 4. 搜索与查找 (Search)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键</th>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>/</code></strong></td>
+<td style="text-align:left">页面内搜索</td>
+<td style="text-align:left">输入文字开始在当前页查找</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>n</code></strong> / <strong><code>N</code></strong></td>
+<td style="text-align:left">下一个 / 上一个</td>
+<td style="text-align:left">循环跳转搜索到的匹配项</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>?</code></strong></td>
+<td style="text-align:left">百度/谷歌搜索</td>
+<td style="text-align:left">(视配置而定) 快捷搜索选中文字</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-缩放与显示-zoom-display"><a class="markdownIt-Anchor" href="#5-缩放与显示-zoom-display"></a> 5. 缩放与显示 (Zoom &amp; Display)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键</th>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>+</code> / <code>-</code> / <code>=</code></strong></td>
+<td style="text-align:left">放大 / 缩小 / 恢复</td>
+<td style="text-align:left">页面缩放控制</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>i</code></strong></td>
+<td style="text-align:left"><strong>输入模式</strong></td>
+<td style="text-align:left">进入文本框填写内容，按 <code>Esc</code> 退出回普通模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>v</code></strong></td>
+<td style="text-align:left"><strong>视觉模式</strong></td>
+<td style="text-align:left">像在编辑器里一样选择网页文本</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>w p</code></strong></td>
+<td style="text-align:left">切换代理</td>
+<td style="text-align:left">如果你配了多代理，这是常用的快捷命令 (视配置)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>b b</code></strong></td>
+<td style="text-align:left">隐藏/显示状态栏</td>
+<td style="text-align:left">极致简洁模式</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6-进阶小建议"><a class="markdownIt-Anchor" href="#6-进阶小建议"></a> 6. 进阶小建议</h3>
+<ol>
+<li><strong>分不清模式时按 <code>Esc</code></strong>：如果你发现按什么键都没反应（或者在打字），说明你在“输入模式”，按 <code>Esc</code> 回到“普通模式”是所有操作的前提。</li>
+<li><strong>善用 <code>F</code> 键</strong>：这是用 qutebrowser 的灵魂。看新闻或搜东西时，按一下 <code>F</code>，然后看准链接上的字母，按下对应按键，网页就在后台打开了，手不需要离开键盘。</li>
+<li><strong><code>:help</code> 是最好的文档</strong>：在底部命令行输入 <code>:help</code> 回车，会打开一个非常详尽且带搜索功能的本地文档。</li>
+<li><strong>组合键</strong>：如果想给特定网页写规则（比如你之前问的 Hyprland 规则），可以用 <code>:set</code> 临时测试属性。</li>
+</ol>
+<p><strong>如果你想自定义按键：</strong><br />
+可以编辑 <code>config.py</code>，使用 <code>config.bind('你的按键', '命令')</code> 来随心所欲定制。例如：<br />
+<code>config.bind('tt', 'open -b')</code> 就可以把 <code>tt</code> 设为在后台打开。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Zsh Vi-Mode使用手册</title>
+    <url>/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<h1 id="vi-习惯指南-zsh"><a class="markdownIt-Anchor" href="#vi-习惯指南-zsh"></a> Vi 习惯指南： Zsh</h1>
+<blockquote>
+<p><strong>环境声明</strong>：Arch Linux | Kitty 0.44 | Zsh (Vi-mode) | Neovim v0.11.5 | Hyprland (JaKooLit)</p>
+</blockquote>
+<p>本指南旨在将 <code>HJKL</code> 的肌肉记忆贯穿整个系统：从窗口管理到终端编辑，再到历史回溯。</p>
+<hr />
+<h2 id="1-终端级zsh-vi-mode-核心操作"><a class="markdownIt-Anchor" href="#1-终端级zsh-vi-mode-核心操作"></a> 1. 终端级：Zsh Vi-Mode 核心操作</h2>
+<p>在终端执行 <code>bindkey -v</code> 后， Zsh 变成了“单行 Vim”。</p>
+<h3 id="模式切换"><a class="markdownIt-Anchor" href="#模式切换"></a> 🔹 模式切换</h3>
+<ul>
+<li><strong>进入命令模式 (Normal)</strong>：输入 <code>jk</code> (自定义) 或 <code>ESC</code>。
+<ul>
+<li><em>视觉提示</em>：光标变为 <strong>方块 █</strong>。</li>
+</ul>
+</li>
+<li><strong>进入插入模式 (Insert)</strong>：按 <code>i</code> (前插)、<code>a</code> (后插)、<code>I</code> (行首)、<code>A</code> (行尾)。
+<ul>
+<li><em>视觉提示</em>：光标变为 <strong>竖线 |</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="移动与快速定位-normal-mode"><a class="markdownIt-Anchor" href="#移动与快速定位-normal-mode"></a> 🔹 移动与快速定位 (Normal Mode)</h3>
+<ul>
+<li><strong>基础</strong>：<code>h</code> <code>j</code> <code>k</code> <code>l</code> (左 下 上 右)。</li>
+<li><strong>单词</strong>：<code>w</code> (跳至下个单词头), <code>b</code> (跳至上个单词头), <code>e</code> (跳至单词尾)。</li>
+<li><strong>行缘</strong>：<code>0</code> (行首), <code>$</code> (行尾)。</li>
+<li><strong>历史翻阅</strong>：<code>j</code> / <code>k</code> 或 <code>/</code> 后输入关键词回车。</li>
+</ul>
+<h3 id="极速编辑"><a class="markdownIt-Anchor" href="#极速编辑"></a> 🔹 极速编辑</h3>
+<ul>
+<li><strong>删除</strong>：<code>x</code> (删字符), <code>dw</code> (删单词), <code>dd</code> (清空行)。</li>
+<li><strong>修改</strong>：<code>cw</code> (改单词), <code>C</code> (改至行尾)。</li>
+<li><strong>撤销</strong>：<code>u</code> (Undo)。</li>
+</ul>
+<hr />
+<h2 id="2-跨维度kitty-neovim-联动"><a class="markdownIt-Anchor" href="#2-跨维度kitty-neovim-联动"></a> 2. 跨维度：Kitty + Neovim 联动</h2>
+<p>通过配置 <code>scrollback_pager</code>，我们可以用 Neovim 的威力来处理终端历史输出。</p>
+<h3 id="历史回溯-alt-h"><a class="markdownIt-Anchor" href="#历史回溯-alt-h"></a> 🔹 历史回溯 (Alt + H)</h3>
+<ol>
+<li>按下 <strong><code>Alt + H</code></strong>：当前终端所有输出在一个临时的 Neovim 缓冲区打开。</li>
+<li><strong>搜索</strong>：输入 <code>/关键词</code> 快速定位报错信息或日志。</li>
+<li><strong>复制</strong>：按 <code>v</code> 选中，按 <code>y</code> 复制（已同步至系统剪切板）。</li>
+<li><strong>退出</strong>：输入 <code>:q</code> 瞬间回到直播终端。</li>
+</ol>
+<h3 id="长命令编辑-normal-mode-v"><a class="markdownIt-Anchor" href="#长命令编辑-normal-mode-v"></a> 🔹 长命令编辑 (Normal Mode -&gt; v)</h3>
+<ol>
+<li>在输入复杂命令时，按 <code>jk</code> 进入命令模式。</li>
+<li>按下 <strong><code>v</code></strong>。</li>
+<li>在弹出的全屏 Neovim 中编写脚本。</li>
+<li><code>:wq</code> 保存退出，命令自动回填并准备执行。</li>
+</ol>
+<hr />
+<h2 id="3-系统级hyprland-窗口管理"><a class="markdownIt-Anchor" href="#3-系统级hyprland-窗口管理"></a> 3. 系统级：Hyprland 窗口管理</h2>
+<p>利用 <code>Super</code> (Windows 键) 配合 <code>HJKL</code> 实现无感窗口切换。</p>
+<ul>
+<li><strong><code>Super + H/J/K/L</code></strong>：在当前工作区切换窗口焦点。</li>
+<li><strong><code>Super + Shift + H/J/K/L</code></strong>：物理移动当前窗口的位置。</li>
+</ul>
+<hr />
+<h2 id="核心配置备忘-configuration-cheat-sheet"><a class="markdownIt-Anchor" href="#核心配置备忘-configuration-cheat-sheet"></a> 💡 核心配置备忘 (Configuration Cheat-sheet)</h2>
+<h3 id="zsh-~zshrc"><a class="markdownIt-Anchor" href="#zsh-~zshrc"></a> Zsh (<code>~/.zshrc</code>)</h3>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">bindkey</span> -v</span><br><span class="line"><span class="built_in">export</span> KEYTIMEOUT=15</span><br><span class="line"><span class="built_in">bindkey</span> -M viins <span class="string">&#x27;jk&#x27;</span> vi-cmd-mode</span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd <span class="string">&#x27;k&#x27;</span> up-line-or-beginning-search <span class="comment"># 带记忆的搜索</span></span><br><span class="line"><span class="built_in">bindkey</span> -M vicmd <span class="string">&#x27;j&#x27;</span> down-line-or-beginning-search</span><br></pre></td></tr></table></figure>
+<h3 id="kitty-~configkittykittyconf"><a class="markdownIt-Anchor" href="#kitty-~configkittykittyconf"></a> Kitty (<code>~/.config/kitty/kitty.conf</code>)</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scrollback_pager nvim -c &quot;set signcolumn=no showtabline=0&quot; -c &quot;silent! write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - &quot; -c &quot;normal G&quot;</span><br><span class="line">map alt+h show_scrollback</span><br></pre></td></tr></table></figure>
+<h3 id="hyprland-~confighypruserconfigsuserkeybindsconf"><a class="markdownIt-Anchor" href="#hyprland-~confighypruserconfigsuserkeybindsconf"></a> Hyprland (<code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code>)</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, H, movefocus, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, L, movefocus, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, K, movefocus, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, J, movefocus, d</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="常用快捷键速查表"><a class="markdownIt-Anchor" href="#常用快捷键速查表"></a> 📋 常用快捷键速查表</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">功能维度</th>
+<th style="text-align:left">快捷键</th>
+<th style="text-align:left">动作描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>模式切换</strong></td>
+<td style="text-align:left"><code>jk</code></td>
+<td style="text-align:left">退出插入模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>命令编辑</strong></td>
+<td style="text-align:left"><code>v</code></td>
+<td style="text-align:left">在 Neovim 中编辑当前行</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>屏幕复制</strong></td>
+<td style="text-align:left"><code>Alt + H</code></td>
+<td style="text-align:left">像编辑文件一样复制终端历史</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>历史命令</strong></td>
+<td style="text-align:left"><code>k</code> / <code>j</code></td>
+<td style="text-align:left">向上/下翻阅历史</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>窗口聚焦</strong></td>
+<td style="text-align:left"><code>Super + HJKL</code></td>
+<td style="text-align:left">切换当前工作区窗口</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>窗口位移</strong></td>
+<td style="text-align:left"><code>Super + Shift + HJKL</code></td>
+<td style="text-align:left">调整窗口布局</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Generated by Arch_z Config Reference</em></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>全栈Vi操作手册（一）</title>
+    <url>/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>环境声明</strong>：Arch Linux | Hyprland (JaKooLit) | Kitty | Zsh (agnosterzak) | Neovim</p>
+</blockquote>
+<h2 id="第一章zsh-vi-mode"><a class="markdownIt-Anchor" href="#第一章zsh-vi-mode"></a> 第一章：Zsh Vi-Mode</h2>
+<h3 id="1-核心状态切换"><a class="markdownIt-Anchor" href="#1-核心状态切换"></a> 1. 核心状态切换</h3>
+<ul>
+<li><strong>插入模式 (Insert)</strong>：默认状态，光标为 <strong>竖线 <code>|</code></strong>，左侧显示 <code>-- INSERT --</code>。此时正常打字。</li>
+<li><strong>退出到命令模式 (Normal)</strong>：快速连按 <strong><code>jk</code></strong> 或按 <code>ESC</code>。
+<ul>
+<li><em>状态变化</em>：光标变 <strong>方块 <code>█</code></strong>，左侧变红显示 <code>-- NORMAL --</code>。</li>
+</ul>
+</li>
+<li><strong>重回输入</strong>：在 Normal 模式下按 <code>i</code> (当前位置) 或 <code>a</code> (后移一格)。</li>
+</ul>
+<h3 id="2-normal-模式"><a class="markdownIt-Anchor" href="#2-normal-模式"></a> 2. Normal 模式</h3>
+<p>按下 <code>jk</code> 进入 Normal 模式：</p>
+<ul>
+<li><strong>单词跳跃</strong>：按 <code>w</code> 跳到下个单词开头，按 <code>b</code> 回跳。</li>
+<li><strong>首尾跳转</strong>：按 <code>0</code> (零) 回行首，按 <code>$</code> 到行尾。</li>
+<li><strong>修改</strong>：
+<ul>
+<li><code>x</code>：删除当前光标下的字符。</li>
+<li><code>dw</code>：删除当前光标后的整个单词。</li>
+<li><code>dd</code>：清空当前整行命令。</li>
+</ul>
+</li>
+<li><strong>撤销</strong>：按 <code>u</code> 撤销刚才的删除。</li>
+</ul>
+<h3 id="3-历史命令搜索"><a class="markdownIt-Anchor" href="#3-历史命令搜索"></a> 3. 历史命令搜索</h3>
+<ul>
+<li><strong>上下翻找</strong>：进入模式后，直接按 <code>k</code> 向上翻，<code>j</code> 向下翻。</li>
+<li><strong>高级过滤</strong>：先输入 <code>git</code>，再按 <code>jk</code> 进入模式按 <code>k</code>，它只会翻出你以前输入过的 <code>git</code> 相关命令。</li>
+</ul>
+<h3 id="4-v-编辑长命令"><a class="markdownIt-Anchor" href="#4-v-编辑长命令"></a> 4. <code>v</code> 编辑长命令</h3>
+<ul>
+<li><strong>场景</strong>：一个很长的脚本或带有复杂嵌套引号的 Shell 命令。</li>
+<li><strong>操作</strong>：在 Normal 模式下按下 <strong><code>v</code></strong>。</li>
+<li><strong>效果</strong>：系统会进入 <code>-- VISUAL--</code> 模式 。</li>
+</ul>
+<hr />
+<h2 id="第二章hyprland-窗口管理"><a class="markdownIt-Anchor" href="#第二章hyprland-窗口管理"></a> 第二章：Hyprland 窗口管理</h2>
+<h3 id="1-焦点切换-super-hjkl"><a class="markdownIt-Anchor" href="#1-焦点切换-super-hjkl"></a> 1. 焦点切换 (Super + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：终端，文档同时打开。</li>
+<li><strong>操作</strong>：按住 <strong><code>Super</code></strong> 不放，按 <code>h</code> 往左跳，按 <code>l</code> 往右跳。</li>
+</ul>
+<h3 id="2-窗口位移-super-ctrl-hjkl"><a class="markdownIt-Anchor" href="#2-窗口位移-super-ctrl-hjkl"></a> 2. 窗口位移 (Super + Ctrl + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：当你想把当前屏幕中间的终端移动到最左侧。</li>
+<li><strong>操作</strong>：<strong><code>Super + Ctrl + h</code></strong>。窗口会物理性地向左侧“平移”。</li>
+</ul>
+<h3 id="3-丝滑缩放-super-shift-hjkl"><a class="markdownIt-Anchor" href="#3-丝滑缩放-super-shift-hjkl"></a> 3. 丝滑缩放 (Super + Shift + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：觉得终端太窄，想拉宽一点。</li>
+<li><strong>操作</strong>：按住 <strong><code>Super + Shift + hjkl</code></strong>。</li>
+</ul>
+<hr />
+<h2 id="第三章kitty-历史回溯"><a class="markdownIt-Anchor" href="#第三章kitty-历史回溯"></a> 第三章：Kitty 历史回溯</h2>
+<h3 id="1-进入回溯模式"><a class="markdownIt-Anchor" href="#1-进入回溯模式"></a> 1. 进入回溯模式</h3>
+<ul>
+<li>按下 <strong><code>Alt + h</code></strong>。</li>
+</ul>
+<h3 id="2-复制屏幕上的报错信息"><a class="markdownIt-Anchor" href="#2-复制屏幕上的报错信息"></a> 2. 复制屏幕上的报错信息</h3>
+<ul>
+<li><strong>场景</strong>：终端打印了一大堆报错，你需要复制其中一段。</li>
+<li><strong>步骤</strong>：
+<ol>
+<li>按 <code>Alt + h</code>。此时整个终端变成了一个 Neovim 只读文件。</li>
+<li>用 <code>hjkl</code> 找到报错行，或者按 <code>/</code> 输入关键词搜索。</li>
+<li>按 <code>v</code> 进入视觉模式，选中文字。</li>
+<li>按下 <strong><code>y</code></strong>。</li>
+<li>按 <code>q</code> 退出。</li>
+</ol>
+</li>
+<li><strong>结果</strong>：内容已在你的系统剪切板，直接在浏览器里 <code>Ctrl+v</code> 即可。</li>
+</ul>
+<hr />
+<h2 id="第四章rofi-菜单"><a class="markdownIt-Anchor" href="#第四章rofi-菜单"></a> 第四章：Rofi 菜单</h2>
+<ul>
+<li><strong>启动</strong>：按 <code>Super + Space</code> (或你的 Rofi 键)。</li>
+<li><strong>选择</strong>：
+<ul>
+<li>输入 <code>brave</code>。</li>
+<li><strong>向上/下</strong>：按住 <strong><code>Ctrl</code></strong>，点击 <code>j</code> 或 <code>k</code> 进行挑选。</li>
+</ul>
+</li>
+<li><strong>确认</strong>：按下 <strong><code>Ctrl + m</code></strong> 或 <code>Enter</code> 启动。</li>
+</ul>
+<hr />
+<hr />
+<h2 id="️-五-核心配置汇总"><a class="markdownIt-Anchor" href="#️-五-核心配置汇总"></a> 🛠️ 五、 核心配置汇总</h2>
+<h3 id="1-hyprland系统级窗口管理"><a class="markdownIt-Anchor" href="#1-hyprland系统级窗口管理"></a> 1. Hyprland：系统级窗口管理</h3>
+<p><strong>配置文件</strong>：<code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code><br />
+将方向键逻辑 1:1 映射到 HJKL，利用 <code>binde</code> 实现丝滑缩放。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 移动窗口焦点 (Move Focus) -&gt; Super + HJKL</span></span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, H, movefocus, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, L, movefocus, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, K, movefocus, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, J, movefocus, d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调整窗口大小 (Resize Window) -&gt; Super + Shift + HJKL</span></span><br><span class="line"><span class="comment"># binde 确保长按时连续缩放</span></span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, H, resizeactive, -40 0</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, L, resizeactive, 40 0</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, K, resizeactive, 0 -40</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, J, resizeactive, 0 40</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动窗口物理位置 (Move Window) -&gt; Super + Ctrl + HJKL</span></span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, H, movewindow, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, L, movewindow, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, K, movewindow, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, J, movewindow, d</span><br></pre></td></tr></table></figure>
+<h3 id="2-zsh高性能-vi-模式"><a class="markdownIt-Anchor" href="#2-zsh高性能-vi-模式"></a> 2. Zsh：高性能 Vi 模式</h3>
+<p><strong>配置文件</strong>：<code>~/.zshrc</code><br />
+<strong>优化重点</strong>：解决了 <code>agnosterzak</code> 主题下猛按回车卡顿的问题，并实现了状态同步。</p>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启用 Vi 模式与 jk 映射</span></span><br><span class="line"><span class="built_in">bindkey</span> -v</span><br><span class="line"><span class="built_in">export</span> KEYTIMEOUT=15</span><br><span class="line"><span class="built_in">bindkey</span> -M viins <span class="string">&#x27;jk&#x27;</span> vi-cmd-mode</span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态显示函数 (右侧 RPROMPT)</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">vi_mode_prompt_info</span></span>() &#123;</span><br><span class="line">  [[ <span class="variable">$&#123;KEYMAP&#125;</span> == vicmd ]] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;%F&#123;red&#125;-- NORMAL --%f&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;%F&#123;green&#125;-- INSERT --%f&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">RPROMPT=<span class="string">&#x27;$(vi_mode_prompt_info)&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 模式切换钩子：同步光标形状与状态显示</span></span><br><span class="line"><span class="keyword">function</span> zle-keymap-<span class="function"><span class="title">select</span></span>() &#123;</span><br><span class="line">  <span class="keyword">if</span> [[ <span class="variable">$&#123;KEYMAP&#125;</span> == vicmd ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[1 q&#x27;</span> <span class="comment"># 方块</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> <span class="comment"># 竖线</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="built_in">zle</span> reset-prompt <span class="comment"># 仅在模式切换时重绘，保证性能</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">zle</span> -N zle-keymap-select</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始行钩子：防止猛按回车掉帧</span></span><br><span class="line"><span class="keyword">function</span> zle-line-<span class="function"><span class="title">init</span></span>() &#123; <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> &#125;</span><br><span class="line"><span class="built_in">zle</span> -N zle-line-init</span><br><span class="line"><span class="function"><span class="title">precmd</span></span>() &#123; <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 补全菜单 HJKL 导航</span></span><br><span class="line"><span class="built_in">zmodload</span> zsh/complist</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;h&#x27;</span> vi-backward-char</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;k&#x27;</span> vi-up-line-or-history</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;j&#x27;</span> down-line-or-history</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;l&#x27;</span> vi-forward-char</span><br></pre></td></tr></table></figure>
+<h3 id="3-kitty-neovim历史回溯与复制"><a class="markdownIt-Anchor" href="#3-kitty-neovim历史回溯与复制"></a> 3. Kitty + Neovim：历史回溯与复制</h3>
+<p><strong>配置文件</strong>：<code>~/.config/kitty/kitty.conf</code><br />
+利用 Neovim 的威力处理终端滚动缓存。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 设置 nvim 为分页器</span><br><span class="line">scrollback_pager nvim -c &quot;set signcolumn=no showtabline=0&quot; -c &quot;silent! write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - &quot; -c &quot;normal G&quot;</span><br><span class="line"></span><br><span class="line"># 快捷键：Alt + H 进入回溯模式</span><br><span class="line">map alt+h show_scrollback</span><br></pre></td></tr></table></figure>
+<h3 id="4-rofi应用导航"><a class="markdownIt-Anchor" href="#4-rofi应用导航"></a> 4. Rofi：应用导航</h3>
+<p><strong>配置文件</strong>：<code>~/.config/rofi/config.rasi</code><br />
+强制释放被占用的快捷键。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">configuration &#123;</span><br><span class="line">    kb-remove-char-back: &quot;BackSpace&quot;;     // 释放 Ctrl+h</span><br><span class="line">    kb-remove-to-eol: &quot;&quot;;                 // 释放 Ctrl+k</span><br><span class="line">    kb-mode-complete: &quot;&quot;;                 // 释放 Ctrl+l</span><br><span class="line">    kb-mode-next: &quot;Shift+Right&quot;;          // 释放 Right</span><br><span class="line">    kb-mode-previous: &quot;Shift+Left&quot;;       // 释放 Left</span><br><span class="line"></span><br><span class="line">    kb-row-up: &quot;Up,Control+k&quot;;</span><br><span class="line">    kb-row-down: &quot;Down,Control+j&quot;;</span><br><span class="line">    kb-row-left: &quot;Control+h&quot;;</span><br><span class="line">    kb-row-right: &quot;Control+l&quot;;</span><br><span class="line">    kb-accept-entry: &quot;Control+m,Return,KP_Enter&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="六-使用指南"><a class="markdownIt-Anchor" href="#六-使用指南"></a> 📖 六、 使用指南</h2>
+<h3 id="1-窗口管理-hyprland"><a class="markdownIt-Anchor" href="#1-窗口管理-hyprland"></a> 1. 窗口管理 (Hyprland)</h3>
+<ul>
+<li><strong>切换窗口</strong>：<code>Super + h/j/k/l</code>。无需鼠标，直接在窗口间穿梭。</li>
+<li><strong>调整尺寸</strong>：<code>Super + Shift + h/j/k/l</code>。长按 L 键，窗口向右丝滑变宽。</li>
+</ul>
+<h3 id="2-终端编辑-zsh"><a class="markdownIt-Anchor" href="#2-终端编辑-zsh"></a> 2. 终端编辑 (Zsh)</h3>
+<ul>
+<li><strong>进入/退出模式</strong>：默认打字模式（竖线光标），快速输入 <strong><code>jk</code></strong> 进入命令模式（方块光标，右侧变红）。</li>
+<li><strong>高效移动</strong>：在命令模式下用 <code>w</code> / <code>b</code> 按单词跳跃，用 <code>0</code> / <code>$</code> 跳到行首行尾。</li>
+<li><strong>长命令编辑</strong>：模式下按 <strong><code>v</code></strong>，自动在 Neovim 中打开当前行，编辑完 <code>:wq</code> 即可回填。</li>
+</ul>
+<h3 id="3-历史搜索与复制-kitty-nvim"><a class="markdownIt-Anchor" href="#3-历史搜索与复制-kitty-nvim"></a> 3. 历史搜索与复制 (Kitty + Nvim)</h3>
+<ul>
+<li><strong>场景</strong>：需要复制屏幕上方几百行前的报错 ID。</li>
+<li><strong>操作</strong>：按 <strong><code>Alt + H</code></strong>。现在你处于一个 Neovim 窗口中：
+<ol>
+<li><code>/</code> 搜索关键字。</li>
+<li><code>v</code> 选中，<code>y</code> 复制（已同步系统剪切板）。</li>
+<li><code>q</code> 退出，回到终端粘贴。</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-应用启动-rofi"><a class="markdownIt-Anchor" href="#4-应用启动-rofi"></a> 4. 应用启动 (Rofi)</h3>
+<ul>
+<li>按下启动快捷键，输入名字，按 <strong><code>Ctrl + j/k</code></strong> 上下挑选，<strong><code>Ctrl + m</code></strong> 确认。</li>
+</ul>
+<hr />
+<h2 id="常见问题排查-faq"><a class="markdownIt-Anchor" href="#常见问题排查-faq"></a> 💡 常见问题排查 (FAQ)</h2>
+<ol>
+<li><strong>卡顿问题</strong>：如果长按回车卡顿，请检查 <code>.zshrc</code> 中 <code>zle-line-init</code> 函数内是否包含了 <code>zle reset-prompt</code>。<strong>必须删掉它</strong>。</li>
+<li><strong>按键冲突</strong>：如果 <code>Super + H</code> 无效，终端运行 <code>grep -r &quot;bind.*H&quot; ~/.config/hypr/</code> 找出占用它的配置并注释掉（JaKooLit 默认通常将其用于帮助面板）。</li>
+<li><strong>剪切板无效</strong>：确保 Neovim 配置文件中包含 <code>vim.opt.clipboard = &quot;unnamedplus&quot;</code>，否则 <code>Alt + H</code> 模式下的复制无法传给浏览器。</li>
+</ol>
+<hr />
+<h2 id="肌肉记忆训练建议-训练计划"><a class="markdownIt-Anchor" href="#肌肉记忆训练建议-训练计划"></a> 💡 肌肉记忆训练建议 (训练计划)</h2>
+<p>为了在一周内彻底习惯这套系统，请尝试以下练习：</p>
+<ol>
+<li><strong>第一天</strong>：强制自己只用 <code>jk</code> 退出插入模式，删掉脑子里的 <code>ESC</code>。</li>
+<li><strong>第二天</strong>：在终端需要修改命令时，严禁使用方向键。进入 Normal 模式，用 <code>w/b</code> 定位，用 <code>x</code> 删除。</li>
+<li><strong>第三天</strong>：练习 <code>Super + HJKL</code> 切换窗口。如果发现自己去摸鼠标，立刻把手缩回来。</li>
+<li><strong>第四天</strong>：尝试用 <code>Alt + h</code> 复制一次终端里的文本，感受 Neovim 处理滚动缓存的威力。</li>
+</ol>
+<p><strong>核心心法</strong>：<strong>当你想动方向键或鼠标时，停顿 0.5 秒，想想对应的 HJKL 组合键是什么。</strong></p>
+]]></content>
+  </entry>
+</search>

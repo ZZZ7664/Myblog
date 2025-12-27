@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"rainbow","dark":"rainbow"},"prism":{"light":"prism","dark":"prism-dark","enable":false},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="本文基于 Scoop 国内镜像仓库，旨在帮助国内用户更顺畅地使用 Scoop 安装和管理 Windows 软件。  Scoop 是 Windows 上非常实用的命令行包管理工具，类似于 Linux 上的 apt 或 macOS 上的 Homebrew。由于网络原因，原版 Scoop 在国内使用时常遇到连接缓慢或失败的问题。本文将介绍如何通过国内镜像快速安装和配置 Scoop，轻松实现软件的安装、">
 <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
 <meta property="og:url" content="http://blog.066088.xyz/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="煮字为药">
 <meta property="og:description" content="本文基于 Scoop 国内镜像仓库，旨在帮助国内用户更顺畅地使用 Scoop 安装和管理 Windows 软件。  Scoop 是 Windows 上非常实用的命令行包管理工具，类似于 Linux 上的 apt 或 macOS 上的 Homebrew。由于网络原因，原版 Scoop 在国内使用时常遇到连接缓慢或失败的问题。本文将介绍如何通过国内镜像快速安装和配置 Scoop，轻松实现软件的安装、">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-09T09:38:22.000Z">
 <meta property="article:modified_time" content="2025-12-19T13:11:55.293Z">
 <meta property="article:author" content="煮字为药">
@@ -35,7 +35,7 @@
 <link rel="canonical" href="http://blog.066088.xyz/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.066088.xyz/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/","path":"2025/12/09/使用国内镜像安装-Scoop：一站式-Windows-包管理器配置指南/","title":"使用国内镜像安装 Scoop：一站式 Windows 包管理器配置指南"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/","path":"2025/12/09/使用国内镜像安装-Scoop：一站式-Windows-包管理器配置指南/","title":"使用国内镜像安装 Scoop：一站式 Windows 包管理器配置指南"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>使用国内镜像安装 Scoop：一站式 Windows 包管理器配置指南 | 煮字为药</title>
@@ -52,14 +52,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
-
-
-
-
-
-
-  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -77,7 +80,10 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -92,16 +98,47 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -111,22 +148,24 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-Scoop%EF%BC%88%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一、安装 Scoop（使用国内镜像）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 首次安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%B7%B2%E5%AE%89%E8%A3%85-Scoop%EF%BC%9F%E5%88%87%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 已安装 Scoop？切换为国内镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 切换分支（可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B7%BB%E5%8A%A0%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93%EF%BC%88Bucket%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、添加软件仓库（Bucket）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%AE%89%E8%A3%85-Git%EF%BC%88%E5%BF%85%E9%A1%BB%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 安装 Git（必须）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%B7%BB%E5%8A%A0%E5%B8%B8%E7%94%A8%E4%BB%93%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 添加常用仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BB%93%E5%BA%93%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 添加第三方仓库（可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">三、安装与管理软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 设置代理（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 安装软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 卸载软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 更新软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 常用命令速查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%8E%A8%E8%8D%90%E4%BB%93%E5%BA%93%E4%B8%80%E8%A7%88"><span class="nav-number">4.</span> <span class="nav-text">四、推荐仓库一览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text">五、结语</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%AE%89%E8%A3%85-scoop%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text"> 一、安装 Scoop（使用国内镜像）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 首次安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E5%B7%B2%E5%AE%89%E8%A3%85-scoop%E5%88%87%E6%8D%A2%E4%B8%BA%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 已安装 Scoop？切换为国内镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%8F%AF%E9%80%89"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 切换分支（可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93bucket"><span class="nav-number">2.</span> <span class="nav-text"> 二、添加软件仓库（Bucket）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E5%AE%89%E8%A3%85-git%E5%BF%85%E9%A1%BB"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 安装 Git（必须）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E6%B7%BB%E5%8A%A0%E5%B8%B8%E7%94%A8%E4%BB%93%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 添加常用仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BB%93%E5%BA%93%E5%8F%AF%E9%80%89"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 添加第三方仓库（可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text"> 三、安装与管理软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E5%8F%AF%E9%80%89"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 设置代理（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 安装软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text"> 3.3 卸载软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text"> 3.4 更新软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5"><span class="nav-number">3.5.</span> <span class="nav-text"> 3.5 常用命令速查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E6%8E%A8%E8%8D%90%E4%BB%93%E5%BA%93%E4%B8%80%E8%A7%88"><span class="nav-number">4.</span> <span class="nav-text"> 四、推荐仓库一览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94-%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text"> 五、结语</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="煮字为药"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">煮字为药</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -134,20 +173,103 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+          <a href="/categories/">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZZZ7664" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZZZ7664" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+<!-- recent posts -->
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+        <div class="links-of-blogroll-title recent-posts-title">
+	    <i class="fa fa-history " aria-hidden="true"></i>
+            近期文章
+	</div>
+	<ul class="links-of-blogroll-list recent-posts-list">
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/" title="全栈Vi操作手册（一）" target="">
+		    全栈Vi操作手册（一）
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Zsh Vi-Mode使用手册" target="">
+		    Zsh Vi-Mode使用手册
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Qutebrowser%E5%9F%BA%E7%A1%80%E6%8C%87%E5%8D%97/" title="Qutebrowser基础指南" target="">
+		    Qutebrowser基础指南
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/ranger%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ranger文件管理器常用命令" target="">
+		    ranger文件管理器常用命令
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%EF%BC%9A%E9%80%9A%E8%BF%87-DPI-%E5%BE%AE%E8%B0%83%E8%A7%A3%E5%86%B3-Hyprland-%E4%B8%8B-XWayland-%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题" target="">
+		    个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题
+		    </a>
+		</li>
+	</ul>
+    </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-tags"></i>
+      标签云
+    </div>
+    <div id="myCanvasContainer" style="width: 100%; text-align: center;">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        
+        <ul id="resCanvasLinks">
+          
+            <li><a href="/tags/ArchLinux/">ArchLinux</a></li>
+          
+            <li><a href="/tags/Hyprland/">Hyprland</a></li>
+          
+            <li><a href="/tags/JaKooLit/">JaKooLit</a></li>
+          
+            <li><a href="/tags/Vim/">Vim</a></li>
+          
+            <li><a href="/tags/Linux/">Linux</a></li>
+          
+            <li><a href="/tags/HiDPI/">HiDPI</a></li>
+          
+            <li><a href="/tags/XWayland/">XWayland</a></li>
+          
+            <li><a href="/tags/Linux-Desktop/">Linux-Desktop</a></li>
+          
+            <li><a href="/tags/Arch/">Arch</a></li>
+          
+            <li><a href="/tags/Wayland/">Wayland</a></li>
+          
+            <li><a href="/tags/Troubleshooting/">Troubleshooting</a></li>
+          
+            <li><a href="/tags/Shell/">Shell</a></li>
+          
+        </ul>
+      </canvas>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
 
         </div>
       </div>
@@ -169,11 +291,11 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/12/09/%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85-Scoop%EF%BC%9A%E4%B8%80%E7%AB%99%E5%BC%8F-Windows-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="煮字为药">
     </span>
 
@@ -197,19 +319,26 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2025-12-09 17:38:22" itemprop="dateCreated datePublished" datetime="2025-12-09T17:38:22+08:00">2025-12-09</time>
+      <time title="创建时间：2025-12-09 17:38:22" itemprop="dateCreated datePublished" datetime="2025-12-09T17:38:22+08:00">2025-12-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-19 21:11:55" itemprop="dateModified" datetime="2025-12-19T21:11:55+08:00">2025-12-19</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-19 21:11:55" itemprop="dateModified" datetime="2025-12-19T21:11:55+08:00">2025-12-19</time>
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
         </div>
@@ -222,26 +351,26 @@
 <p>本文基于 <a target="_blank" rel="noopener" href="https://gitee.com/scoop-installer/scoop">Scoop 国内镜像仓库</a>，旨在帮助国内用户更顺畅地使用 Scoop 安装和管理 Windows 软件。</p>
 </blockquote>
 <p>Scoop 是 Windows 上非常实用的命令行包管理工具，类似于 Linux 上的 apt 或 macOS 上的 Homebrew。由于网络原因，原版 Scoop 在国内使用时常遇到连接缓慢或失败的问题。本文将介绍如何通过国内镜像快速安装和配置 Scoop，轻松实现软件的安装、更新与管理。</p>
-<hr>
-<h2 id="一、安装-Scoop（使用国内镜像）"><a href="#一、安装-Scoop（使用国内镜像）" class="headerlink" title="一、安装 Scoop（使用国内镜像）"></a>一、安装 Scoop（使用国内镜像）</h2><h3 id="1-1-首次安装"><a href="#1-1-首次安装" class="headerlink" title="1.1 首次安装"></a>1.1 首次安装</h3><blockquote>
+<hr />
+<h2 id="一-安装-scoop使用国内镜像"><a class="markdownIt-Anchor" href="#一-安装-scoop使用国内镜像"></a> 一、安装 Scoop（使用国内镜像）</h2>
+<h3 id="11-首次安装"><a class="markdownIt-Anchor" href="#11-首次安装"></a> 1.1 首次安装</h3>
+<blockquote>
 <p>适用于首次安装 Scoop 的用户。</p>
 </blockquote>
 <p>打开 <strong>Windows PowerShell</strong>（建议以管理员身份运行），依次执行以下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置脚本执行策略</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser <span class="literal">-Force</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用国内镜像安装 Scoop</span></span><br><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> scoop.<span class="number">201704</span>.xyz | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>⚠️ 默认安装路径为当前用户目录下的 <code>Scoop</code>，如需自定义路径，请参考下方命令：</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载安装脚本</span></span><br><span class="line"><span class="built_in">irm</span> scoop.<span class="number">201704</span>.xyz <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义安装路径</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span> <span class="literal">-ScoopGlobalDir</span> <span class="string">&#x27;C:\GlobalScoopApps&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="1-2-已安装-Scoop？切换为国内镜像"><a href="#1-2-已安装-Scoop？切换为国内镜像" class="headerlink" title="1.2 已安装 Scoop？切换为国内镜像"></a>1.2 已安装 Scoop？切换为国内镜像</h3><p>如果你之前安装过官方源或其他镜像，可以通过以下命令切换到国内镜像：</p>
+<hr />
+<h3 id="12-已安装-scoop切换为国内镜像"><a class="markdownIt-Anchor" href="#12-已安装-scoop切换为国内镜像"></a> 1.2 已安装 Scoop？切换为国内镜像</h3>
+<p>如果你之前安装过官方源或其他镜像，可以通过以下命令切换到国内镜像：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更换仓库地址</span></span><br><span class="line">scoop config SCOOP_REPO <span class="string">&quot;https://gitee.com/scoop-installer/scoop&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新仓库</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="1-3-切换分支（可选）"><a href="#1-3-切换分支（可选）" class="headerlink" title="1.3 切换分支（可选）"></a>1.3 切换分支（可选）</h3><p>本镜像仓库提供多个分支，默认使用 <code>master</code> 分支。你也可以切换到其他分支：</p>
+<hr />
+<h3 id="13-切换分支可选"><a class="markdownIt-Anchor" href="#13-切换分支可选"></a> 1.3 切换分支（可选）</h3>
+<p>本镜像仓库提供多个分支，默认使用 <code>master</code> 分支。你也可以切换到其他分支：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到 develop 分支</span></span><br><span class="line">scoop config scoop_branch develop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
-
 <table>
 <thead>
 <tr>
@@ -250,7 +379,8 @@
 <th>基于分支</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>master</td>
 <td>默认分支，自动代理分流</td>
 <td>master</td>
@@ -265,45 +395,47 @@
 <td>无修改的原版备份</td>
 <td>master</td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="二、添加软件仓库（Bucket）"><a href="#二、添加软件仓库（Bucket）" class="headerlink" title="二、添加软件仓库（Bucket）"></a>二、添加软件仓库（Bucket）</h2><p>Scoop 的软件来自不同的仓库（bucket），我们需要手动添加常用的仓库。</p>
-<h3 id="2-1-安装-Git（必须）"><a href="#2-1-安装-Git（必须）" class="headerlink" title="2.1 安装 Git（必须）"></a>2.1 安装 Git（必须）</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<hr />
+<h2 id="二-添加软件仓库bucket"><a class="markdownIt-Anchor" href="#二-添加软件仓库bucket"></a> 二、添加软件仓库（Bucket）</h2>
+<p>Scoop 的软件来自不同的仓库（bucket），我们需要手动添加常用的仓库。</p>
+<h3 id="21-安装-git必须"><a class="markdownIt-Anchor" href="#21-安装-git必须"></a> 2.1 安装 Git（必须）</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>⚠️ Git 是 Scoop 更新和管理仓库的依赖工具，必须安装。</p>
 </blockquote>
-<hr>
-<h3 id="2-2-添加常用仓库"><a href="#2-2-添加常用仓库" class="headerlink" title="2.2 添加常用仓库"></a>2.2 添加常用仓库</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看官方推荐的仓库列表</span></span><br><span class="line">scoop bucket known</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 extras 仓库（推荐）</span></span><br><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
-
+<hr />
+<h3 id="22-添加常用仓库"><a class="markdownIt-Anchor" href="#22-添加常用仓库"></a> 2.2 添加常用仓库</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看官方推荐的仓库列表</span></span><br><span class="line">scoop bucket known</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 extras 仓库（推荐）</span></span><br><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
 <p>如果你已经添加过某些仓库，但想切换到国内镜像，可以先删除再重新添加：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前仓库</span></span><br><span class="line">scoop bucket list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧的 extras 仓库</span></span><br><span class="line">scoop bucket <span class="built_in">rm</span> extras</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加国内镜像的 extras 仓库</span></span><br><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
-
 <p>成功切换后，仓库地址应显示为 <code>gitee.com</code> 域名，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Name     Source                                       Updated            Manifests</span><br><span class="line">----     ------                                       -------            ---------</span><br><span class="line">main     https://gitee.com/scoop-installer/Main        2025/2/24 8:37:11       1382</span><br><span class="line">extras   https://gitee.com/scoop-installer/Extras      2025/2/24 8:41:05       2130</span><br><span class="line">dorado   https://gitee.com/scoop-installer/dorado      2025/2/24 8:16:22        257</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="2-3-添加第三方仓库（可选）"><a href="#2-3-添加第三方仓库（可选）" class="headerlink" title="2.3 添加第三方仓库（可选）"></a>2.3 添加第三方仓库（可选）</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line">scoop bucket add &lt;别名&gt; &lt;git地址&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：添加 scoopcn（国内常用软件）</span></span><br><span class="line">scoop bucket add scoopcn https://gitee.com/scoop<span class="literal">-installer</span>/scoopcn</span><br></pre></td></tr></table></figure>
-
-<p>更多第三方仓库推荐，请访问：<a target="_blank" rel="noopener" href="https://scoop.201704.xyz/">https://scoop.201704.xyz</a></p>
-<hr>
-<h2 id="三、安装与管理软件"><a href="#三、安装与管理软件" class="headerlink" title="三、安装与管理软件"></a>三、安装与管理软件</h2><h3 id="3-1-设置代理（可选）"><a href="#3-1-设置代理（可选）" class="headerlink" title="3.1 设置代理（可选）"></a>3.1 设置代理（可选）</h3><p>如果你仍然遇到下载缓慢的问题，可以设置代理：</p>
+<hr />
+<h3 id="23-添加第三方仓库可选"><a class="markdownIt-Anchor" href="#23-添加第三方仓库可选"></a> 2.3 添加第三方仓库（可选）</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line">scoop bucket add &lt;别名&gt; &lt;git地址&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：添加 scoopcn（国内常用软件）</span></span><br><span class="line">scoop bucket add scoopcn https://gitee.com/scoop<span class="literal">-installer</span>/scoopcn</span><br></pre></td></tr></table></figure>
+<p>更多第三方仓库推荐，请访问：<a target="_blank" rel="noopener" href="https://scoop.201704.xyz">https://scoop.201704.xyz</a></p>
+<hr />
+<h2 id="三-安装与管理软件"><a class="markdownIt-Anchor" href="#三-安装与管理软件"></a> 三、安装与管理软件</h2>
+<h3 id="31-设置代理可选"><a class="markdownIt-Anchor" href="#31-设置代理可选"></a> 3.1 设置代理（可选）</h3>
+<p>如果你仍然遇到下载缓慢的问题，可以设置代理：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 HTTP 代理</span></span><br><span class="line">scoop config proxy <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">4412</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除代理</span></span><br><span class="line">scoop config <span class="built_in">rm</span> proxy</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="3-2-安装软件"><a href="#3-2-安装软件" class="headerlink" title="3.2 安装软件"></a>3.2 安装软件</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装单个软件</span></span><br><span class="line">scoop install qq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定仓库的软件</span></span><br><span class="line">scoop install scoopcn/wechat</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一次安装多个软件</span></span><br><span class="line">scoop install qq wechat aria2</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="3-3-卸载软件"><a href="#3-3-卸载软件" class="headerlink" title="3.3 卸载软件"></a>3.3 卸载软件</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop uninstall qq wechat</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="3-4-更新软件"><a href="#3-4-更新软件" class="headerlink" title="3.4 更新软件"></a>3.4 更新软件</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新所有软件</span></span><br><span class="line">scoop update *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 Scoop 本身</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="3-5-常用命令速查"><a href="#3-5-常用命令速查" class="headerlink" title="3.5 常用命令速查"></a>3.5 常用命令速查</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止某软件更新</span></span><br><span class="line">scoop hold &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换软件版本</span></span><br><span class="line">scoop reset &lt;软件名<span class="selector-tag">@</span>版本号&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">scoop cache <span class="built_in">rm</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧版本</span></span><br><span class="line">scoop cleanup *</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="四、推荐仓库一览"><a href="#四、推荐仓库一览" class="headerlink" title="四、推荐仓库一览"></a>四、推荐仓库一览</h2><table>
+<hr />
+<h3 id="32-安装软件"><a class="markdownIt-Anchor" href="#32-安装软件"></a> 3.2 安装软件</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装单个软件</span></span><br><span class="line">scoop install qq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定仓库的软件</span></span><br><span class="line">scoop install scoopcn/wechat</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一次安装多个软件</span></span><br><span class="line">scoop install qq wechat aria2</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="33-卸载软件"><a class="markdownIt-Anchor" href="#33-卸载软件"></a> 3.3 卸载软件</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop uninstall qq wechat</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="34-更新软件"><a class="markdownIt-Anchor" href="#34-更新软件"></a> 3.4 更新软件</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新所有软件</span></span><br><span class="line">scoop update *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 Scoop 本身</span></span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="35-常用命令速查"><a class="markdownIt-Anchor" href="#35-常用命令速查"></a> 3.5 常用命令速查</h3>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止某软件更新</span></span><br><span class="line">scoop hold &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换软件版本</span></span><br><span class="line">scoop reset &lt;软件名<span class="selector-tag">@</span>版本号&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">scoop cache <span class="built_in">rm</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧版本</span></span><br><span class="line">scoop cleanup *</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="四-推荐仓库一览"><a class="markdownIt-Anchor" href="#四-推荐仓库一览"></a> 四、推荐仓库一览</h2>
+<table>
 <thead>
 <tr>
 <th>仓库名</th>
@@ -311,7 +443,8 @@
 <th>添加命令</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>main</td>
 <td>官方主仓库</td>
 <td><code>scoop bucket add main</code></td>
@@ -346,10 +479,12 @@
 <td>含哔哩哔哩、BBDown 等</td>
 <td><code>scoop bucket add siku https://gitee.com/scoop-installer/siku</code></td>
 </tr>
-</tbody></table>
-<hr>
-<h2 id="五、结语"><a href="#五、结语" class="headerlink" title="五、结语"></a>五、结语</h2><p>通过国内镜像安装和配置 Scoop，可以极大提升软件安装效率，避免网络卡顿和连接失败的问题。希望这篇指南能帮助你快速上手 Scoop，打造高效的 Windows 工作流！</p>
-<p>如需获取更多仓库和软件，请访问：<a target="_blank" rel="noopener" href="https://scoop.201704.xyz/">https://scoop.201704.xyz</a></p>
+</tbody>
+</table>
+<hr />
+<h2 id="五-结语"><a class="markdownIt-Anchor" href="#五-结语"></a> 五、结语</h2>
+<p>通过国内镜像安装和配置 Scoop，可以极大提升软件安装效率，避免网络卡顿和连接失败的问题。希望这篇指南能帮助你快速上手 Scoop，打造高效的 Windows 工作流！</p>
+<p>如需获取更多仓库和软件，请访问：<a target="_blank" rel="noopener" href="https://scoop.201704.xyz">https://scoop.201704.xyz</a></p>
 
     </div>
 
@@ -396,7 +531,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">煮字为药</span>
   </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -409,14 +562,23 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
 
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  
+  <!--单击显示文字-->
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+
 </body>
 </html>
+

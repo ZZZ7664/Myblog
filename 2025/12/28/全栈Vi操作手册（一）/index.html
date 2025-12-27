@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"rainbow","dark":"rainbow"},"prism":{"light":"prism","dark":"prism-dark","enable":false},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="环境声明：Arch Linux | Hyprland (JaKooLit) | Kitty | Zsh (agnosterzak) | Neovim   第一章：Zsh Vi-Mode  1. 核心状态切换  插入模式 (Insert)：默认状态，光标为 竖线 |，左侧显示 -- INSERT --。此时正常打字。 退出到命令模式 (Normal)：快速连按 jk 或按 ESC。  状态变化：光">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全栈Vi操作手册（一）">
+<meta property="og:url" content="http://blog.066088.xyz/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="煮字为药">
+<meta property="og:description" content="环境声明：Arch Linux | Hyprland (JaKooLit) | Kitty | Zsh (agnosterzak) | Neovim   第一章：Zsh Vi-Mode  1. 核心状态切换  插入模式 (Insert)：默认状态，光标为 竖线 |，左侧显示 -- INSERT --。此时正常打字。 退出到命令模式 (Normal)：快速连按 jk 或按 ESC。  状态变化：光">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-27T16:25:29.000Z">
+<meta property="article:modified_time" content="2025-12-27T17:03:27.046Z">
+<meta property="article:author" content="煮字为药">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.066088.xyz/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2025/12/28/全栈Vi操作手册（一）/","title":"全栈Vi操作手册（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>全栈Vi操作手册（一） | 煮字为药</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">煮字为药</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎来到我的博客！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0zsh-vi-mode"><span class="nav-number">1.</span> <span class="nav-text"> 第一章：Zsh Vi-Mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%B8%E5%BF%83%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 核心状态切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-normal-%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. Normal 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%E6%90%9C%E7%B4%A2"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 历史命令搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-v-%E7%BC%96%E8%BE%91%E9%95%BF%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text"> 4. v 编辑长命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0hyprland-%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text"> 第二章：Hyprland 窗口管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%84%A6%E7%82%B9%E5%88%87%E6%8D%A2-super-hjkl"><span class="nav-number">2.1.</span> <span class="nav-text"> 1. 焦点切换 (Super + HJKL)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AA%97%E5%8F%A3%E4%BD%8D%E7%A7%BB-super-ctrl-hjkl"><span class="nav-number">2.2.</span> <span class="nav-text"> 2. 窗口位移 (Super + Ctrl + HJKL)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%B8%9D%E6%BB%91%E7%BC%A9%E6%94%BE-super-shift-hjkl"><span class="nav-number">2.3.</span> <span class="nav-text"> 3. 丝滑缩放 (Super + Shift + HJKL)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0kitty-%E5%8E%86%E5%8F%B2%E5%9B%9E%E6%BA%AF"><span class="nav-number">3.</span> <span class="nav-text"> 第三章：Kitty 历史回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%9B%E5%85%A5%E5%9B%9E%E6%BA%AF%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text"> 1. 进入回溯模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A4%8D%E5%88%B6%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF"><span class="nav-number">3.2.</span> <span class="nav-text"> 2. 复制屏幕上的报错信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0rofi-%E8%8F%9C%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text"> 第四章：Rofi 菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%B8%8F-%E4%BA%94-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%B1%87%E6%80%BB"><span class="nav-number">5.</span> <span class="nav-text"> 🛠️ 五、 核心配置汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-hyprland%E7%B3%BB%E7%BB%9F%E7%BA%A7%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text"> 1. Hyprland：系统级窗口管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-zsh%E9%AB%98%E6%80%A7%E8%83%BD-vi-%E6%A8%A1%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text"> 2. Zsh：高性能 Vi 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-kitty-neovim%E5%8E%86%E5%8F%B2%E5%9B%9E%E6%BA%AF%E4%B8%8E%E5%A4%8D%E5%88%B6"><span class="nav-number">5.3.</span> <span class="nav-text"> 3. Kitty + Neovim：历史回溯与复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-rofi%E5%BA%94%E7%94%A8%E5%AF%BC%E8%88%AA"><span class="nav-number">5.4.</span> <span class="nav-text"> 4. Rofi：应用导航</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="nav-number">6.</span> <span class="nav-text"> 📖 六、 使用指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86-hyprland"><span class="nav-number">6.1.</span> <span class="nav-text"> 1. 窗口管理 (Hyprland)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BB%88%E7%AB%AF%E7%BC%96%E8%BE%91-zsh"><span class="nav-number">6.2.</span> <span class="nav-text"> 2. 终端编辑 (Zsh)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8E%86%E5%8F%B2%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%A4%8D%E5%88%B6-kitty-nvim"><span class="nav-number">6.3.</span> <span class="nav-text"> 3. 历史搜索与复制 (Kitty + Nvim)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8-rofi"><span class="nav-number">6.4.</span> <span class="nav-text"> 4. 应用启动 (Rofi)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5-faq"><span class="nav-number">7.</span> <span class="nav-text"> 💡 常见问题排查 (FAQ)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%E8%AE%AD%E7%BB%83%E5%BB%BA%E8%AE%AE-%E8%AE%AD%E7%BB%83%E8%AE%A1%E5%88%92"><span class="nav-number">8.</span> <span class="nav-text"> 💡 肌肉记忆训练建议 (训练计划)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="煮字为药"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">煮字为药</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZZZ7664" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZZZ7664" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+<!-- recent posts -->
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+        <div class="links-of-blogroll-title recent-posts-title">
+	    <i class="fa fa-history " aria-hidden="true"></i>
+            近期文章
+	</div>
+	<ul class="links-of-blogroll-list recent-posts-list">
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/" title="全栈Vi操作手册（一）" target="">
+		    全栈Vi操作手册（一）
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Zsh Vi-Mode使用手册" target="">
+		    Zsh Vi-Mode使用手册
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Qutebrowser%E5%9F%BA%E7%A1%80%E6%8C%87%E5%8D%97/" title="Qutebrowser基础指南" target="">
+		    Qutebrowser基础指南
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/ranger%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ranger文件管理器常用命令" target="">
+		    ranger文件管理器常用命令
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%EF%BC%9A%E9%80%9A%E8%BF%87-DPI-%E5%BE%AE%E8%B0%83%E8%A7%A3%E5%86%B3-Hyprland-%E4%B8%8B-XWayland-%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题" target="">
+		    个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题
+		    </a>
+		</li>
+	</ul>
+    </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-tags"></i>
+      标签云
+    </div>
+    <div id="myCanvasContainer" style="width: 100%; text-align: center;">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        
+        <ul id="resCanvasLinks">
+          
+            <li><a href="/tags/ArchLinux/">ArchLinux</a></li>
+          
+            <li><a href="/tags/Hyprland/">Hyprland</a></li>
+          
+            <li><a href="/tags/JaKooLit/">JaKooLit</a></li>
+          
+            <li><a href="/tags/Vim/">Vim</a></li>
+          
+            <li><a href="/tags/Linux/">Linux</a></li>
+          
+            <li><a href="/tags/HiDPI/">HiDPI</a></li>
+          
+            <li><a href="/tags/XWayland/">XWayland</a></li>
+          
+            <li><a href="/tags/Linux-Desktop/">Linux-Desktop</a></li>
+          
+            <li><a href="/tags/Arch/">Arch</a></li>
+          
+            <li><a href="/tags/Wayland/">Wayland</a></li>
+          
+            <li><a href="/tags/Troubleshooting/">Troubleshooting</a></li>
+          
+            <li><a href="/tags/Shell/">Shell</a></li>
+          
+        </ul>
+      </canvas>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="煮字为药">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="全栈Vi操作手册（一） | 煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          全栈Vi操作手册（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-12-28 00:25:29 / 修改时间：01:03:27" itemprop="dateCreated datePublished" datetime="2025-12-28T00:25:29+08:00">2025-12-28</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p><strong>环境声明</strong>：Arch Linux | Hyprland (JaKooLit) | Kitty | Zsh (agnosterzak) | Neovim</p>
+</blockquote>
+<h2 id="第一章zsh-vi-mode"><a class="markdownIt-Anchor" href="#第一章zsh-vi-mode"></a> 第一章：Zsh Vi-Mode</h2>
+<h3 id="1-核心状态切换"><a class="markdownIt-Anchor" href="#1-核心状态切换"></a> 1. 核心状态切换</h3>
+<ul>
+<li><strong>插入模式 (Insert)</strong>：默认状态，光标为 <strong>竖线 <code>|</code></strong>，左侧显示 <code>-- INSERT --</code>。此时正常打字。</li>
+<li><strong>退出到命令模式 (Normal)</strong>：快速连按 <strong><code>jk</code></strong> 或按 <code>ESC</code>。
+<ul>
+<li><em>状态变化</em>：光标变 <strong>方块 <code>█</code></strong>，左侧变红显示 <code>-- NORMAL --</code>。</li>
+</ul>
+</li>
+<li><strong>重回输入</strong>：在 Normal 模式下按 <code>i</code> (当前位置) 或 <code>a</code> (后移一格)。</li>
+</ul>
+<h3 id="2-normal-模式"><a class="markdownIt-Anchor" href="#2-normal-模式"></a> 2. Normal 模式</h3>
+<p>按下 <code>jk</code> 进入 Normal 模式：</p>
+<ul>
+<li><strong>单词跳跃</strong>：按 <code>w</code> 跳到下个单词开头，按 <code>b</code> 回跳。</li>
+<li><strong>首尾跳转</strong>：按 <code>0</code> (零) 回行首，按 <code>$</code> 到行尾。</li>
+<li><strong>修改</strong>：
+<ul>
+<li><code>x</code>：删除当前光标下的字符。</li>
+<li><code>dw</code>：删除当前光标后的整个单词。</li>
+<li><code>dd</code>：清空当前整行命令。</li>
+</ul>
+</li>
+<li><strong>撤销</strong>：按 <code>u</code> 撤销刚才的删除。</li>
+</ul>
+<h3 id="3-历史命令搜索"><a class="markdownIt-Anchor" href="#3-历史命令搜索"></a> 3. 历史命令搜索</h3>
+<ul>
+<li><strong>上下翻找</strong>：进入模式后，直接按 <code>k</code> 向上翻，<code>j</code> 向下翻。</li>
+<li><strong>高级过滤</strong>：先输入 <code>git</code>，再按 <code>jk</code> 进入模式按 <code>k</code>，它只会翻出你以前输入过的 <code>git</code> 相关命令。</li>
+</ul>
+<h3 id="4-v-编辑长命令"><a class="markdownIt-Anchor" href="#4-v-编辑长命令"></a> 4. <code>v</code> 编辑长命令</h3>
+<ul>
+<li><strong>场景</strong>：一个很长的脚本或带有复杂嵌套引号的 Shell 命令。</li>
+<li><strong>操作</strong>：在 Normal 模式下按下 <strong><code>v</code></strong>。</li>
+<li><strong>效果</strong>：系统会进入 <code>-- VISUAL--</code> 模式 。</li>
+</ul>
+<hr />
+<h2 id="第二章hyprland-窗口管理"><a class="markdownIt-Anchor" href="#第二章hyprland-窗口管理"></a> 第二章：Hyprland 窗口管理</h2>
+<h3 id="1-焦点切换-super-hjkl"><a class="markdownIt-Anchor" href="#1-焦点切换-super-hjkl"></a> 1. 焦点切换 (Super + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：终端，文档同时打开。</li>
+<li><strong>操作</strong>：按住 <strong><code>Super</code></strong> 不放，按 <code>h</code> 往左跳，按 <code>l</code> 往右跳。</li>
+</ul>
+<h3 id="2-窗口位移-super-ctrl-hjkl"><a class="markdownIt-Anchor" href="#2-窗口位移-super-ctrl-hjkl"></a> 2. 窗口位移 (Super + Ctrl + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：当你想把当前屏幕中间的终端移动到最左侧。</li>
+<li><strong>操作</strong>：<strong><code>Super + Ctrl + h</code></strong>。窗口会物理性地向左侧“平移”。</li>
+</ul>
+<h3 id="3-丝滑缩放-super-shift-hjkl"><a class="markdownIt-Anchor" href="#3-丝滑缩放-super-shift-hjkl"></a> 3. 丝滑缩放 (Super + Shift + HJKL)</h3>
+<ul>
+<li><strong>场景</strong>：觉得终端太窄，想拉宽一点。</li>
+<li><strong>操作</strong>：按住 <strong><code>Super + Shift + hjkl</code></strong>。</li>
+</ul>
+<hr />
+<h2 id="第三章kitty-历史回溯"><a class="markdownIt-Anchor" href="#第三章kitty-历史回溯"></a> 第三章：Kitty 历史回溯</h2>
+<h3 id="1-进入回溯模式"><a class="markdownIt-Anchor" href="#1-进入回溯模式"></a> 1. 进入回溯模式</h3>
+<ul>
+<li>按下 <strong><code>Alt + h</code></strong>。</li>
+</ul>
+<h3 id="2-复制屏幕上的报错信息"><a class="markdownIt-Anchor" href="#2-复制屏幕上的报错信息"></a> 2. 复制屏幕上的报错信息</h3>
+<ul>
+<li><strong>场景</strong>：终端打印了一大堆报错，你需要复制其中一段。</li>
+<li><strong>步骤</strong>：
+<ol>
+<li>按 <code>Alt + h</code>。此时整个终端变成了一个 Neovim 只读文件。</li>
+<li>用 <code>hjkl</code> 找到报错行，或者按 <code>/</code> 输入关键词搜索。</li>
+<li>按 <code>v</code> 进入视觉模式，选中文字。</li>
+<li>按下 <strong><code>y</code></strong>。</li>
+<li>按 <code>q</code> 退出。</li>
+</ol>
+</li>
+<li><strong>结果</strong>：内容已在你的系统剪切板，直接在浏览器里 <code>Ctrl+v</code> 即可。</li>
+</ul>
+<hr />
+<h2 id="第四章rofi-菜单"><a class="markdownIt-Anchor" href="#第四章rofi-菜单"></a> 第四章：Rofi 菜单</h2>
+<ul>
+<li><strong>启动</strong>：按 <code>Super + Space</code> (或你的 Rofi 键)。</li>
+<li><strong>选择</strong>：
+<ul>
+<li>输入 <code>brave</code>。</li>
+<li><strong>向上/下</strong>：按住 <strong><code>Ctrl</code></strong>，点击 <code>j</code> 或 <code>k</code> 进行挑选。</li>
+</ul>
+</li>
+<li><strong>确认</strong>：按下 <strong><code>Ctrl + m</code></strong> 或 <code>Enter</code> 启动。</li>
+</ul>
+<hr />
+<hr />
+<h2 id="️-五-核心配置汇总"><a class="markdownIt-Anchor" href="#️-五-核心配置汇总"></a> 🛠️ 五、 核心配置汇总</h2>
+<h3 id="1-hyprland系统级窗口管理"><a class="markdownIt-Anchor" href="#1-hyprland系统级窗口管理"></a> 1. Hyprland：系统级窗口管理</h3>
+<p><strong>配置文件</strong>：<code>~/.config/hypr/UserConfigs/UserKeybinds.conf</code><br />
+将方向键逻辑 1:1 映射到 HJKL，利用 <code>binde</code> 实现丝滑缩放。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 移动窗口焦点 (Move Focus) -&gt; Super + HJKL</span></span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, H, movefocus, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, L, movefocus, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, K, movefocus, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span>, J, movefocus, d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调整窗口大小 (Resize Window) -&gt; Super + Shift + HJKL</span></span><br><span class="line"><span class="comment"># binde 确保长按时连续缩放</span></span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, H, resizeactive, -40 0</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, L, resizeactive, 40 0</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, K, resizeactive, 0 -40</span><br><span class="line">binde = <span class="variable">$mainMod</span> SHIFT, J, resizeactive, 0 40</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动窗口物理位置 (Move Window) -&gt; Super + Ctrl + HJKL</span></span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, H, movewindow, l</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, L, movewindow, r</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, K, movewindow, u</span><br><span class="line"><span class="built_in">bind</span> = <span class="variable">$mainMod</span> CTRL, J, movewindow, d</span><br></pre></td></tr></table></figure>
+<h3 id="2-zsh高性能-vi-模式"><a class="markdownIt-Anchor" href="#2-zsh高性能-vi-模式"></a> 2. Zsh：高性能 Vi 模式</h3>
+<p><strong>配置文件</strong>：<code>~/.zshrc</code><br />
+<strong>优化重点</strong>：解决了 <code>agnosterzak</code> 主题下猛按回车卡顿的问题，并实现了状态同步。</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用 Vi 模式与 jk 映射</span></span><br><span class="line"><span class="built_in">bindkey</span> -v</span><br><span class="line"><span class="built_in">export</span> KEYTIMEOUT=15</span><br><span class="line"><span class="built_in">bindkey</span> -M viins <span class="string">&#x27;jk&#x27;</span> vi-cmd-mode</span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态显示函数 (右侧 RPROMPT)</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">vi_mode_prompt_info</span></span>() &#123;</span><br><span class="line">  [[ <span class="variable">$&#123;KEYMAP&#125;</span> == vicmd ]] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;%F&#123;red&#125;-- NORMAL --%f&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;%F&#123;green&#125;-- INSERT --%f&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">RPROMPT=<span class="string">&#x27;$(vi_mode_prompt_info)&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 模式切换钩子：同步光标形状与状态显示</span></span><br><span class="line"><span class="keyword">function</span> zle-keymap-<span class="function"><span class="title">select</span></span>() &#123;</span><br><span class="line">  <span class="keyword">if</span> [[ <span class="variable">$&#123;KEYMAP&#125;</span> == vicmd ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[1 q&#x27;</span> <span class="comment"># 方块</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> <span class="comment"># 竖线</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="built_in">zle</span> reset-prompt <span class="comment"># 仅在模式切换时重绘，保证性能</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">zle</span> -N zle-keymap-select</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始行钩子：防止猛按回车掉帧</span></span><br><span class="line"><span class="keyword">function</span> zle-line-<span class="function"><span class="title">init</span></span>() &#123; <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> &#125;</span><br><span class="line"><span class="built_in">zle</span> -N zle-line-init</span><br><span class="line"><span class="function"><span class="title">precmd</span></span>() &#123; <span class="built_in">echo</span> -ne <span class="string">&#x27;\e[5 q&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 补全菜单 HJKL 导航</span></span><br><span class="line"><span class="built_in">zmodload</span> zsh/complist</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;h&#x27;</span> vi-backward-char</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;k&#x27;</span> vi-up-line-or-history</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;j&#x27;</span> down-line-or-history</span><br><span class="line"><span class="built_in">bindkey</span> -M menuselect <span class="string">&#x27;l&#x27;</span> vi-forward-char</span><br></pre></td></tr></table></figure>
+<h3 id="3-kitty-neovim历史回溯与复制"><a class="markdownIt-Anchor" href="#3-kitty-neovim历史回溯与复制"></a> 3. Kitty + Neovim：历史回溯与复制</h3>
+<p><strong>配置文件</strong>：<code>~/.config/kitty/kitty.conf</code><br />
+利用 Neovim 的威力处理终端滚动缓存。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 设置 nvim 为分页器</span><br><span class="line">scrollback_pager nvim -c &quot;set signcolumn=no showtabline=0&quot; -c &quot;silent! write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - &quot; -c &quot;normal G&quot;</span><br><span class="line"></span><br><span class="line"># 快捷键：Alt + H 进入回溯模式</span><br><span class="line">map alt+h show_scrollback</span><br></pre></td></tr></table></figure>
+<h3 id="4-rofi应用导航"><a class="markdownIt-Anchor" href="#4-rofi应用导航"></a> 4. Rofi：应用导航</h3>
+<p><strong>配置文件</strong>：<code>~/.config/rofi/config.rasi</code><br />
+强制释放被占用的快捷键。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">configuration &#123;</span><br><span class="line">    kb-remove-char-back: &quot;BackSpace&quot;;     // 释放 Ctrl+h</span><br><span class="line">    kb-remove-to-eol: &quot;&quot;;                 // 释放 Ctrl+k</span><br><span class="line">    kb-mode-complete: &quot;&quot;;                 // 释放 Ctrl+l</span><br><span class="line">    kb-mode-next: &quot;Shift+Right&quot;;          // 释放 Right</span><br><span class="line">    kb-mode-previous: &quot;Shift+Left&quot;;       // 释放 Left</span><br><span class="line"></span><br><span class="line">    kb-row-up: &quot;Up,Control+k&quot;;</span><br><span class="line">    kb-row-down: &quot;Down,Control+j&quot;;</span><br><span class="line">    kb-row-left: &quot;Control+h&quot;;</span><br><span class="line">    kb-row-right: &quot;Control+l&quot;;</span><br><span class="line">    kb-accept-entry: &quot;Control+m,Return,KP_Enter&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="六-使用指南"><a class="markdownIt-Anchor" href="#六-使用指南"></a> 📖 六、 使用指南</h2>
+<h3 id="1-窗口管理-hyprland"><a class="markdownIt-Anchor" href="#1-窗口管理-hyprland"></a> 1. 窗口管理 (Hyprland)</h3>
+<ul>
+<li><strong>切换窗口</strong>：<code>Super + h/j/k/l</code>。无需鼠标，直接在窗口间穿梭。</li>
+<li><strong>调整尺寸</strong>：<code>Super + Shift + h/j/k/l</code>。长按 L 键，窗口向右丝滑变宽。</li>
+</ul>
+<h3 id="2-终端编辑-zsh"><a class="markdownIt-Anchor" href="#2-终端编辑-zsh"></a> 2. 终端编辑 (Zsh)</h3>
+<ul>
+<li><strong>进入/退出模式</strong>：默认打字模式（竖线光标），快速输入 <strong><code>jk</code></strong> 进入命令模式（方块光标，右侧变红）。</li>
+<li><strong>高效移动</strong>：在命令模式下用 <code>w</code> / <code>b</code> 按单词跳跃，用 <code>0</code> / <code>$</code> 跳到行首行尾。</li>
+<li><strong>长命令编辑</strong>：模式下按 <strong><code>v</code></strong>，自动在 Neovim 中打开当前行，编辑完 <code>:wq</code> 即可回填。</li>
+</ul>
+<h3 id="3-历史搜索与复制-kitty-nvim"><a class="markdownIt-Anchor" href="#3-历史搜索与复制-kitty-nvim"></a> 3. 历史搜索与复制 (Kitty + Nvim)</h3>
+<ul>
+<li><strong>场景</strong>：需要复制屏幕上方几百行前的报错 ID。</li>
+<li><strong>操作</strong>：按 <strong><code>Alt + H</code></strong>。现在你处于一个 Neovim 窗口中：
+<ol>
+<li><code>/</code> 搜索关键字。</li>
+<li><code>v</code> 选中，<code>y</code> 复制（已同步系统剪切板）。</li>
+<li><code>q</code> 退出，回到终端粘贴。</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-应用启动-rofi"><a class="markdownIt-Anchor" href="#4-应用启动-rofi"></a> 4. 应用启动 (Rofi)</h3>
+<ul>
+<li>按下启动快捷键，输入名字，按 <strong><code>Ctrl + j/k</code></strong> 上下挑选，<strong><code>Ctrl + m</code></strong> 确认。</li>
+</ul>
+<hr />
+<h2 id="常见问题排查-faq"><a class="markdownIt-Anchor" href="#常见问题排查-faq"></a> 💡 常见问题排查 (FAQ)</h2>
+<ol>
+<li><strong>卡顿问题</strong>：如果长按回车卡顿，请检查 <code>.zshrc</code> 中 <code>zle-line-init</code> 函数内是否包含了 <code>zle reset-prompt</code>。<strong>必须删掉它</strong>。</li>
+<li><strong>按键冲突</strong>：如果 <code>Super + H</code> 无效，终端运行 <code>grep -r &quot;bind.*H&quot; ~/.config/hypr/</code> 找出占用它的配置并注释掉（JaKooLit 默认通常将其用于帮助面板）。</li>
+<li><strong>剪切板无效</strong>：确保 Neovim 配置文件中包含 <code>vim.opt.clipboard = &quot;unnamedplus&quot;</code>，否则 <code>Alt + H</code> 模式下的复制无法传给浏览器。</li>
+</ol>
+<hr />
+<h2 id="肌肉记忆训练建议-训练计划"><a class="markdownIt-Anchor" href="#肌肉记忆训练建议-训练计划"></a> 💡 肌肉记忆训练建议 (训练计划)</h2>
+<p>为了在一周内彻底习惯这套系统，请尝试以下练习：</p>
+<ol>
+<li><strong>第一天</strong>：强制自己只用 <code>jk</code> 退出插入模式，删掉脑子里的 <code>ESC</code>。</li>
+<li><strong>第二天</strong>：在终端需要修改命令时，严禁使用方向键。进入 Normal 模式，用 <code>w/b</code> 定位，用 <code>x</code> 删除。</li>
+<li><strong>第三天</strong>：练习 <code>Super + HJKL</code> 切换窗口。如果发现自己去摸鼠标，立刻把手缩回来。</li>
+<li><strong>第四天</strong>：尝试用 <code>Alt + h</code> 复制一次终端里的文本，感受 Neovim 处理滚动缓存的威力。</li>
+</ol>
+<p><strong>核心心法</strong>：<strong>当你想动方向键或鼠标时，停顿 0.5 秒，想想对应的 HJKL 组合键是什么。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" rel="prev" title="Zsh Vi-Mode使用手册">
+                  <i class="fa fa-angle-left"></i> Zsh Vi-Mode使用手册
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">煮字为药</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  
+  <!--单击显示文字-->
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+
+</body>
+</html>
+

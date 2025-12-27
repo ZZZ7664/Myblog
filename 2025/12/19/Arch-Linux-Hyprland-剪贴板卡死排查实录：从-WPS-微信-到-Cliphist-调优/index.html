@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,17 +17,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"rainbow","dark":"rainbow"},"prism":{"light":"prism","dark":"prism-dark","enable":false},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="实测环境12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux x">
+    <meta name="description" content="实测环境 12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS&#x2F;微信 到 Cliphist 调优">
 <meta property="og:url" content="http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/index.html">
 <meta property="og:site_name" content="煮字为药">
-<meta property="og:description" content="实测环境12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux x">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="实测环境 12345678910111213141516171819                  -&#96;                                                        .o+&#96;                   -----------                 &#96;ooo&#x2F;                   OS: Arch Linux">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-19T13:19:17.000Z">
-<meta property="article:modified_time" content="2025-12-20T03:17:42.415Z">
+<meta property="article:modified_time" content="2025-12-24T06:00:39.493Z">
 <meta property="article:author" content="煮字为药">
 <meta property="article:tag" content="Arch">
 <meta property="article:tag" content="Hyprland">
@@ -41,7 +41,7 @@
 <link rel="canonical" href="http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/","path":"2025/12/19/Arch-Linux-Hyprland-剪贴板卡死排查实录：从-WPS-微信-到-Cliphist-调优/","title":"Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/","path":"2025/12/19/Arch-Linux-Hyprland-剪贴板卡死排查实录：从-WPS-微信-到-Cliphist-调优/","title":"Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Arch Linux (Hyprland) 剪贴板卡死排查实录：从 WPS/微信 到 Cliphist 调优 | 煮字为药</title>
@@ -58,14 +58,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
   
-
-
-
-
-
-
-  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -83,7 +86,10 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -98,16 +104,47 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </header>
         
@@ -117,22 +154,24 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">实测环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%AB-%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">🚫 问题现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%9C%80%E7%BB%88%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">✅ 最终生效的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B8%85%E7%90%86%E5%B7%B2%E6%8D%9F%E5%9D%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">1. 清理已损坏的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%89%AA"><span class="nav-number">3.2.</span> <span class="nav-text">2. 配置自动修剪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E8%BF%9B%E9%98%B6%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%84%9A%E6%9C%AC-%E6%8A%98%E8%85%BE%E7%BB%8F%E9%AA%8C%E5%A4%87%E4%BB%BD"><span class="nav-number">4.</span> <span class="nav-text">🛠️ 进阶排查与脚本 (折腾经验备份)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">1. 常用诊断命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%BA%E5%88%B6%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC-WpsSyncFix-sh"><span class="nav-number">4.2.</span> <span class="nav-text">2. 强制同步脚本 (WpsSyncFix.sh)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text"> 实测环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text"> 🚫 问题现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E7%94%9F%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text"> ✅ 最终生效的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B8%85%E7%90%86%E5%B7%B2%E6%8D%9F%E5%9D%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text"> 1. 清理已损坏的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%89%AA"><span class="nav-number">3.2.</span> <span class="nav-text"> 2. 配置自动修剪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%B8%8F-%E8%BF%9B%E9%98%B6%E6%8E%92%E6%9F%A5%E4%B8%8E%E8%84%9A%E6%9C%AC-%E6%8A%98%E8%85%BE%E7%BB%8F%E9%AA%8C%E5%A4%87%E4%BB%BD"><span class="nav-number">4.</span> <span class="nav-text"> 🛠️ 进阶排查与脚本 (折腾经验备份)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E8%AF%8A%E6%96%AD%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text"> 1. 常用诊断命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%BA%E5%88%B6%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC-wpssyncfixsh"><span class="nav-number">4.2.</span> <span class="nav-text"> 2. 强制同步脚本 (WpsSyncFix.sh)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="煮字为药"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">煮字为药</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -140,20 +179,103 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+          <a href="/categories/">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZZZ7664" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZZZ7664" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+<!-- recent posts -->
+    <div class="links-of-blogroll motion-element links-of-blogroll-block">
+        <div class="links-of-blogroll-title recent-posts-title">
+	    <i class="fa fa-history " aria-hidden="true"></i>
+            近期文章
+	</div>
+	<ul class="links-of-blogroll-list recent-posts-list">
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/28/%E5%85%A8%E6%A0%88Vi%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C%EF%BC%88%E4%B8%80%EF%BC%89/" title="全栈Vi操作手册（一）" target="">
+		    全栈Vi操作手册（一）
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Zsh-Vi-Mode%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Zsh Vi-Mode使用手册" target="">
+		    Zsh Vi-Mode使用手册
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/27/Qutebrowser%E5%9F%BA%E7%A1%80%E6%8C%87%E5%8D%97/" title="Qutebrowser基础指南" target="">
+		    Qutebrowser基础指南
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/ranger%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="ranger文件管理器常用命令" target="">
+		    ranger文件管理器常用命令
+		    </a>
+		</li>
+	        <li class="my-links-of-blogroll-item">
+		    <a href="/2025/12/24/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95%EF%BC%9A%E9%80%9A%E8%BF%87-DPI-%E5%BE%AE%E8%B0%83%E8%A7%A3%E5%86%B3-Hyprland-%E4%B8%8B-XWayland-%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题" target="">
+		    个人记录：通过 DPI 微调解决 Hyprland 下 XWayland 软件的显示问题
+		    </a>
+		</li>
+	</ul>
+    </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-tags"></i>
+      标签云
+    </div>
+    <div id="myCanvasContainer" style="width: 100%; text-align: center;">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        
+        <ul id="resCanvasLinks">
+          
+            <li><a href="/tags/ArchLinux/">ArchLinux</a></li>
+          
+            <li><a href="/tags/Hyprland/">Hyprland</a></li>
+          
+            <li><a href="/tags/JaKooLit/">JaKooLit</a></li>
+          
+            <li><a href="/tags/Vim/">Vim</a></li>
+          
+            <li><a href="/tags/Linux/">Linux</a></li>
+          
+            <li><a href="/tags/HiDPI/">HiDPI</a></li>
+          
+            <li><a href="/tags/XWayland/">XWayland</a></li>
+          
+            <li><a href="/tags/Linux-Desktop/">Linux-Desktop</a></li>
+          
+            <li><a href="/tags/Arch/">Arch</a></li>
+          
+            <li><a href="/tags/Wayland/">Wayland</a></li>
+          
+            <li><a href="/tags/Troubleshooting/">Troubleshooting</a></li>
+          
+            <li><a href="/tags/Shell/">Shell</a></li>
+          
+        </ul>
+      </canvas>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
 
         </div>
       </div>
@@ -175,11 +297,11 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/12/19/Arch-Linux-Hyprland-%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%8D%A1%E6%AD%BB%E6%8E%92%E6%9F%A5%E5%AE%9E%E5%BD%95%EF%BC%9A%E4%BB%8E-WPS-%E5%BE%AE%E4%BF%A1-%E5%88%B0-Cliphist-%E8%B0%83%E4%BC%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="煮字为药">
     </span>
 
@@ -203,28 +325,35 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2025-12-19 21:19:17" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
+      <time title="创建时间：2025-12-19 21:19:17" itemprop="dateCreated datePublished" datetime="2025-12-19T21:19:17+08:00">2025-12-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-20 11:17:42" itemprop="dateModified" datetime="2025-12-20T11:17:42+08:00">2025-12-20</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-24 14:00:39" itemprop="dateModified" datetime="2025-12-24T14:00:39+08:00">2025-12-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E7%B3%BB%E7%BB%9F%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">系统折腾</span></a>
         </span>
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
         </div>
@@ -233,47 +362,50 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="实测环境"><a href="#实测环境" class="headerlink" title="实测环境"></a>实测环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                  -`                                       </span><br><span class="line">                 .o+`                   ----------- </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA </span><br><span class="line">              `+oooooo:                 Kernel: 6.17.9-arch1-1 </span><br><span class="line">              -+oooooo+:                Uptime: 1 hour </span><br><span class="line">            `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.9 </span><br><span class="line">          `/++++++++++++++:             Resolution: 2560x1600 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Hyprland </span><br><span class="line">        ./ooosssso++osssssso+`          WM: sway </span><br><span class="line">       .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] </span><br><span class="line">      -osssssso.      :ssssssso.        Icons: Papirus [GTK2] </span><br><span class="line">     :osssssss/        osssso+++.       Terminal: kitty </span><br><span class="line">    /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB </span><br><span class="line">`++:.                           `-/+/</span><br><span class="line">.`                                 `/</span><br></pre></td></tr></table></figure>
-
-<h2 id="🚫-问题现象"><a href="#🚫-问题现象" class="headerlink" title="🚫 问题现象"></a>🚫 问题现象</h2><p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="实测环境"><a class="markdownIt-Anchor" href="#实测环境"></a> 实测环境</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                  -`                                       </span><br><span class="line">                 .o+`                   ----------- </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 21D1 ThinkBook 16 G4+ ARA </span><br><span class="line">              `+oooooo:                 Kernel: 6.17.9-arch1-1 </span><br><span class="line">              -+oooooo+:                Uptime: 1 hour </span><br><span class="line">            `/:-:++oooo+:               Packages: 1541 (pacman), 16 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.9 </span><br><span class="line">          `/++++++++++++++:             Resolution: 2560x1600 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Hyprland </span><br><span class="line">        ./ooosssso++osssssso+`          WM: sway </span><br><span class="line">       .oossssso-````/ossssss+`         Theme: Adwaita [GTK2] </span><br><span class="line">      -osssssso.      :ssssssso.        Icons: Papirus [GTK2] </span><br><span class="line">     :osssssss/        osssso+++.       Terminal: kitty </span><br><span class="line">    /ossssssss/        +ssssooo/-       CPU: AMD Ryzen 7 6800H with Radeon Graphics (16) @ 4.787GHz </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     GPU: AMD ATI Radeon 680M </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    Memory: 4646MiB / 13652MiB </span><br><span class="line">`++:.                           `-/+/</span><br><span class="line">.`                                 `/</span><br></pre></td></tr></table></figure>
+<h2 id="问题现象"><a class="markdownIt-Anchor" href="#问题现象"></a> 🚫 问题现象</h2>
+<p>在 <strong>Arch Linux + Hyprland</strong> 环境下，使用 <strong>WPS Office (Excel)</strong> 和 <strong>微信</strong>（均运行于 XWayland）时遇到以下顽固问题：</p>
 <ol>
 <li><strong>复制卡死</strong>：在 Excel 中复制单元格，或者在微信复制图片时，系统粘贴动作极慢，甚至导致 <code>wl-paste</code> 进程无响应。</li>
 <li><strong>跨界失效</strong>：WPS 内部互贴正常，但无法粘贴到浏览器（Wayland 原生应用）。</li>
 <li><strong>历史记录延迟</strong>：调用 <code>cliphist</code> 列表时有明显卡顿。</li>
 </ol>
-<hr>
-<h2 id="✅-最终生效的解决方案"><a href="#✅-最终生效的解决方案" class="headerlink" title="✅ 最终生效的解决方案"></a>✅ 最终生效的解决方案</h2><p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I&#x2F;O 阻塞</strong>。</p>
+<hr />
+<h2 id="最终生效的解决方案"><a class="markdownIt-Anchor" href="#最终生效的解决方案"></a> ✅ 最终生效的解决方案</h2>
+<p>经过一通排查，发现核心原因并非 XWayland 兼容性差，而是 <strong>Cliphist 数据库过大导致的 I/O 阻塞</strong>。</p>
 <p>Excel 和微信复制时会产生巨大的数据（未压缩的位图、XML 等），如果 <code>cliphist</code> 数据库未清理，写入新数据时会阻塞 X11 剪贴板管道，导致卡死。</p>
 <p><strong>解决方法：</strong> 无需禁用图片历史，也无需额外脚本，只需在启动时 <strong>自动修剪（Prune）</strong> 数据库。</p>
-<h3 id="1-清理已损坏的数据库"><a href="#1-清理已损坏的数据库" class="headerlink" title="1. 清理已损坏的数据库"></a>1. 清理已损坏的数据库</h3><p>首先执行一次“大扫除”：</p>
+<h3 id="1-清理已损坏的数据库"><a class="markdownIt-Anchor" href="#1-清理已损坏的数据库"></a> 1. 清理已损坏的数据库</h3>
+<p>首先执行一次“大扫除”：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> ~/.cache/cliphist/db</span><br><span class="line"><span class="comment"># 重启电脑或重新登录 Hyprland</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-配置自动修剪"><a href="#2-配置自动修剪" class="headerlink" title="2. 配置自动修剪"></a>2. 配置自动修剪</h3><p>修改 Hyprland 启动配置 <code>~/.config/hypr/UserConfigs/Startup_Apps.conf</code>，添加保留最近 256 条记录的限制：</p>
+<h3 id="2-配置自动修剪"><a class="markdownIt-Anchor" href="#2-配置自动修剪"></a> 2. 配置自动修剪</h3>
+<p>修改 Hyprland 启动配置 <code>~/.config/hypr/UserConfigs/Startup_Apps.conf</code>，添加保留最近 256 条记录的限制：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------</span></span><br><span class="line"><span class="comment"># Cliphist 剪贴板配置</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 启动监听器 (保留默认，无需禁用图片监听)</span></span><br><span class="line"><span class="attr">exec-once</span> = wl-paste --type text --watch cliphist store</span><br><span class="line"><span class="attr">exec-once</span> = wl-paste --type image --watch cliphist store</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 【核心修复】启动时自动清理</span></span><br><span class="line"><span class="comment"># 管道逻辑：列出所有记录 -&gt; 排除最近的 256 条 -&gt; 删除剩下的旧记录</span></span><br><span class="line"><span class="attr">exec-once</span> = cliphist list | head -n -<span class="number">256</span> | cliphist delete</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="🛠️-进阶排查与脚本-折腾经验备份"><a href="#🛠️-进阶排查与脚本-折腾经验备份" class="headerlink" title="🛠️ 进阶排查与脚本 (折腾经验备份)"></a>🛠️ 进阶排查与脚本 (折腾经验备份)</h2><p>虽然上面的方法解决了我的问题，但在排查过程中编写的<strong>诊断命令</strong>和<strong>桥接脚本</strong>非常有价值。如果单纯清理数据库无法解决你的问题（例如需要强制剥离 Excel 格式），可以使用以下方案。</p>
-<h3 id="1-常用诊断命令"><a href="#1-常用诊断命令" class="headerlink" title="1. 常用诊断命令"></a>1. 常用诊断命令</h3><p>查看当前剪贴板中包含哪些 MIME 类型（用于判断是否包含巨大的 <code>BITMAP</code>）：</p>
+<hr />
+<h2 id="️-进阶排查与脚本-折腾经验备份"><a class="markdownIt-Anchor" href="#️-进阶排查与脚本-折腾经验备份"></a> 🛠️ 进阶排查与脚本 (折腾经验备份)</h2>
+<p>虽然上面的方法解决了我的问题，但在排查过程中编写的<strong>诊断命令</strong>和<strong>桥接脚本</strong>非常有价值。如果单纯清理数据库无法解决你的问题（例如需要强制剥离 Excel 格式），可以使用以下方案。</p>
+<h3 id="1-常用诊断命令"><a class="markdownIt-Anchor" href="#1-常用诊断命令"></a> 1. 常用诊断命令</h3>
+<p>查看当前剪贴板中包含哪些 MIME 类型（用于判断是否包含巨大的 <code>BITMAP</code>）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要安装 xclip</span></span><br><span class="line">xclip -selection clipboard -t TARGETS -o</span><br></pre></td></tr></table></figure>
-
 <p>查看各格式数据的具体大小（找出卡顿元凶）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xclip -selection clipboard -t TARGETS -o 2&gt;/dev/null | <span class="keyword">while</span> <span class="built_in">read</span> target; <span class="keyword">do</span></span><br><span class="line">    size=$(xclip -selection clipboard -t <span class="string">&quot;<span class="variable">$target</span>&quot;</span> -o 2&gt;/dev/null | <span class="built_in">wc</span> -c)</span><br><span class="line">    human=$(<span class="built_in">echo</span> <span class="variable">$size</span> | <span class="built_in">numfmt</span> --to=iec)</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;格式: <span class="variable">$target</span> \t大小: <span class="variable">$human</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-强制同步脚本-WpsSyncFix-sh"><a href="#2-强制同步脚本-WpsSyncFix-sh" class="headerlink" title="2. 强制同步脚本 (WpsSyncFix.sh)"></a>2. 强制同步脚本 (WpsSyncFix.sh)</h3><p>如果你需要<strong>强制</strong>让 Excel 复制变快（丢弃富文本格式，只取纯文本），或者微信图片死活无法粘贴，可以使用这个脚本接管剪贴板同步。</p>
+<h3 id="2-强制同步脚本-wpssyncfixsh"><a class="markdownIt-Anchor" href="#2-强制同步脚本-wpssyncfixsh"></a> 2. 强制同步脚本 (<a target="_blank" rel="noopener" href="http://WpsSyncFix.sh">WpsSyncFix.sh</a>)</h3>
+<p>如果你需要<strong>强制</strong>让 Excel 复制变快（丢弃富文本格式，只取纯文本），或者微信图片死活无法粘贴，可以使用这个脚本接管剪贴板同步。</p>
 <p><strong>脚本功能：</strong></p>
 <ul>
 <li>监控 X11 剪贴板。</li>
-<li><strong>文本：</strong> 强行提取 <code>UTF8_STRING</code>，丢弃 Excel 的 HTML&#x2F;XML 垃圾数据。</li>
+<li><strong>文本：</strong> 强行提取 <code>UTF8_STRING</code>，丢弃 Excel 的 HTML/XML 垃圾数据。</li>
 <li><strong>图片：</strong> 识别微信的 <code>png/jpeg</code> 并建立管道传给 Wayland。</li>
 </ul>
 <p>保存为 <code>~/.config/hypr/scripts/WpsSyncFix.sh</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 修复 XWayland (WPS/WeChat) -&gt; Wayland 的同步问题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 依赖检查</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span> -v xclip &amp;&gt; /dev/null; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Need xclip&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀掉可能残留的进程</span></span><br><span class="line">killall xclip 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">last_checksum=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># 获取 X11 剪贴板支持的格式</span></span><br><span class="line">    targets=$(xclip -selection clipboard -t TARGETS -o 2&gt;/dev/null)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># --- 场景 A: 纯文本 (Excel 加速) ---</span></span><br><span class="line">    <span class="comment"># 只要包含 UTF8_STRING，就强制只取文本</span></span><br><span class="line">    <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;UTF8_STRING&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">        content=$(xclip -selection clipboard -t UTF8_STRING -o 2&gt;/dev/null)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$content</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            current_checksum=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$content</span>&quot;</span> | <span class="built_in">md5sum</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$current_checksum</span>&quot;</span> != <span class="string">&quot;<span class="variable">$last_checksum</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="comment"># 写入 Wayland</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$content</span>&quot;</span> | wl-copy</span><br><span class="line">                last_checksum=<span class="string">&quot;<span class="variable">$current_checksum</span>&quot;</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># --- 场景 B: 图片 (微信修复) ---</span></span><br><span class="line">    <span class="comment"># 微信可能使用 png, jpeg 或 bmp</span></span><br><span class="line">    <span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/png&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">fmt</span>=<span class="string">&quot;image/png&quot;</span></span><br><span class="line">        <span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$targets</span>&quot;</span> == *<span class="string">&quot;image/jpeg&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">fmt</span>=<span class="string">&quot;image/jpeg&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="comment"># 管道传输图片数据</span></span><br><span class="line">            xclip -selection clipboard -t <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span> -o 2&gt;/dev/null | wl-copy -t <span class="string">&quot;<span class="variable">$fmt</span>&quot;</span></span><br><span class="line">            <span class="built_in">sleep</span> 1 <span class="comment"># 防止连续触发</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sleep</span> 0.5</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
 <p>如果要使用此脚本，需要在 <code>Startup_Apps.conf</code> 中添加 <code>exec-once = ~/.config/hypr/scripts/WpsSyncFix.sh</code>。</p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<hr />
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ol>
 <li><strong>先软后硬</strong>：遇到卡顿先检查日志和数据库大小，不要上来就写脚本魔改。</li>
-<li><strong>定期维护</strong>：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I&#x2F;O 瓶颈。</li>
+<li><strong>定期维护</strong>：Linux 的剪贴板历史工具如果缺乏自动清理机制，很容易因为富文本数据膨胀导致 I/O 瓶颈。</li>
 </ol>
 <blockquote>
 <p>以上内容由AI整理本人折腾的过程，最后问题解决了，但是本人无法验证AI提供的解决方法是否是可行的，小白新人第一次发贴，若有不对之处，望指正！</p>
@@ -332,7 +464,25 @@
     </span>
     <span class="author" itemprop="copyrightHolder">煮字为药</span>
   </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -345,14 +495,23 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
 
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  
+  <!--单击显示文字-->
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+
 </body>
 </html>
+

@@ -19,26 +19,22 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.066088.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"rainbow","dark":"rainbow"},"prism":{"light":"prism","dark":"prism-dark","enable":false},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="在参考了多个教程后，我最终选择了使用 Hexo + GitHub + Netlify + Cloudflare 这套技术栈来搭建我的个人博客。  Hexo: 博客框架 GitHub: 用于文件托管 Netlify: 静态网站生成与部署 Cloudflare: CDN加速和域名管理  我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流">
-<meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare">
-<meta property="og:url" content="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="煮字为药">
+<meta property="og:url" content="http://blog.066088.xyz/page/2/index.html">
 <meta property="og:site_name" content="煮字为药">
-<meta property="og:description" content="在参考了多个教程后，我最终选择了使用 Hexo + GitHub + Netlify + Cloudflare 这套技术栈来搭建我的个人博客。  Hexo: 博客框架 GitHub: 用于文件托管 Netlify: 静态网站生成与部署 Cloudflare: CDN加速和域名管理  我个人在 Cloudflare 注册了域名，相比教程中在阿里云注册域名再托管到 Cloudflare 的方案，我的流">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-06T16:52:38.000Z">
-<meta property="article:modified_time" content="2025-12-19T13:11:55.293Z">
 <meta property="article:author" content="煮字为药">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
+<link rel="canonical" href="http://blog.066088.xyz/page/2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/","path":"2025/11/07/博客搭建记录/","title":"博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare | 煮字为药</title>
+<title>煮字为药</title>
   
 
 
@@ -91,7 +87,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">煮字为药</p>
+      <h1 class="site-title">煮字为药</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">欢迎来到我的博客！</p>
@@ -145,7 +141,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -158,7 +154,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E9%9B%B6%E6%AD%A5git-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text"> 第零步：Git 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5hexo-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text"> 第一步：Hexo 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text"> 环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.2.</span> <span class="nav-text"> 初始化博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E7%AB%A0"><span class="nav-number">2.3.</span> <span class="nav-text"> 创建新文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-netlify-%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="nav-number">2.4.</span> <span class="nav-text"> 添加 Netlify 构建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE"><span class="nav-number">2.5.</span> <span class="nav-text"> 博客配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1"><span class="nav-number">3.</span> <span class="nav-text"> GitHub 项目托管</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="nav-number">3.1.</span> <span class="nav-text"> Git 学习资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netlify-%E5%BB%BA%E7%AB%99%E9%83%A8%E7%BD%B2"><span class="nav-number">4.</span> <span class="nav-text"> Netlify 建站部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text"> 域名配置</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -281,17 +276,122 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner index posts-expand">
 
-
-  
+    
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="煮字为药">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 煮字为药">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/" class="post-title-link" itemprop="url">我的“标准人生”使用说明书</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-24 00:40:58" itemprop="dateCreated datePublished" datetime="2025-11-24T00:40:58+08:00">2025-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-19 21:11:55" itemprop="dateModified" datetime="2025-12-19T21:11:55+08:00">2025-12-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="第一章职业篇"><a class="markdownIt-Anchor" href="#第一章职业篇"></a> 第一章：职业篇</h2>
+<ul>
+<li>每日核心任务：在工位上深度表演“螺丝钉模仿艺术”，力求形神兼备</li>
+<li>成就系统：手茧的厚度与工资条上的数字，构成完美的反比函数</li>
+<li>企业文化：上司常言“公司是我家”，训诫时总带着家传的亲切感</li>
+</ul>
+<h2 id="第二章家庭篇"><a class="markdownIt-Anchor" href="#第二章家庭篇"></a> 第二章：家庭篇</h2>
+<ul>
+<li>效率至上：完成“结婚”KPI仅用时三天，比公司项目上线更快</li>
+<li>灵魂拷问：儿子天真地问：“爸爸，你能变成我手机里的‘王者’吗？”</li>
+<li>邻居标杆：妻子常说：“隔壁老王又升职了！”我沉思：“要不改姓王？”</li>
+</ul>
+<h2 id="第三章惊魂篇"><a class="markdownIt-Anchor" href="#第三章惊魂篇"></a> 第三章：惊魂篇</h2>
+<p>那日提前归家，耳贴门扉，闻得内有男声。</p>
+<p>内心上演全本《甄嬛传》：<br />
+“是修水管的好心人？<br />
+是煤气公司的安检员？<br />
+还是……”</p>
+<p>门开之后，妻子坦然：<br />
+“是来修电视的师傅。”</p>
+<p>我看了眼去年就已卖掉的电视机位置。</p>
+<p>善解人意的我，立即接受了这个充满科技与狠活的解释。</p>
+<p>毕竟，我是个连自己都能成功说服的老实人。</p>
+<h2 id="最终章感悟篇"><a class="markdownIt-Anchor" href="#最终章感悟篇"></a> 最终章：感悟篇</h2>
+<p>我的生活像一部上好发条的闹钟，<br />
+精准地在每个相同时刻响起。</p>
+<p>唯一的不同是——<br />
+闹钟尚有电池可换，重获新生；<br />
+而我，连身上的“静音键”在何处都遍寻不着。</p>
+<hr />
+<p><em>后记：生活或许是一本被安排好的说明书，但愿我们都能在空白处写下属于自己的注解。</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://blog.066088.xyz/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -305,13 +405,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare | 煮字为药">
+      <meta itemprop="name" content=" | 煮字为药">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">博客搭建记录：从零开始使用 Hexo + GitHub + Netlify + Cloudflare</a>
+        </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -332,13 +432,6 @@
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
 </div>
 
         </div>
@@ -347,7 +440,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>在参考了多个教程后，我最终选择了使用 <code>Hexo</code> + <code>GitHub</code> + <code>Netlify</code> + <code>Cloudflare</code> 这套技术栈来搭建我的个人博客。</p>
+    <div class="post-body" itemprop="articleBody">
+          <p>在参考了多个教程后，我最终选择了使用 <code>Hexo</code> + <code>GitHub</code> + <code>Netlify</code> + <code>Cloudflare</code> 这套技术栈来搭建我的个人博客。</p>
 <ul>
 <li><strong>Hexo</strong>: 博客框架</li>
 <li><strong>GitHub</strong>: 用于文件托管</li>
@@ -450,6 +544,7 @@
 <p>2025年11月07日 00时37分11秒</p>
 </blockquote>
 
+      
     </div>
 
     
@@ -457,18 +552,8 @@
     
 
     <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-            </div>
-            <div class="post-nav-item">
-                <a href="/2025/11/24/%E6%88%91%E7%9A%84%E2%80%9C%E6%A0%87%E5%87%86%E4%BA%BA%E7%94%9F%E2%80%9D%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/" rel="next" title="我的“标准人生”使用说明书">
-                  我的“标准人生”使用说明书 <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
+        <div class="post-eof"></div>
+      
     </footer>
   </article>
 </div>
@@ -476,7 +561,9 @@
 
 
 
-
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </div>
   </main>

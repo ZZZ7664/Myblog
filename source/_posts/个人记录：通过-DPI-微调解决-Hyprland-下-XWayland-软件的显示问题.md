@@ -5,6 +5,8 @@ tags: [ArchLinux, Hyprland, HiDPI, XWayland, Linux-Desktop]
 category: 系统折腾
 ---
 
+> 2026-02-04：前两天又看了下jakoolit的youtube频道，发现其实有些时候不用调QT_SCALE_FACTOR(缩放)，可以用GTK Setting来设置全局字体的缩放
+
 ## 0. 发现问题
 
 在 2.5K 屏幕、系统缩放 1.25 倍的 Hyprland 环境下，WPS Office  默认显示效果不佳。

@@ -9,7 +9,7 @@ tags: ArchLinux安装详解
 
 - [脚本安装](#脚本安装)
 
-- [手动安装省流版](手动安装省流版)
+- [手动安装省流版](https://github.com/SHORiN-KiWATA/Shorin-ArchLinux-Guide/wiki/%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E7%9C%81%E6%B5%81%E7%89%88)
 
 视频教程：[【从「Linuxmint入门」到「ArchLinux安装详解」桌面端Linux入门的最佳路径】](https://www.bilibili.com/video/BV19DBqB4EY4/?share_source=copy_web&vd_source=1c6a132d86487c8c4a29c7ff5cd8ac50)
 
